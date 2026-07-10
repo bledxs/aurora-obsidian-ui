@@ -1,15 +1,14 @@
 .button {
-  font-family:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 600;
+  font-family: var(--aurora-font-family);
+  font-weight: var(--aurora-font-weight-medium);
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--aurora-border-radius);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
-  transition: all 0.2s ease-in-out;
+  transition: var(--aurora-transition-fast);
 }
 
 .button:disabled {
@@ -19,48 +18,48 @@
 
 /* Sizes */
 .small {
-  font-size: 12px;
-  padding: 8px 16px;
+  font-size: var(--aurora-font-size-sm);
+  padding: var(--aurora-padding-sm);
 }
 
 .medium {
-  font-size: 14px;
-  padding: 10px 20px;
+  font-size: var(--aurora-font-size-md);
+  padding: var(--aurora-padding-md);
 }
 
 .large {
-  font-size: 16px;
-  padding: 12px 24px;
+  font-size: var(--aurora-font-size-lg);
+  padding: var(--aurora-padding-lg);
 }
 
 /* Variants */
 .primary {
-  color: white;
-  background-color: #0f172a;
+  color: var(--aurora-color-text-on-primary);
+  background-color: var(--aurora-color-primary);
 }
 
 .primary:hover:not(:disabled) {
-  background-color: #1e293b;
+  background-color: var(--aurora-color-primary-hover);
   transform: translateY(-1px);
 }
 
 .secondary {
-  color: #0f172a;
-  background-color: #f1f5f9;
+  color: var(--aurora-color-text-primary);
+  background-color: var(--aurora-color-surface);
 }
 
 .secondary:hover:not(:disabled) {
-  background-color: #e2e8f0;
+  background-color: var(--aurora-color-surface-hover);
   transform: translateY(-1px);
 }
 
 .outline {
-  color: #0f172a;
+  color: var(--aurora-color-text-primary);
   background-color: transparent;
-  box-shadow: inset 0 0 0 1px #cbd5e1;
+  box-shadow: inset 0 0 0 1px var(--aurora-color-border);
 }
 
 .outline:hover:not(:disabled) {
-  background-color: #f8fafc;
+  background-color: var(--aurora-color-surface-active);
   transform: translateY(-1px);
 }

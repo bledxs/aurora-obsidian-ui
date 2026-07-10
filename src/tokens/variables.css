@@ -1,0 +1,32 @@
+:root {
+  /* Colors */
+  --aurora-color-primary: #0f172a;
+  --aurora-color-primary-hover: #1e293b;
+  --aurora-color-surface: #f1f5f9;
+  --aurora-color-surface-hover: #e2e8f0;
+  --aurora-color-surface-active: #f8fafc;
+  --aurora-color-border: #cbd5e1;
+  --aurora-color-text-on-primary: #ffffff;
+  --aurora-color-text-primary: #0f172a;
+
+  /* Typography */
+  --aurora-font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --aurora-font-weight-medium: 600;
+
+  /* Spacing & Padding */
+  --aurora-padding-sm: 8px 16px;
+  --aurora-padding-md: 10px 20px;
+  --aurora-padding-lg: 12px 24px;
+
+  /* Font Sizes */
+  --aurora-font-size-sm: 12px;
+  --aurora-font-size-md: 14px;
+  --aurora-font-size-lg: 16px;
+
+  /* Borders */
+  --aurora-border-radius: 6px;
+
+  /* Transitions */
+  --aurora-transition-fast: all 0.2s ease-in-out;
+}
