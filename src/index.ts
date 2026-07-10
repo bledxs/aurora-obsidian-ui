@@ -10,3 +10,6 @@ export type { InputProps } from './components/Input';
 export { Input } from './components/Input';
 export type { SpinnerProps } from './components/Spinner';
 export { Spinner } from './components/Spinner';
+
+export type { TooltipProps } from './components/Tooltip';
+export { Tooltip } from './components/Tooltip';
