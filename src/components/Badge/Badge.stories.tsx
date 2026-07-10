@@ -21,6 +21,7 @@ const meta = {
       control: 'radio',
       options: ['small', 'medium'],
     },
+    children: { control: false },
   },
 } satisfies Meta<typeof Badge>;
 

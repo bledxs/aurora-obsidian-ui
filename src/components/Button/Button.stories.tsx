@@ -8,6 +8,9 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    children: { control: false },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;

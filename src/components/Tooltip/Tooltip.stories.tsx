@@ -16,6 +16,7 @@ const meta = {
       options: ['top', 'bottom', 'left', 'right'],
     },
     delay: { control: 'number' },
+    children: { control: false },
   },
 } satisfies Meta<typeof Tooltip>;
 

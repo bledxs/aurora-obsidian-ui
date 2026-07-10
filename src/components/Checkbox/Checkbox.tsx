@@ -66,11 +66,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              {indeterminate ? (
-                <line x1="5" y1="12" x2="19" y2="12" />
-              ) : (
-                <polyline points="20 6 9 17 4 12" />
-              )}
+              {indeterminate ? <path d="M5 12h14" /> : <path d="M20 6L9 17l-5-5" />}
             </svg>
           </div>
           {label && (
