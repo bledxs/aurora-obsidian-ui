@@ -1,0 +1,134 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.checkboxWrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  gap: 8px;
+}
+
+.input {
+  /* Ocultar visualmente pero dejarlo accesible al teclado/lectores */
+  position: absolute;
+  opacity: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.control {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--aurora-color-border);
+  border-radius: 4px;
+  background-color: var(--aurora-color-text-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--aurora-transition-fast);
+  flex-shrink: 0;
+  margin-top: 2px; /* Alineación óptica con la primera línea de texto */
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+  color: var(--aurora-color-text-on-primary);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: var(--aurora-transition-fast);
+}
+
+/* Checked & Indeterminate states */
+.input:checked + .control,
+.input:indeterminate + .control {
+  background-color: var(--aurora-color-primary);
+  border-color: var(--aurora-color-primary);
+}
+
+.input:checked + .control .icon,
+.input:indeterminate + .control .icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hover & Focus */
+.input:hover:not(:disabled) + .control {
+  border-color: var(--aurora-color-primary);
+}
+
+.input:focus-visible + .control {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  border-color: var(--aurora-color-primary);
+}
+
+.label {
+  font-family: var(--aurora-font-family);
+  font-size: var(--aurora-font-size-md);
+  color: var(--aurora-color-text-primary);
+  cursor: pointer;
+  line-height: 1.4;
+  user-select: none;
+}
+
+/* Disabled */
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.input:disabled + .control {
+  background-color: var(--aurora-color-bg-disabled);
+  border-color: var(--aurora-color-border);
+}
+
+.input:disabled:checked + .control,
+.input:disabled:indeterminate + .control {
+  background-color: var(--aurora-color-border);
+  border-color: var(--aurora-color-border);
+}
+
+.input:disabled ~ .label {
+  color: var(--aurora-color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Error */
+.controlError {
+  border-color: var(--aurora-color-error);
+}
+
+.inputError:hover:not(:disabled) + .controlError {
+  border-color: var(--aurora-color-error);
+}
+
+.inputError:checked + .controlError,
+.inputError:indeterminate + .controlError {
+  background-color: var(--aurora-color-error);
+  border-color: var(--aurora-color-error);
+}
+
+.inputError:focus-visible + .controlError {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.helperText,
+.errorText {
+  font-family: var(--aurora-font-family);
+  font-size: var(--aurora-font-size-sm);
+  margin: 0;
+  margin-left: 26px; /* Ancho del control (18px) + gap (8px) */
+}
+
+.helperText {
+  color: var(--aurora-color-text-secondary);
+}
+
+.errorText {
+  color: var(--aurora-color-error);
+}
