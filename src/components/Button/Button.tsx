@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import styles from './Button.module.css';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -28,7 +28,7 @@ export const Button = ({
 }: ButtonProps) => {
   const modeClass = styles[variant];
   const sizeClass = styles[size];
-  
+
   return (
     <button
       type="button"
