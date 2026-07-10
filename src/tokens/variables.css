@@ -8,7 +8,19 @@
   --aurora-color-border: #cbd5e1;
   --aurora-color-border-hover: #94a3b8;
   --aurora-color-border-focus: #3b82f6;
+
+  /* Semantic Colors */
   --aurora-color-error: #ef4444;
+  --aurora-color-error-bg: #fee2e2;
+  --aurora-color-success: #10b981;
+  --aurora-color-success-bg: #d1fae5;
+  --aurora-color-warning: #f59e0b;
+  --aurora-color-warning-bg: #fef3c7;
+  --aurora-color-primary-bg: #e0e7ff;
+  --aurora-color-neutral: #64748b;
+  --aurora-color-neutral-bg: #f1f5f9;
+
+  /* Text Colors */
   --aurora-color-text-on-primary: #ffffff;
   --aurora-color-text-primary: #0f172a;
   --aurora-color-text-secondary: #64748b;
