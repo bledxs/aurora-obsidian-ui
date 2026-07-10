@@ -6,8 +6,14 @@
   --aurora-color-surface-hover: #e2e8f0;
   --aurora-color-surface-active: #f8fafc;
   --aurora-color-border: #cbd5e1;
+  --aurora-color-border-hover: #94a3b8;
+  --aurora-color-border-focus: #3b82f6;
+  --aurora-color-error: #ef4444;
   --aurora-color-text-on-primary: #ffffff;
   --aurora-color-text-primary: #0f172a;
+  --aurora-color-text-secondary: #64748b;
+  --aurora-color-text-disabled: #94a3b8;
+  --aurora-color-bg-disabled: #f1f5f9;
 
   /* Typography */
   --aurora-font-family:
