@@ -80,7 +80,7 @@ export interface AvatarProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     VariantProps<typeof avatarVariants> {
   /**
-   * URL of la imagen ofl avatar (modo directo)
+   * URL of la imagen of avatar (modo directo)
    */
   src?: string;
   /**

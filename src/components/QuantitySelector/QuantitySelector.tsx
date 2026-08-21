@@ -59,25 +59,25 @@ export interface QuantitySelectorProps
    */
   max?: number;
   /**
-   * Incremento/decremento por paso
+   * Step increment or decrement
    * @default 1
    */
   step?: number;
   /**
-   * Callback invocado al cambiar el valor
+   * Callback fired when value changes
    */
   onChange?: (value: number) => void;
   /**
-   * Callback invocado al llegar al mínimo y decrementar (eliminar)
+   * Callback fired upon decrementing below minimum (remove action)
    */
   onRemove?: () => void;
   /**
-   * Si es true, muestra un icono of papelera al llegar al mínimo
+   * If true, shows a trash icon when reaching minimum value
    * @default false
    */
   showTrashOnMin?: boolean;
   /**
-   * Deshabilita la interacción
+   * Disables interaction
    * @default false
    */
   disabled?: boolean;
@@ -127,7 +127,7 @@ export const QuantitySelector = React.forwardRef<HTMLDivElement, QuantitySelecto
           type="button"
           onClick={handleDecrement}
           disabled={disabled || (isAtMin && !onRemove)}
-          aria-label={isTrash ? 'Remove ofl carrito' : 'Decrease quantity'}
+          aria-label={isTrash ? 'Remove from cart' : 'Decrease quantity'}
           className={cn(
             buttonVariants({ size }),
             'rounded-l-[calc(var(--radius-aurora)-1px)]',

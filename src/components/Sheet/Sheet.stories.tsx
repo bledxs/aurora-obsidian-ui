@@ -26,25 +26,23 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Ejemplo principal: Carrito of compras lateral (Cart Drawer)
+// 1. Main Example: Shopping Cart Drawer
 export const CartDrawer: Story = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="primary" className="flex items-center gap-2">
           <ShoppingCart className="h-4 w-4" />
-          Ver Carrito (2)
+          View Cart (2)
         </Button>
       </SheetTrigger>
       <SheetContent side="right">
         <SheetHeader>
           <SheetTitle>Tu Shopping Cart</SheetTitle>
-          <SheetDescription>
-            Revisa los artículos añadidos antes of proceofr al pago.
-          </SheetDescription>
+          <SheetDescription>Review added items before proceeding to checkout.</SheetDescription>
         </SheetHeader>
 
-        {/* Lista of productos en el carrito */}
+        {/* Cart item list */}
         <div className="flex flex-1 flex-col overflow-y-auto py-2">
           <CartItem
             id="1"
@@ -73,7 +71,7 @@ export const CartDrawer: Story = {
             <Price value={229.98} size="medium" />
           </div>
           <Button variant="primary" className="w-full">
-            Proceofr al Pago
+            Proceed to Checkout
           </Button>
           <SheetClose asChild>
             <Button variant="outline" className="w-full">
@@ -86,17 +84,17 @@ export const CartDrawer: Story = {
   ),
 };
 
-// 2. Ejemplo menú lateral of navegación (Left Side)
+// 2. Navigation Side Drawer (Left)
 export const NavigationMenu: Story = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Abrir Menú</Button>
+        <Button variant="outline">Open Menu</Button>
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
           <SheetTitle>Categorías</SheetTitle>
-          <SheetDescription>Navega por nuestra tienda</SheetDescription>
+          <SheetDescription>Browse our product collections</SheetDescription>
         </SheetHeader>
 
         <nav className="flex flex-col gap-2 py-4">
@@ -124,7 +122,7 @@ export const NavigationMenu: Story = {
   ),
 };
 
-// 3. Ejemplo Bottom Sheet (Mobile)
+// 3. Bottom Sheet Mobile Example
 export const BottomSheet: Story = {
   render: () => (
     <Sheet>
@@ -133,8 +131,8 @@ export const BottomSheet: Story = {
       </SheetTrigger>
       <SheetContent side="bottom" className="max-h-[80vh]">
         <SheetHeader>
-          <SheetTitle>Filter Productos</SheetTitle>
-          <SheetDescription>Ajusta el rango of precio y marcas</SheetDescription>
+          <SheetTitle>Filter Products</SheetTitle>
+          <SheetDescription>Refine price range, sizing, and brands</SheetDescription>
         </SheetHeader>
         <div className="py-4">
           <p className="text-sm text-aurora-text-secondary">

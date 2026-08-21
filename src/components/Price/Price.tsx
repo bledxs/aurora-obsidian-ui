@@ -3,7 +3,7 @@ import { cn } from '../../lib/utils';
 
 export interface PriceProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * El precio actual a mostrar
+   * The current price to display
    */
   value?: number;
   /**
@@ -11,7 +11,7 @@ export interface PriceProps extends HTMLAttributes<HTMLDivElement> {
    */
   amount?: number;
   /**
-   * El precio original (si hay descuento, aparecerá tachado)
+   * Original price (displays strike-through when discounted)
    */
   originalValue?: number;
   /**
@@ -20,17 +20,17 @@ export interface PriceProps extends HTMLAttributes<HTMLDivElement> {
    */
   currency?: string;
   /**
-   * Localización para el formato numérico (ej. 'es-ES', 'en-US')
+   * Locale for numeric formatting (e.g. 'en-US', 'es-ES')
    * @default 'es-ES'
    */
   locale?: string;
   /**
-   * Si es true, calcula y muestra un pequeño badge rojo con el porcentaje of descuento (ej. "-20%")
+   * If true, calculates and displays a discount percentage badge (e.g. "-20%")
    * @default false
    */
   showDiscountBadge?: boolean;
   /**
-   * Tamaño tipográfico ofl componente
+   * Typography size of componente
    * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large';

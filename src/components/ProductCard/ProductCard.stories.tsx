@@ -9,19 +9,22 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    title: { control: 'text', description: 'Name ofl producto' },
-    description: { control: 'text', description: 'Descripción corta' },
-    price: { control: 'number', description: 'Precio actual' },
-    originalPrice: { control: 'number', description: 'Precio original' },
-    badge: { control: 'text', description: 'Texto of la etiqueta' },
+    title: { control: 'text', description: 'Product name' },
+    description: { control: 'text', description: 'Description corta' },
+    price: { control: 'number', description: 'Current price' },
+    originalPrice: { control: 'number', description: 'Price original' },
+    badge: { control: 'text', description: 'Badge label text' },
     badgeColor: {
       control: 'select',
       options: ['primary', 'success', 'warning', 'error', 'neutral'],
-      description: 'Color ofl badge',
+      description: 'Badge color',
     },
     rating: { control: 'number', description: 'Puntuación (1 - 5)' },
-    reviewsCount: { control: 'number', description: 'Total of reseñas' },
-    cartQuantity: { control: 'number', description: 'Quantity actual en carrito' },
+    reviewsCount: { control: 'number', description: 'Total reviews count' },
+    cartQuantity: {
+      control: 'number',
+      description: 'Current cart quantity',
+    },
   },
 } satisfies Meta<typeof ProductCard>;
 
@@ -33,7 +36,7 @@ export const Default: Story = {
     id: 'prod-1',
     title: 'Auriculares Inalámbricos Obsidian Pro',
     description:
-      'Cancelación of ruido activa, batería of 30 horas y sonido of alta fioflidad. Perfectos para el día a día.',
+      'Active noise cancellation, 30-hour battery life, and high-fidelity acoustics. Built for everyday luxury.',
     price: 129.99,
     imageUrl:
       'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600&h=600',

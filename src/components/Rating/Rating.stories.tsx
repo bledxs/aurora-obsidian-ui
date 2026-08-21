@@ -11,14 +11,14 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     value: { control: { type: 'range', min: 0, max: 5, step: 0.1 }, description: 'Puntuación' },
-    max: { control: 'number', description: 'Número máximo of estrellas' },
+    max: { control: 'number', description: 'Maximum star count' },
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño of las estrellas',
+      description: 'Star icon size',
     },
     showValue: { control: 'boolean', description: 'Show valor numérico' },
-    reviewCount: { control: 'number', description: 'Número of opiniones' },
+    reviewCount: { control: 'number', description: 'Review count' },
     interactive: { control: 'boolean', description: 'Habilitar modo interactivo' },
     disabled: { control: 'boolean', description: 'Deshabilitar componente' },
   },
@@ -34,7 +34,7 @@ export const Default: Story = {
   },
 };
 
-// 2. Con Puntuación Numérica y Total of Reseñas (Para PDP o Cards of Producto)
+// 2. With Numeric Score and Review Count (for PDP & Product Cards)
 export const ProductScore: Story = {
   args: {
     value: 4.8,
@@ -43,7 +43,7 @@ export const ProductScore: Story = {
   },
 };
 
-// 3. Tamaños
+// 3. Sizes
 export const Small: Story = {
   args: {
     value: 4,
@@ -62,13 +62,13 @@ export const Large: Story = {
   },
 };
 
-// 4. Modo Interactivo (Para formulario of ofjar reseña)
+// 4. Interactive Mode (for customer review forms)
 export const InteractiveForm = () => {
   const [score, setScore] = useState(4);
 
   return (
     <div className="flex flex-col items-center gap-3 rounded-lg border border-aurora-border bg-aurora-surface p-6 font-sans">
-      <h4 className="font-semibold text-aurora-text-primary">¿Cómo calificarías este producto?</h4>
+      <h4 className="font-semibold text-aurora-text-primary">How would you rate this product?</h4>
       <Rating value={score} size="large" interactive onChange={setScore} />
       <p className="text-xs text-aurora-text-secondary">
         Tu puntuación: <strong className="text-aurora-text-primary">{score} out of 5 stars</strong>

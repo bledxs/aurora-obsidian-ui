@@ -3,37 +3,58 @@ import * as React from 'react';
 import { cn } from '../../lib/utils';
 
 const badgeVariants = cva(
-  'inline-flex items-center justify-center font-sans font-medium rounded-[var(--radius-aurora)] whitespace-nowrap leading-none border',
+  'inline-flex items-center justify-center font-sans font-medium rounded-[var(--radius-aurora)] whitespace-nowrap leading-none border transition-colors',
   {
     variants: {
       variant: {
+        // Direct semantic variants (<Badge variant="success">, <Badge variant="warning">, etc.)
+        default: 'border-transparent bg-aurora-neutral text-white',
+        primary: 'border-transparent bg-aurora-primary text-aurora-text-on-primary',
+        secondary: 'border-aurora-border bg-aurora-surface text-aurora-text-primary',
+        success: 'border-transparent bg-aurora-success text-white',
+        warning: 'border-transparent bg-aurora-warning text-white',
+        error: 'border-transparent bg-aurora-error text-white',
+        danger: 'border-transparent bg-aurora-error text-white',
+        info: 'border-transparent bg-blue-600 text-white',
+        neutral: 'border-transparent bg-aurora-neutral text-white',
+
+        // Style type variants (<Badge variant="solid" | "subtle" | "outline" color="...">)
         solid: 'border-transparent text-white',
         subtle: 'border-transparent',
         outline: 'bg-transparent',
       },
       color: {
+        default: '',
         primary: '',
+        secondary: '',
         success: '',
         warning: '',
         error: '',
+        danger: '',
+        info: '',
         neutral: '',
       },
       size: {
         small: 'text-[10px] px-2 py-1',
         medium: 'text-[12px] px-3 py-1.5',
+        large: 'text-[14px] px-3.5 py-1.5',
       },
     },
     compoundVariants: [
+      // Solid + Color
       {
         variant: 'solid',
         color: 'primary',
         className: 'bg-aurora-primary text-aurora-text-on-primary',
       },
-      { variant: 'solid', color: 'success', className: 'bg-aurora-success' },
-      { variant: 'solid', color: 'warning', className: 'bg-aurora-warning' },
-      { variant: 'solid', color: 'error', className: 'bg-aurora-error' },
-      { variant: 'solid', color: 'neutral', className: 'bg-aurora-neutral' },
+      { variant: 'solid', color: 'success', className: 'bg-aurora-success text-white' },
+      { variant: 'solid', color: 'warning', className: 'bg-aurora-warning text-white' },
+      { variant: 'solid', color: 'error', className: 'bg-aurora-error text-white' },
+      { variant: 'solid', color: 'danger', className: 'bg-aurora-error text-white' },
+      { variant: 'solid', color: 'info', className: 'bg-blue-600 text-white' },
+      { variant: 'solid', color: 'neutral', className: 'bg-aurora-neutral text-white' },
 
+      // Subtle + Color
       {
         variant: 'subtle',
         color: 'primary',
@@ -50,12 +71,15 @@ const badgeVariants = cva(
         className: 'bg-aurora-warning-bg text-aurora-warning',
       },
       { variant: 'subtle', color: 'error', className: 'bg-aurora-error-bg text-aurora-error' },
+      { variant: 'subtle', color: 'danger', className: 'bg-aurora-error-bg text-aurora-error' },
+      { variant: 'subtle', color: 'info', className: 'bg-blue-50 text-blue-700' },
       {
         variant: 'subtle',
         color: 'neutral',
         className: 'bg-aurora-neutral-bg text-aurora-neutral',
       },
 
+      // Outline + Color
       {
         variant: 'outline',
         color: 'primary',
@@ -72,6 +96,8 @@ const badgeVariants = cva(
         className: 'border-aurora-warning text-aurora-warning',
       },
       { variant: 'outline', color: 'error', className: 'border-aurora-error text-aurora-error' },
+      { variant: 'outline', color: 'danger', className: 'border-aurora-error text-aurora-error' },
+      { variant: 'outline', color: 'info', className: 'border-blue-500 text-blue-600' },
       {
         variant: 'outline',
         color: 'neutral',
@@ -79,8 +105,7 @@ const badgeVariants = cva(
       },
     ],
     defaultVariants: {
-      color: 'neutral',
-      variant: 'solid',
+      variant: 'default',
       size: 'medium',
     },
   },

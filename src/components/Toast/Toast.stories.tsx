@@ -21,11 +21,11 @@ const meta = {
         'bottom-center',
         'bottom-right',
       ],
-      description: 'Posición of las notificaciones',
+      description: 'Notification toast position',
     },
     closeButton: {
       control: 'boolean',
-      description: 'Muestra botón of cierre manual',
+      description: 'Shows manual close button',
     },
   },
 } satisfies Meta<typeof Toaster>;
@@ -42,8 +42,8 @@ export const AllVariants: Story = {
       <Button
         variant="outline"
         onClick={() =>
-          toast('Notificación estándar', {
-            description: 'Este es un mensaje informativo ofl sistema.',
+          toast('Standard Notification', {
+            description: 'This is a system informational message.',
           })
         }
       >
@@ -53,8 +53,8 @@ export const AllVariants: Story = {
       <Button
         variant="primary"
         onClick={() =>
-          toast.success('Producto añadido al carrito', {
-            description: 'Camiseta Running Obsidian - Talla M',
+          toast.success('Product added to cart', {
+            description: 'Camiseta Running Obsidian - Size M',
           })
         }
       >
@@ -64,8 +64,8 @@ export const AllVariants: Story = {
       <Button
         variant="danger"
         onClick={() =>
-          toast.error('Error al procesar el pedido', {
-            description: 'No se pudo verificar el método of pago seleccionado.',
+          toast.error('Error processing order', {
+            description: 'Could not verify selected payment method.',
           })
         }
       >
@@ -76,7 +76,7 @@ export const AllVariants: Story = {
         variant="outline"
         onClick={() =>
           toast.warning('Stock limitado', {
-            description: 'Solo quedan 2 unidaofs disponibles en este momento.',
+            description: 'Only 2 units remaining in stock right now.',
           })
         }
       >
@@ -86,8 +86,8 @@ export const AllVariants: Story = {
       <Button
         variant="secondary"
         onClick={() =>
-          toast.info('Coupon aplicado con éxito', {
-            description: 'Has obtenido un 15% of descuento en tu compra.',
+          toast.info('Coupon applied successfully', {
+            description: 'You received a 15% discount on your order.',
           })
         }
       >
@@ -97,7 +97,7 @@ export const AllVariants: Story = {
   ),
 };
 
-// 2. Con Botón of Acción (E-Commerce)
+// 2. With Action Button (E-Commerce)
 export const WithAction: Story = {
   render: () => (
     <div className="font-sans">
@@ -105,11 +105,11 @@ export const WithAction: Story = {
       <Button
         variant="primary"
         onClick={() =>
-          toast.success('Añadido al carrito', {
+          toast.success('Added to cart', {
             description: 'Zapatillas Aurora Speed Pro (42 EU)',
             action: {
-              label: 'Ver Carrito',
-              onClick: () => alert('Navegando al carrito...'),
+              label: 'View Cart',
+              onClick: () => alert('Navigating to shopping cart...'),
             },
             cancel: {
               label: 'Deshacer',
@@ -118,7 +118,7 @@ export const WithAction: Story = {
           })
         }
       >
-        Add al Carrito (con Acción)
+        Add to Cart (with Action)
       </Button>
     </div>
   ),

@@ -59,7 +59,7 @@ export const DisabledChecked: Story = {
 
 export const Indeterminate: Story = {
   args: {
-    label: 'Select todos los productos',
+    label: 'Select all los productos',
     indeterminate: true,
   },
 };

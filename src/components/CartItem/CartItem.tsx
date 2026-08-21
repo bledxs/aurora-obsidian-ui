@@ -7,19 +7,19 @@ import { QuantitySelector } from '../QuantitySelector';
 
 export interface CartItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'id'> {
   /**
-   * Iofntificador único ofl producto
+   * Iofntificador único of producto
    */
   id: string | number;
   /**
-   * Name ofl producto
+   * Product name
    */
   title: string;
   /**
-   * Precio unitario
+   * Price unitario
    */
   price: number;
   /**
-   * Precio original unitario antes of descuento (opcional)
+   * Price original unitario antes of descuento (opcional)
    */
   originalPrice?: number;
   /**
@@ -32,7 +32,7 @@ export interface CartItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>
    */
   maxQuantity?: number;
   /**
-   * URL of la imagen ofl producto
+   * URL of la imagen of producto
    */
   imageUrl: string;
   /**
@@ -40,7 +40,7 @@ export interface CartItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>
    */
   imageAlt?: string;
   /**
-   * Descripción of variante (ej. "Talla: M • Color: Negro")
+   * Description of variante (ej. "Size: M • Color: Negro")
    */
   variantDescription?: string;
   /**
@@ -116,7 +116,7 @@ export const CartItem = React.forwardRef<HTMLDivElement, CartItemProps>(
                 type="button"
                 onClick={onRemove}
                 disabled={isLoading}
-                aria-label={`Remove ${title} ofl carrito`}
+                aria-label={`Remove ${title} of carrito`}
                 className="rounded-xs p-1 text-aurora-text-secondary transition-colors hover:text-aurora-error focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus disabled:opacity-50"
               >
                 <Trash2 className="h-4 w-4" />
@@ -137,7 +137,7 @@ export const CartItem = React.forwardRef<HTMLDivElement, CartItemProps>(
               size="small"
             />
 
-            {/* Precio acumulado */}
+            {/* Price acumulado */}
             <Price
               value={price * quantity}
               originalValue={originalPrice ? originalPrice * quantity : undefined}

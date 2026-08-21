@@ -11,11 +11,11 @@ const meta = {
   argTypes: {
     value: {
       control: 'number',
-      description: 'Precio actual',
+      description: 'Current price',
     },
     originalValue: {
       control: 'number',
-      description: 'Precio original anterior (para mostrar descuento)',
+      description: 'Original price before discount',
     },
     currency: {
       control: 'select',
@@ -25,16 +25,16 @@ const meta = {
     locale: {
       control: 'select',
       options: ['es-ES', 'en-US', 'en-GB', 'es-MX', 'es-CO'],
-      description: 'Localización para formateo numérico',
+      description: 'Locale for number formatting',
     },
     showDiscountBadge: {
       control: 'boolean',
-      description: 'Show insignia of porcentaje of descuento',
+      description: 'Show discount percentage badge',
     },
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño tipográfico',
+      description: 'Typography size',
     },
   },
 } satisfies Meta<typeof Price>;

@@ -25,7 +25,7 @@ const meta = {
     },
     autoResize: {
       control: 'boolean',
-      description: 'Auto-ajuste of altura al escribir',
+      description: 'Auto-height adjustment while typing',
     },
   },
 } satisfies Meta<typeof Textarea>;
@@ -33,7 +33,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Instrucciones of Entrega para el Transportista (E-Commerce Checkout)
+// 1. Delivery Instructions for Courier (Checkout)
 export const DeliveryInstructions: Story = {
   render: () => (
     <div className="w-[380px] font-sans">
@@ -49,7 +49,7 @@ export const DeliveryInstructions: Story = {
   ),
 };
 
-// 2. Reseña of Producto con Auto-Resize y Valoración
+// 2. Product Review with Auto-Resize and Rating
 export const ProductReview: Story = {
   render: () => {
     const [rating, setRating] = useState(5);
@@ -98,7 +98,7 @@ export const WithValidationError: Story = {
   ),
 };
 
-// 4. Deshabilitado
+// 4. Disabled
 export const Disabled: Story = {
   render: () => (
     <div className="w-[380px] font-sans">

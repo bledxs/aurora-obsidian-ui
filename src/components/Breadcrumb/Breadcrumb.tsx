@@ -13,7 +13,7 @@ export interface BreadcrumbProps extends React.ComponentPropsWithoutRef<'nav'> {
    */
   items?: BreadcrumbItemData[];
   /**
-   * Separador personalizado entre elementos (aplica cuando se usa la prop `items`).
+   * Custom separator between elements (applies when the `items` prop is used).
    */
   separator?: React.ReactNode;
 }

@@ -37,7 +37,7 @@ export const SimpleWithItems: Story = {
   args: {
     items: [
       { label: 'Inicio', href: '/' },
-      { label: 'Productos', href: '/productos' },
+      { label: 'Products', href: '/productos' },
       { label: 'Audio', href: '/productos/audio' },
       { label: 'Obsidian Pro Headphones' }, // No href = current page
     ],
@@ -62,7 +62,7 @@ export const ComposableWithEllipsis: Story = {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Inicio</BreadcrumbLink>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -70,11 +70,11 @@ export const ComposableWithEllipsis: Story = {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/ropa/calzado">Calzado</BreadcrumbLink>
+          <BreadcrumbLink href="/ropa/calzado">Footwear</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>Zapatillas Urban Black</BreadcrumbPage>
+          <BreadcrumbPage>Urban Footwear Black</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

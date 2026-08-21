@@ -3,19 +3,19 @@ import { cn } from '../../lib/utils';
 
 export interface TabItem {
   /**
-   * Iofntificador único of la pestaña
+   * Unique tab identifier
    */
   value: string;
   /**
-   * Etiqueta o título of la pestaña
+   * Tab label or title
    */
   label: React.ReactNode;
   /**
-   * Contenido que se mostrará al activar la pestaña
+   * Content displayed when tab is active
    */
   content: React.ReactNode;
   /**
-   * Deshabilita la pestaña
+   * Disables the tab
    */
   disabled?: boolean;
 }
@@ -31,7 +31,7 @@ const TabsContext = React.createContext<TabsContextType | null>(null);
 export function useTabs() {
   const context = React.useContext(TabsContext);
   if (!context) {
-    throw new Error('Los subcomponentes of Tabs ofben usarse ofntro of un <Tabs>');
+    throw new Error('Tabs subcomponents must be used within <Tabs>');
   }
   return context;
 }
@@ -39,11 +39,11 @@ export function useTabs() {
 export interface TabsProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue' | 'onChange'> {
   /**
-   * Valor of la pestaña activa en modo controlado
+   * Active tab value in controlled mode
    */
   value?: string;
   /**
-   * Valor inicial of la pestaña activa en modo no controlado
+   * Initial active tab value in uncontrolled mode
    */
   defaultValue?: string;
   /**
@@ -51,7 +51,7 @@ export interface TabsProps
    */
   onValueChange?: (value: string) => void;
   /**
-   * Variante visual of las pestañas: 'pills' o 'underline'
+   * Visual tab variant: 'pills' or 'underline'
    * @default 'underline'
    */
   variant?: 'pills' | 'underline';

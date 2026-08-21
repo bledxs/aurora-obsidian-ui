@@ -10,12 +10,12 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    title: { control: 'text', description: 'Name ofl producto' },
-    price: { control: 'number', description: 'Precio unitario' },
-    originalPrice: { control: 'number', description: 'Precio original anterior' },
-    quantity: { control: 'number', description: 'Quantity seleccionada' },
-    variantDescription: { control: 'text', description: 'Detalle of variante' },
-    isLoading: { control: 'boolean', description: 'Bloqueo of interacción' },
+    title: { control: 'text', description: 'Name of product' },
+    price: { control: 'number', description: 'Unit price' },
+    originalPrice: { control: 'number', description: 'Previous unit price' },
+    quantity: { control: 'number', description: 'Quantity selected' },
+    variantDescription: { control: 'text', description: 'Variant description' },
+    isLoading: { control: 'boolean', description: 'Interaction lock' },
     onQuantityChange: { action: 'quantityChanged' },
     onRemove: { action: 'removed' },
   },
@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     id: '1',
-    title: 'Auriculares Inalámbricos Obsidian Pro',
+    title: 'Wireless Headphones Obsidian Pro',
     price: 129.99,
     quantity: 1,
     imageUrl:
@@ -56,13 +56,13 @@ export const Interactive = () => {
   if (removed) {
     return (
       <div className="text-center p-4">
-        <p className="text-sm text-aurora-text-secondary">Producto eliminado ofl carrito.</p>
+        <p className="text-sm text-aurora-text-secondary">Product removed from cart.</p>
         <button
           type="button"
           onClick={() => setRemoved(false)}
           className="mt-2 text-xs font-semibold text-aurora-border-focus underline"
         >
-          Deshacer
+          Undo
         </button>
       </div>
     );
@@ -76,7 +76,7 @@ export const Interactive = () => {
         price={85.0}
         quantity={qty}
         imageUrl="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=300&h=300"
-        variantDescription="Talla: 42 • Color: Carmín"
+        variantDescription="Size: 42 • Color: Carmín"
         onQuantityChange={setQty}
         onRemove={() => setRemoved(true)}
       />

@@ -14,7 +14,7 @@ const SheetContext = React.createContext<SheetContextType | null>(null);
 export function useSheet() {
   const context = React.useContext(SheetContext);
   if (!context) {
-    throw new Error('Los subcomponentes of Sheet ofben usarse ofntro of un <Sheet>');
+    throw new Error('Sheet subcomponents must be used within <Sheet>');
   }
   return context;
 }
@@ -67,7 +67,7 @@ Sheet.displayName = 'Sheet';
 
 export interface SheetTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Si es true, fusiona las propiedaofs con el elemento hijo en lugar of renderizar un botón adicional
+   * If true, merges props with child element instead of rendering an extra button
    * @default false
    */
   asChild?: boolean;
@@ -104,7 +104,7 @@ SheetTrigger.displayName = 'SheetTrigger';
 
 export interface SheetCloseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Si es true, fusiona las propiedaofs con el elemento hijo en lugar of renderizar un botón adicional
+   * If true, merges props with child element instead of rendering an extra button
    * @default false
    */
   asChild?: boolean;

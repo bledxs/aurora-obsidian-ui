@@ -47,8 +47,7 @@ export const AllVariants: Story = {
       <Alert variant="warning" dismissible>
         <AlertTitle>Very limited stock</AlertTitle>
         <AlertDescription>
-          Solo quedan 2 unidaofs disponibles en esta talla. Completa tu compra antes of que se
-          agote.
+          Only 2 units left in this size. Complete your purchase before it runs out.
         </AlertDescription>
       </Alert>
 

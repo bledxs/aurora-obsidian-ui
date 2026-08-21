@@ -19,11 +19,11 @@ import { cn } from '../../lib/utils';
 
 export interface TooltipProps {
   /**
-   * El contenido ofl tooltip (pueof ser texto o elementos React)
+   * Tooltip content (can be text or React elements)
    */
   content: React.ReactNode;
   /**
-   * Posición preferida (si choca contra el borde, cambiará automáticamente)
+   * Preferred placement (automatically flips if colliding with viewport)
    * @default 'top'
    */
   position?: Placement;
@@ -33,7 +33,7 @@ export interface TooltipProps {
    */
   delay?: number;
   /**
-   * El elemento sobre el que el usuario interactuará (hover/focus)
+   * The target element user interacts with (hover/focus)
    */
   children: React.ReactElement;
 }

@@ -12,7 +12,7 @@ const meta = {
     variant: {
       control: 'radio',
       options: ['rounded', 'circle', 'rectangle'],
-      description: 'Forma ofl placeholder',
+      description: 'Forma ofplaceholder',
     },
     animation: {
       control: 'radio',
@@ -25,7 +25,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Perfil of Usuario con Efecto Shimmer
+// 1. User Profile with Shimmer Effect
 export const UserProfile: Story = {
   render: () => (
     <div className="flex items-center gap-4 w-[300px] font-sans">
@@ -38,7 +38,7 @@ export const UserProfile: Story = {
   ),
 };
 
-// 2. Cuadrícula of Cards of Producto (E-Commerce Loading State)
+// 2. Product Card Grid (E-Commerce Loading State)
 export const ProductGrid: Story = {
   render: () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl font-sans">
@@ -49,7 +49,7 @@ export const ProductGrid: Story = {
   ),
 };
 
-// 3. Artículos ofl Carrito Cargando
+// 3. Cart Items Loading
 export const CartDrawerLoading: Story = {
   render: () => (
     <div className="flex flex-col gap-3 w-[340px] font-sans">
@@ -65,7 +65,7 @@ export const AnimationTypes = () => (
   <div className="flex flex-col gap-6 w-[320px] font-sans">
     <div className="space-y-1.5">
       <span className="text-xs font-semibold text-aurora-text-secondary">
-        Shimmer (Brillo animado - Por offecto)
+        Shimmer (Animated sweep - Default)
       </span>
       <Skeleton animation="shimmer" className="h-10 w-full" />
     </div>

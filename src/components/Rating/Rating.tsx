@@ -39,29 +39,29 @@ export interface RatingProps
    */
   max?: number;
   /**
-   * Si es true, permite hacer clic y pasar el cursor para calificar
+   * If true, enables click and hover interactions to submit rating
    * @default false
    */
   interactive?: boolean;
   /**
-   * Callback invocado al hacer clic en una puntuación (modo interactivo)
+   * Callback fired upon clicking a rating score
    */
   onChange?: (value: number) => void;
   /**
-   * Si es true, muestra el valor numérico (ej. "4.7")
+   * If true, displays the numeric score (e.g. "4.7")
    * @default false
    */
   showValue?: boolean;
   /**
-   * Número of opiniones o reseñas (ej. 128 -> "(128)")
+   * Review count o reseñas (ej. 128 -> "(128)")
    */
   reviewCount?: number;
   /**
-   * Formato personalizado para el contador of reseñas (ej. (count) => `${count} reseñas`)
+   * Custom formatter function for review counter (ej. (count) => `${count} reseñas`)
    */
   formatReviewCount?: (count: number) => React.ReactNode;
   /**
-   * Deshabilita la interacción
+   * Disables interaction
    * @default false
    */
   disabled?: boolean;
@@ -105,8 +105,8 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
     };
 
     const roundedValue = Number(value.toFixed(1));
-    const ariaText = `Valoración: ${roundedValue} of ${max} estrellas${
-      reviewCount !== undefined ? `, ${reviewCount} reseñas` : ''
+    const ariaText = `Rating: ${roundedValue} out of ${max} stars${
+      reviewCount !== undefined ? `, ${reviewCount} reviews` : ''
     }`;
 
     return (

@@ -16,7 +16,7 @@ const meta = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño ofl componente',
+      description: 'Component size',
     },
     error: { control: 'text', description: 'Mensaje of error' },
   },
@@ -25,10 +25,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Selector Simple of Tallas
+// 1. Simple Size Selector
 export const SingleAttributePill: Story = {
   args: {
-    label: 'Talla',
+    label: 'Size',
     variantType: 'pill',
     defaultValue: 'm',
     options: [
@@ -41,7 +41,7 @@ export const SingleAttributePill: Story = {
   },
 };
 
-// 2. Selector Simple of Colores
+// 2. Simple Color Selector
 export const SingleAttributeColor: Story = {
   args: {
     label: 'Color',
@@ -56,7 +56,7 @@ export const SingleAttributeColor: Story = {
   },
 };
 
-// 3. MODO UNIFICADO TODO-EN-UNO: Cero Boilerplate, Matriz of Stock Automática
+// 3. UNIFIED ALL-IN-ONE MODE: Zero Boilerplate, Automatic Stock Matrix
 export const UnifiedProductCustomizer = () => {
   const [selectedVariant, setSelectedVariant] = useState<{
     id: string | number;
@@ -67,7 +67,7 @@ export const UnifiedProductCustomizer = () => {
   const [qty, setQty] = useState(1);
   const [notification, setNotification] = useState<string | null>(null);
 
-  // 1. Atributos ofl producto
+  // 1. Atributos ofproducto
   const attributes = [
     {
       name: 'Color',
@@ -79,7 +79,7 @@ export const UnifiedProductCustomizer = () => {
       ],
     },
     {
-      name: 'Talla',
+      name: 'Size',
       type: 'pill' as const,
       options: [
         { label: 'S', value: 's' },
@@ -97,28 +97,28 @@ export const UnifiedProductCustomizer = () => {
       id: '1',
       sku: 'RUNNER-OBS-S',
       price: 119.99,
-      attributes: { Color: 'obsidian', Talla: 's' },
+      attributes: { Color: 'obsidian', Size: 's' },
       inStock: true,
     },
     {
       id: '2',
       sku: 'RUNNER-OBS-M',
       price: 119.99,
-      attributes: { Color: 'obsidian', Talla: 'm' },
+      attributes: { Color: 'obsidian', Size: 'm' },
       inStock: false, // Out of Stock en Negro
     },
     {
       id: '3',
       sku: 'RUNNER-OBS-L',
       price: 119.99,
-      attributes: { Color: 'obsidian', Talla: 'l' },
+      attributes: { Color: 'obsidian', Size: 'l' },
       inStock: true,
     },
     {
       id: '4',
       sku: 'RUNNER-OBS-XL',
       price: 119.99,
-      attributes: { Color: 'obsidian', Talla: 'xl' },
+      attributes: { Color: 'obsidian', Size: 'xl' },
       inStock: false, // Out of Stock en Negro
     },
 
@@ -127,28 +127,28 @@ export const UnifiedProductCustomizer = () => {
       id: '5',
       sku: 'RUNNER-WHI-S',
       price: 119.99,
-      attributes: { Color: 'white', Talla: 's' },
+      attributes: { Color: 'white', Size: 's' },
       inStock: false, // Out of Stock en Blanco
     },
     {
       id: '6',
       sku: 'RUNNER-WHI-M',
       price: 119.99,
-      attributes: { Color: 'white', Talla: 'm' },
+      attributes: { Color: 'white', Size: 'm' },
       inStock: true,
     },
     {
       id: '7',
       sku: 'RUNNER-WHI-L',
       price: 119.99,
-      attributes: { Color: 'white', Talla: 'l' },
+      attributes: { Color: 'white', Size: 'l' },
       inStock: false, // Out of Stock en Blanco
     },
     {
       id: '8',
       sku: 'RUNNER-WHI-XL',
       price: 119.99,
-      attributes: { Color: 'white', Talla: 'xl' },
+      attributes: { Color: 'white', Size: 'xl' },
       inStock: true,
     },
 
@@ -157,28 +157,28 @@ export const UnifiedProductCustomizer = () => {
       id: '9',
       sku: 'RUNNER-BLU-S',
       price: 129.99,
-      attributes: { Color: 'blue', Talla: 's' },
+      attributes: { Color: 'blue', Size: 's' },
       inStock: true,
     },
     {
       id: '10',
       sku: 'RUNNER-BLU-M',
       price: 129.99,
-      attributes: { Color: 'blue', Talla: 'm' },
+      attributes: { Color: 'blue', Size: 'm' },
       inStock: true,
     },
     {
       id: '11',
       sku: 'RUNNER-BLU-L',
       price: 129.99,
-      attributes: { Color: 'blue', Talla: 'l' },
+      attributes: { Color: 'blue', Size: 'l' },
       inStock: true,
     },
     {
       id: '12',
       sku: 'RUNNER-BLU-XL',
       price: 129.99,
-      attributes: { Color: 'blue', Talla: 'xl' },
+      attributes: { Color: 'blue', Size: 'xl' },
       inStock: false,
     },
   ];
@@ -186,7 +186,7 @@ export const UnifiedProductCustomizer = () => {
   const handleAddToCart = () => {
     if (!selectedVariant || !isAvailable) return;
     setNotification(
-      `Añadido al carrito: SKU "${selectedVariant.sku}" (${qty} un.) por ${(
+      `Added to cart: SKU "${selectedVariant.sku}" (${qty} un.) por ${(
         (selectedVariant.price ?? 119.99) * qty
       ).toFixed(2)} €`,
     );

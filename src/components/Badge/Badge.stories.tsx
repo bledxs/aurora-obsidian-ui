@@ -9,21 +9,35 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: [
+        'default',
+        'primary',
+        'secondary',
+        'success',
+        'warning',
+        'error',
+        'info',
+        'solid',
+        'subtle',
+        'outline',
+      ],
+      description: 'Visual or semantic variant of the badge',
+    },
     color: {
       control: 'select',
       options: ['primary', 'success', 'warning', 'error', 'neutral'],
-    },
-    variant: {
-      control: 'select',
-      options: ['solid', 'subtle', 'outline'],
+      description: 'Color theme used with solid/subtle/outline variants',
     },
     size: {
       control: 'radio',
-      options: ['small', 'medium'],
+      options: ['small', 'medium', 'large'],
+      description: 'Badge size scale',
     },
     children: {
       control: 'text',
-      description: 'Texto ofntro ofl badge',
+      description: 'Badge label text',
     },
   },
 } satisfies Meta<typeof Badge>;
@@ -33,39 +47,51 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Etiqueta',
+    children: 'Badge',
+  },
+};
+
+export const DirectSuccess: Story = {
+  args: {
+    variant: 'success',
+    children: 'In Stock',
+  },
+};
+
+export const DirectWarning: Story = {
+  args: {
+    variant: 'warning',
+    children: 'Low Stock (2 Left)',
+  },
+};
+
+export const DirectError: Story = {
+  args: {
+    variant: 'error',
+    children: 'Out of Stock',
   },
 };
 
 export const SubtleSuccess: Story = {
   args: {
-    children: 'En stock',
-    color: 'success',
     variant: 'subtle',
+    color: 'success',
+    children: 'Free Shipping',
   },
 };
 
-export const SolidWarning: Story = {
+export const OutlinePrimary: Story = {
   args: {
-    children: 'Pocas unidaofs',
-    color: 'warning',
-    variant: 'solid',
-  },
-};
-
-export const OutlineError: Story = {
-  args: {
-    children: 'Out of Stock',
-    color: 'error',
     variant: 'outline',
+    color: 'primary',
+    children: 'Bestseller',
   },
 };
 
 export const SmallNew: Story = {
   args: {
-    children: 'NUEVO',
-    color: 'primary',
-    variant: 'solid',
+    variant: 'primary',
     size: 'small',
+    children: 'NEW',
   },
 };

@@ -111,7 +111,7 @@ export const Composable: Story = {
   ),
 };
 
-// 5. Tamaños
+// 5. Sizes
 export const Sizes = () => (
   <div className="flex flex-col gap-6 items-center">
     <div className="flex flex-col items-center gap-1.5">

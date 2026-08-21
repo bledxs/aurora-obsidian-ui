@@ -44,11 +44,11 @@ export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(
 Skeleton.displayName = 'Skeleton';
 
 /**
- * Placeholder pre-diseñado para tarjetas of productos (ProductCard)
+ * Pre-designed placeholder for product cards (ProductCard)
  */
 export const SkeletonProductCard: React.FC<{ className?: string }> = ({ className }) => (
   <div
-    aria-label="Cargando producto"
+    aria-label="Loading product"
     role="status"
     className={cn(
       'flex flex-col gap-3 rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface p-4 shadow-xs font-sans',
@@ -65,17 +65,17 @@ export const SkeletonProductCard: React.FC<{ className?: string }> = ({ classNam
       <Skeleton className="h-6 w-1/3" />
       <Skeleton className="h-9 w-24 rounded-[var(--radius-aurora)]" />
     </div>
-    <span className="sr-only">Cargando datos ofl producto...</span>
+    <span className="sr-only">Cargando datos ofproducto...</span>
   </div>
 );
 SkeletonProductCard.displayName = 'SkeletonProductCard';
 
 /**
- * Placeholder pre-diseñado para ítems ofl carrito (CartItem)
+ * Pre-designed placeholder for cart items (CartItem)
  */
 export const SkeletonCartItem: React.FC<{ className?: string }> = ({ className }) => (
   <div
-    aria-label="Cargando artículo ofl carrito"
+    aria-label="Loading cart item"
     role="status"
     className={cn(
       'flex items-center gap-4 rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface p-3 font-sans',
@@ -91,7 +91,7 @@ export const SkeletonCartItem: React.FC<{ className?: string }> = ({ className }
         <Skeleton className="h-8 w-24 rounded-full" />
       </div>
     </div>
-    <span className="sr-only">Cargando artículo...</span>
+    <span className="sr-only">Loading item...</span>
   </div>
 );
 SkeletonCartItem.displayName = 'SkeletonCartItem';

@@ -4,7 +4,7 @@ import { cn } from '../../lib/utils';
 
 export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   /**
-   * Etiqueta ofl checkbox
+   * Etiqueta of checkbox
    */
   label?: React.ReactNode;
   /**

@@ -14,7 +14,7 @@ const DialogContext = React.createContext<DialogContextType | null>(null);
 export function useDialog() {
   const context = React.useContext(DialogContext);
   if (!context) {
-    throw new Error('Los subcomponentes of Dialog ofben usarse ofntro of un <Dialog>');
+    throw new Error('Los subcomponentes of Dialog must be used inside un <Dialog>');
   }
   return context;
 }
@@ -67,7 +67,7 @@ Dialog.displayName = 'Dialog';
 
 export interface DialogTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Si es true, fusiona las propiedaofs con el elemento hijo en lugar of renderizar un botón adicional
+   * If true, merges props with child element instead of rendering an extra button
    * @default false
    */
   asChild?: boolean;
@@ -104,7 +104,7 @@ DialogTrigger.displayName = 'DialogTrigger';
 
 export interface DialogCloseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Si es true, fusiona las propiedaofs con el elemento hijo en lugar of renderizar un botón adicional
+   * If true, merges props with child element instead of rendering an extra button
    * @default false
    */
   asChild?: boolean;

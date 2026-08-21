@@ -14,7 +14,7 @@ const meta = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño ofl switch',
+      description: 'Switch size',
     },
     disabled: {
       control: 'boolean',
@@ -26,7 +26,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Preferencias en el Checkout of E-Commerce (Cards con Switch)
+// 1. E-Commerce Checkout Preferences (Switch Cards)
 export const CheckoutPreferences: Story = {
   render: () => {
     const [saveCard, setSaveCard] = useState(true);
@@ -41,7 +41,7 @@ export const CheckoutPreferences: Story = {
 
         <SwitchCard
           icon={<CreditCard size={18} />}
-          title="Save tarjeta of forma segura"
+          title="Save card securely"
           description="Speed up future checkouts with 256-bit encryption."
           checked={saveCard}
           onCheckedChange={setSaveCard}
@@ -67,7 +67,7 @@ export const CheckoutPreferences: Story = {
   },
 };
 
-// 2. Escala of Tamaños
+// 2. Escala of Sizes
 export const Sizes = () => (
   <div className="flex flex-col gap-4 font-sans">
     <div className="flex items-center gap-3">
@@ -85,7 +85,7 @@ export const Sizes = () => (
   </div>
 );
 
-// 3. Con Icono en el Pulgar (Modo Oscuro / Claro)
+// 3. With Thumb Icon (Dark / Light Mode)
 export const WithThumbIcon: Story = {
   render: () => {
     const [isDark, setIsDark] = useState(false);
@@ -112,7 +112,7 @@ export const WithThumbIcon: Story = {
   },
 };
 
-// 4. Deshabilitado
+// 4. Disabled
 export const Disabled = () => (
   <div className="flex flex-col gap-3 font-sans">
     <div className="flex items-center gap-3">

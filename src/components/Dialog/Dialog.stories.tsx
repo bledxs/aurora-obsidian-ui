@@ -110,7 +110,7 @@ export const ProductQuickView = () => {
       ],
     },
     {
-      name: 'Talla',
+      name: 'Size',
       type: 'pill' as const,
       options: [
         { label: 'S', value: 's' },
@@ -125,42 +125,42 @@ export const ProductQuickView = () => {
       id: '1',
       sku: 'RUNNER-OBS-S',
       price: 119.99,
-      attributes: { Color: 'obsidian', Talla: 's' },
+      attributes: { Color: 'obsidian', Size: 's' },
       inStock: true,
     },
     {
       id: '2',
       sku: 'RUNNER-OBS-M',
       price: 119.99,
-      attributes: { Color: 'obsidian', Talla: 'm' },
+      attributes: { Color: 'obsidian', Size: 'm' },
       inStock: false,
     },
     {
       id: '3',
       sku: 'RUNNER-OBS-L',
       price: 119.99,
-      attributes: { Color: 'obsidian', Talla: 'l' },
+      attributes: { Color: 'obsidian', Size: 'l' },
       inStock: true,
     },
     {
       id: '4',
       sku: 'RUNNER-WHI-S',
       price: 119.99,
-      attributes: { Color: 'white', Talla: 's' },
+      attributes: { Color: 'white', Size: 's' },
       inStock: false,
     },
     {
       id: '5',
       sku: 'RUNNER-WHI-M',
       price: 119.99,
-      attributes: { Color: 'white', Talla: 'm' },
+      attributes: { Color: 'white', Size: 'm' },
       inStock: true,
     },
     {
       id: '6',
       sku: 'RUNNER-WHI-L',
       price: 119.99,
-      attributes: { Color: 'white', Talla: 'l' },
+      attributes: { Color: 'white', Size: 'l' },
       inStock: true,
     },
   ];
@@ -231,7 +231,7 @@ export const ProductQuickView = () => {
                   disabled={!isAvailable}
                   className="flex-1"
                   onClick={() =>
-                    alert(`¡Añadido al carrito! SKU: ${selectedVariant?.sku} (${qty} unidaofs)`)
+                    alert(`¡Added to cart! SKU: ${selectedVariant?.sku} (${qty} unidaofs)`)
                   }
                 >
                   {!isAvailable ? 'Sin Existencias' : `Add al Carrito (${qty})`}

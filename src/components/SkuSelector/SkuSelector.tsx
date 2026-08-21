@@ -44,25 +44,25 @@ export interface SkuSelectionResult {
 }
 
 export interface SkuSelectorProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  // --- Modo Todo-en-Uno: Matriz of Variantes ---
+  // --- All-in-One Mode: Variant Matrix ---
   /**
-   * Modo Todo-en-Uno: Lista of atributos (ej. Color, Talla, etc.)
+   * All-in-One Mode: List of attributes (e.g. Color, Size, etc.)
    */
   attributes?: SkuAttribute[];
   /**
-   * Modo Todo-en-Uno: Matriz of variantes con stock y precios
+   * All-in-One Mode: Variant matrix with stock and pricing
    */
   variants?: SkuVariant[];
   /**
-   * Valores iniciales of atributos seleccionados { Color: 'negro', Talla: 'm' }
+   * Initial selected attribute values { Color: 'obsidian', Size: 'm' }
    */
   initialAttributes?: Record<string, string>;
   /**
-   * Callback unificado que devuelve la variante exacta seleccionada y su disponibilidad
+   * Unified callback returning the exact selected variant and availability
    */
   onSelectionChange?: (result: SkuSelectionResult) => void;
 
-  // --- Modo Simple (Un solo grupo) ---
+  // --- Simple Mode (Single attribute group) ---
   name?: string;
   label?: string;
   selectedLabel?: string;

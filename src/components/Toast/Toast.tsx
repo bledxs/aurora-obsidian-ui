@@ -14,12 +14,12 @@ export type ToastPosition =
 
 export interface ToasterProps {
   /**
-   * Posición of las notificaciones en la pantalla
+   * Toast notification screen position
    * @default 'bottom-right'
    */
   position?: ToastPosition;
   /**
-   * Si es true, muestra un botón of cierre manual en cada notificación
+   * If true, shows a manual close button on each toast
    * @default true
    */
   closeButton?: boolean;

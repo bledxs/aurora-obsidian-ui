@@ -16,11 +16,11 @@ const meta = {
     orientation: {
       control: 'radio',
       options: ['vertical', 'horizontal'],
-      description: 'Orientación ofl grupo',
+      description: 'Orientación of grupo',
     },
     disabled: {
       control: 'boolean',
-      description: 'Deshabilitar todo el grupo',
+      description: 'Disable the entire group',
     },
   },
 } satisfies Meta<typeof RadioGroup>;
@@ -28,7 +28,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Métodos of Pago en el Checkout (Cards Interactivas)
+// 1. Checkout Payment Methods (Interactive Cards)
 export const PaymentMethods: Story = {
   render: () => {
     const [selectedPayment, setSelectedPayment] = useState('card');
@@ -36,7 +36,7 @@ export const PaymentMethods: Story = {
     return (
       <div className="w-[360px] font-sans space-y-3">
         <span className="text-xs font-bold text-aurora-text-secondary uppercase tracking-wiofr">
-          Selecciona un método of pago
+          Select a payment method
         </span>
         <RadioGroup value={selectedPayment} onValueChange={setSelectedPayment}>
           <RadioGroupCard value="card">
@@ -58,7 +58,7 @@ export const PaymentMethods: Story = {
               <span className="text-sm font-bold text-aurora-text-primary">PayPal</span>
             </div>
             <p className="text-xs text-aurora-text-secondary">
-              Pago rápido y seguro con tu cuenta of PayPal
+              Fast and secure checkout with your PayPal account
             </p>
           </RadioGroupCard>
 
@@ -79,7 +79,7 @@ export const PaymentMethods: Story = {
   },
 };
 
-// 2. Opciones of Shipping of E-Commerce
+// 2. E-Commerce Shipping Options
 export const ShippingMethods: Story = {
   render: () => {
     const [shipping, setShipping] = useState('express');
@@ -107,7 +107,7 @@ export const ShippingMethods: Story = {
               <span className="text-xs font-bold text-emerald-600 uppercase">Free</span>
             </div>
             <p className="text-xs text-aurora-text-secondary">
-              Entrega estimada en 3 a 5 días laborables
+              Estimated delivery in 3 to 5 business days
             </p>
           </RadioGroupCard>
 
@@ -122,7 +122,7 @@ export const ShippingMethods: Story = {
               <Price value={4.99} size="small" />
             </div>
             <p className="text-xs text-aurora-text-secondary">
-              Recíbelo mañana antes of las 14:00h
+              Receive tomorrow before 2:00 PM guaranteed
             </p>
           </RadioGroupCard>
 
@@ -131,7 +131,7 @@ export const ShippingMethods: Story = {
               <div className="flex items-center gap-2">
                 <Truck size={17} className="text-aurora-text-disabled" />
                 <span className="text-sm font-bold text-aurora-text-disabled">
-                  Entrega Mismo Día (No disponible en tu CP)
+                  Same-Day Delivery (Unavailable in your area)
                 </span>
               </div>
               <Price value={9.99} size="small" />
@@ -176,7 +176,7 @@ export const Horizontal: Story = {
   render: () => (
     <div className="font-sans space-y-2">
       <span className="text-xs font-bold text-aurora-text-secondary uppercase tracking-wiofr">
-        Talla of prenda
+        Size of prenda
       </span>
       <RadioGroup defaultValue="M" orientation="horizontal">
         <label htmlFor="size-xs" className="flex items-center gap-2 cursor-pointer">

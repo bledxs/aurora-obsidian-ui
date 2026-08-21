@@ -61,7 +61,7 @@ export const AddToCart: React.FC<AddToCartProps> = ({
           ) : (
             <>
               <ShoppingCart size={16} />
-              Add
+              Add to cart
             </>
           )}
         </Button>

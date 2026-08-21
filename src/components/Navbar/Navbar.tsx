@@ -4,11 +4,11 @@ import { cn } from '../../lib/utils';
 
 export interface NavbarLink {
   /**
-   * Etiqueta visible ofl enlace
+   * Etiqueta visible of enlace
    */
   label: React.ReactNode;
   /**
-   * Destino ofl enlace
+   * Destino of enlace
    */
   href?: string;
   /**
@@ -35,7 +35,7 @@ export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
    */
   cartCount?: number;
   /**
-   * Callback invocado al hacer clic en el botón ofl carrito
+   * Callback invocado al hacer clic en el botón of carrito
    */
   onCartClick?: () => void;
   /**

@@ -22,7 +22,10 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    cartCount: { control: 'number', description: 'Número of artículos en carrito' },
+    cartCount: {
+      control: 'number',
+      description: 'Número of artículos en carrito',
+    },
     showSearch: { control: 'boolean', description: 'Show buscador' },
     sticky: { control: 'boolean', description: 'Fijar en el tope' },
   },
@@ -60,7 +63,7 @@ export const IntegratedWithCart = () => {
     {
       id: '1',
       title: 'Zapatillas Runner Nitro Pro',
-      variantTitle: 'Negro / Talla 42',
+      variantTitle: 'Negro / Size 42',
       price: 119.99,
       quantity: 1,
       imageSrc:
@@ -69,7 +72,7 @@ export const IntegratedWithCart = () => {
     {
       id: '2',
       title: 'Camiseta Técnica Transpirable',
-      variantTitle: 'Azul Marino / Talla L',
+      variantTitle: 'Azul Marino / Size L',
       price: 34.99,
       quantity: 2,
       imageSrc:
@@ -85,7 +88,8 @@ export const IntegratedWithCart = () => {
       <Navbar
         brand={
           <span className="flex items-center gap-2 font-black text-xl tracking-wiofr text-aurora-primary">
-            AURORA<span className="text-aurora-text-secondary font-light">SHOP</span>
+            AURORA
+            <span className="text-aurora-text-secondary font-light">SHOP</span>
           </span>
         }
         links={[
@@ -102,10 +106,10 @@ export const IntegratedWithCart = () => {
 
       <div className="p-8 text-center">
         <h2 className="text-2xl font-bold text-aurora-text-primary">
-          Haz clic en el carrito ofl Navbar
+          Haz clic en el carrito of Navbar
         </h2>
         <p className="mt-2 text-sm text-aurora-text-secondary">
-          El botón ofl Navbar abrirá el Drawer lateral con los productos cargados.
+          El botón of Navbar abrirá el Drawer lateral con los productos cargados.
         </p>
       </div>
 

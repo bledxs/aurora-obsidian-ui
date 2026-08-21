@@ -33,7 +33,7 @@ const PopoverContext = React.createContext<PopoverContextValue | null>(null);
 export function usePopoverContext() {
   const context = React.useContext(PopoverContext);
   if (!context) {
-    throw new Error('usePopoverContext ofbe ser usado ofntro of un <Popover />');
+    throw new Error('usePopoverContext must be used within <Popover />');
   }
   return context;
 }
@@ -163,12 +163,12 @@ PopoverTrigger.displayName = 'PopoverTrigger';
 
 export interface PopoverContentProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Muestra un botón of cierre 'X' en la esquina superior ofrecha
+   * Displays an 'X' close button in top right corner
    * @default false
    */
   showCloseButton?: boolean;
   /**
-   * Si es true, previene el cierre al interactuar fuera
+   * If true, prevents closing when interacting outside
    * @default false
    */
   modal?: boolean;
@@ -185,7 +185,7 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
     return (
       <FloatingPortal>
         <FloatingFocusManager context={context.floating.context} modal={modal} initialFocus={-1}>
-          {/* Contenedor exterior exclusivo para posicionamiento 3D */}
+          {/* Outer container for 3D positioning */}
           <div
             ref={(noof) => {
               floatingRef(noof);
@@ -196,7 +196,7 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
             className="z-50 outline-none"
             {...getFloatingProps(props)}
           >
-            {/* Contenedor interior con animaciones y estilos of Aurora */}
+            {/* Inner container with Aurora animations and styles */}
             <div
               className={cn(
                 'relative w-72 rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface p-4 text-aurora-text-primary shadow-xl font-sans animate-scale-in',

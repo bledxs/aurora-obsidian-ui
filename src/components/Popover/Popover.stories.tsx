@@ -44,16 +44,16 @@ export const CatalogFilterPopover: Story = {
         </PopoverTrigger>
         <PopoverContent className="w-80" showCloseButton>
           <PopoverHeader>
-            <PopoverTitle>Filter Productos</PopoverTitle>
+            <PopoverTitle>Filter Products</PopoverTitle>
             <PopoverDescription>
-              Ajusta el rango of precio y disponibilidad ofl catálogo.
+              Ajusta el rango of precio y disponibilidad of catálogo.
             </PopoverDescription>
           </PopoverHeader>
 
           <div className="space-y-4 py-2">
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-medium">
-                <span className="text-aurora-text-secondary">Precio máximo</span>
+                <span className="text-aurora-text-secondary">Price máximo</span>
                 <span className="font-bold text-aurora-text-primary">
                   {priceRange[0]} € - {priceRange[1]} €
                 </span>
@@ -77,7 +77,7 @@ export const CatalogFilterPopover: Story = {
                 htmlFor="stock-filter"
                 className="text-xs font-medium text-aurora-text-primary cursor-pointer select-none"
               >
-                Solo productos en stock
+                In-stock products only
               </label>
             </div>
           </div>
@@ -96,7 +96,7 @@ export const CatalogFilterPopover: Story = {
   },
 };
 
-// 2. Calculadora of Shipping en Ficha of Producto
+// 2. Shipping Calculator on Product Detail Page
 export const ShippingCalculatorPopover: Story = {
   render: () => (
     <Popover placement="bottom">
@@ -110,7 +110,7 @@ export const ShippingCalculatorPopover: Story = {
         <PopoverHeader>
           <PopoverTitle>Estimar Shipping</PopoverTitle>
           <PopoverDescription>
-            Introduce tu código postal para ver plazos of entrega.
+            Enter your postal code to view delivery estimates.
           </PopoverDescription>
         </PopoverHeader>
 
@@ -127,7 +127,7 @@ export const ShippingCalculatorPopover: Story = {
 
           <div className="rounded-xs bg-emerald-50 border border-emerald-200 p-2.5 text-xs text-emerald-900">
             <p className="font-semibold">Standard shipping gratis</p>
-            <p className="text-[11px] text-emerald-800">Entrega estimada en 24-48 horas.</p>
+            <p className="text-[11px] text-emerald-800">Estimated delivery within 24-48 hours.</p>
           </div>
         </div>
 
@@ -141,7 +141,7 @@ export const ShippingCalculatorPopover: Story = {
   ),
 };
 
-// 3. Menú Rápido of Perfil of Usuario
+// 3. Quick User Profile Menu
 export const UserQuickProfilePopover: Story = {
   render: () => (
     <Popover placement="bottom-end">

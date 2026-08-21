@@ -17,7 +17,7 @@ const meta = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño ofl componente',
+      description: 'Component size',
     },
     showTrashOnMin: {
       control: 'boolean',
@@ -72,7 +72,7 @@ export const Interactive = () => {
         max={10}
         showTrashOnMin
         onChange={setVal}
-        onRemove={() => alert('Eliminado ofl carrito')}
+        onRemove={() => alert('Removed from cart')}
       />
       <p className="text-xs text-aurora-text-secondary">
         Quantity seleccionada: <strong>{val}</strong>

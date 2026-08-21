@@ -6,7 +6,7 @@ export type SliderValue = number | [number, number];
 export interface SliderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue' | 'onChange'> {
   /**
-   * Valor en modo controlado (número o tupla [min, max] para rango)
+   * Controlled value (number or [min, max] tuple for range)
    */
   value?: SliderValue;
   /**
@@ -14,7 +14,7 @@ export interface SliderProps
    */
   defaultValue?: SliderValue;
   /**
-   * Callback invocado al cambiar el valor
+   * Callback fired when value changes
    */
   onValueChange?: (value: SliderValue) => void;
   /**
@@ -22,12 +22,12 @@ export interface SliderProps
    */
   onChange?: (value: SliderValue) => void;
   /**
-   * Valor mínimo of la escala
+   * Minimum scale value
    * @default 0
    */
   min?: number;
   /**
-   * Valor máximo of la escala
+   * Maximum scale value
    * @default 100
    */
   max?: number;
@@ -37,17 +37,17 @@ export interface SliderProps
    */
   step?: number;
   /**
-   * Distancia mínima permitida entre los dos pulgares en modo rango
+   * Minimum allowed distance between thumbs in range mode
    * @default 0
    */
   minDistance?: number;
   /**
-   * Deshabilita el control ofslizante
+   * Disables the slider control
    * @default false
    */
   disabled?: boolean;
   /**
-   * Función para formatear el texto ofl valor (ej. precios o porcentajes)
+   * Function to format value text (e.g. prices or percentages)
    */
   formatValue?: (value: number) => React.ReactNode;
   /**
@@ -182,33 +182,33 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
 
     const handleKeyDown = (index: number) => (e: React.KeyboardEvent<HTMLDivElement>) => {
       if (disabled) return;
-      let oflta = 0;
-      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') oflta = step;
-      else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') oflta = -step;
-      else if (e.key === 'PageUp') oflta = step * 10;
-      else if (e.key === 'PageDown') oflta = -step * 10;
-      else if (e.key === 'Home') oflta = -(max - min);
-      else if (e.key === 'End') oflta = max - min;
+      let ofa = 0;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') ofa = step;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') ofa = -step;
+      else if (e.key === 'PageUp') ofa = step * 10;
+      else if (e.key === 'PageDown') ofa = -step * 10;
+      else if (e.key === 'Home') ofa = -(max - min);
+      else if (e.key === 'End') ofa = max - min;
       else return;
 
       e.preventDefault();
 
       if (!isRange) {
-        const next = clamp(roundToStep(values[1] + oflta, step, min), min, max);
+        const next = clamp(roundToStep(values[1] + ofa, step, min), min, max);
         updateValue([min, next]);
         return;
       }
 
       if (index === 0) {
         const nextStart = clamp(
-          roundToStep(values[0] + oflta, step, min),
+          roundToStep(values[0] + ofa, step, min),
           min,
           values[1] - minDistance,
         );
         updateValue([nextStart, values[1]]);
       } else {
         const nextEnd = clamp(
-          roundToStep(values[1] + oflta, step, min),
+          roundToStep(values[1] + ofa, step, min),
           values[0] + minDistance,
           max,
         );
@@ -256,7 +256,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
             sizeConfig.track,
           )}
         >
-          {/* Relleno Activo */}
+          {/* Active Track Fill */}
           <div
             className={cn(
               'absolute h-full transition-all duration-75',
@@ -269,7 +269,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
           />
         </div>
 
-        {/* Pulgar Izquierdo (Sólo en modo Rango) */}
+        {/* Left Thumb (Range mode only) */}
         {isRange && (
           <div
             role="slider"
@@ -295,7 +295,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
           />
         )}
 
-        {/* Pulgar Derecho / Principal */}
+        {/* Right / Main Thumb */}
         <div
           role="slider"
           tabIndex={disabled ? -1 : 0}

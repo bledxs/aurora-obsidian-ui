@@ -13,7 +13,7 @@ const meta = {
     variant: {
       control: 'radio',
       options: ['underline', 'pills'],
-      description: 'Estilo visual of las pestañas',
+      description: 'Visual style of tabs',
     },
   },
 } satisfies Meta<typeof Tabs>;
@@ -21,12 +21,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Pestañas of Ficha of Producto (PDP - Unofrline)
+// 1. Product Detail Page Tabs (PDP - Underline)
 export const ProductTabs: Story = {
   render: () => (
     <Tabs defaultValue="desc" variant="underline" className="w-[500px]">
       <TabsList>
-        <TabsTrigger value="desc">Descripción</TabsTrigger>
+        <TabsTrigger value="desc">Description</TabsTrigger>
         <TabsTrigger value="specs">Especificaciones</TabsTrigger>
         <TabsTrigger value="reviews">Opiniones (42)</TabsTrigger>
       </TabsList>
@@ -36,12 +36,11 @@ export const ProductTabs: Story = {
         className="space-y-2 text-sm text-aurora-text-secondary leading-relaxed"
       >
         <p>
-          Las zapatillas Runner Nitro Pro han sido diseñadas para corredores que buscan
-          amortiguación y retorno of energía sin sacrificar ligereza.
+          The Runner Nitro Pro running shoes are engineered for runners seeking maximum cushioning
+          and energy return without sacrificing lightweight agility.
         </p>
         <p>
-          La suela of goma con agarre multidireccional garantiza tracción óptima tanto en asfalto
-          como en pista mojada.
+          The multidirectional rubber outsole provides optimal grip on both asphalt and wet tracks.
         </p>
       </TabsContent>
 
@@ -75,8 +74,7 @@ export const ProductTabs: Story = {
             Carlos M. - Hace 2 días
           </div>
           <p className="text-xs text-aurora-text-secondary">
-            Excelente compra. Super cómodas ofsof la primera salida a correr. La talla calza
-            perfecta.
+            Excellent purchase. Super comfortable from the first run. Fits true to size. perfecta.
           </p>
         </div>
       </TabsContent>
@@ -84,28 +82,28 @@ export const ProductTabs: Story = {
   ),
 };
 
-// 2. Variante Pills (Para categorías o filtros)
+// 2. Pills Variant (For categories or catalog filters)
 export const PillsVariant: Story = {
   render: () => (
     <Tabs defaultValue="all" variant="pills" className="w-[450px]">
       <TabsList>
-        <TabsTrigger value="all">Todos</TabsTrigger>
+        <TabsTrigger value="all">All</TabsTrigger>
         <TabsTrigger value="men">Hombre</TabsTrigger>
         <TabsTrigger value="women">Mujer</TabsTrigger>
         <TabsTrigger value="kids">Niños</TabsTrigger>
       </TabsList>
 
       <TabsContent value="all" className="text-sm text-aurora-text-secondary">
-        Mostrando todos los productos ofl catálogo (1,240 artículos disponibles).
+        Showing all catalog items (1,240 products available).
       </TabsContent>
       <TabsContent value="men" className="text-sm text-aurora-text-secondary">
-        Sección of moda y calzado para hombre (480 artículos).
+        Men's fashion and footwear collection (480 products).
       </TabsContent>
       <TabsContent value="women" className="text-sm text-aurora-text-secondary">
-        Sección of moda y calzado para mujer (620 artículos).
+        Women's fashion and footwear collection (620 products).
       </TabsContent>
       <TabsContent value="kids" className="text-sm text-aurora-text-secondary">
-        Sección infantil y juvenil (140 artículos).
+        Kids & Teens clothing collection (140 products).
       </TabsContent>
     </Tabs>
   ),
@@ -121,17 +119,17 @@ export const DeclarativeItems: Story = {
         {
           value: 'shipping',
           label: 'Shippings',
-          content: 'Shippings en 24/48h a toda la península. Free a partir of 50€.',
+          content: 'Standard delivery in 24-48 hours. Free shipping on orders over $50.',
         },
         {
           value: 'returns',
-          label: 'Devoluciones',
+          label: 'Returns',
           content: 'Dispones of 30 días para realizar devoluciones gratuitas.',
         },
         {
           value: 'warranty',
           label: 'Garantía',
-          content: '3 años of garantía oficial ofl fabricante.',
+          content: '3 años of garantía oficial of fabricante.',
         },
       ]}
     />

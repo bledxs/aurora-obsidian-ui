@@ -32,7 +32,7 @@ type Story = StoryObj<typeof meta>;
 // 1. Standard Card
 export const Default: Story = {
   render: () => (
-    <Card className="w-[360px]">
+    <Card className="w-90">
       <CardHeader>
         <CardTitle>Satisfaction Guarantee</CardTitle>
         <CardDescription>30-day money-back guarantee</CardDescription>
@@ -56,13 +56,13 @@ export const Default: Story = {
 // 2. Card of Resumen of Pedido (E-commerce Order Summary)
 export const OrderSummary: Story = {
   render: () => (
-    <Card className="w-[380px]">
+    <Card className="w-95">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle>Resumen ofl Pedido</CardTitle>
+          <CardTitle>Summary of Order</CardTitle>
           <Badge variant="success">3 items</Badge>
         </div>
-        <CardDescription>Revisa los totales antes of pagar</CardDescription>
+        <CardDescription>Check totals before paying</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
         <div className="flex justify-between text-sm">
@@ -74,7 +74,7 @@ export const OrderSummary: Story = {
           <span className="font-semibold text-aurora-success text-sm">Free</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-aurora-text-secondary">Descuento of bienvenida</span>
+          <span className="text-aurora-text-secondary">Welcome discount</span>
           <span className="font-semibold text-aurora-error text-sm">-25.00 €</span>
         </div>
         <div className="my-2 border-t border-aurora-border" />
@@ -85,11 +85,11 @@ export const OrderSummary: Story = {
       </CardContent>
       <CardFooter className="flex-col gap-3 border-t border-aurora-border/60">
         <Button variant="primary" className="w-full gap-2">
-          <CreditCard size={16} /> Proceofr al Pago
+          <CreditCard size={16} /> Proceed to Payment
         </Button>
         <div className="flex items-center justify-center gap-2 text-xs text-aurora-text-secondary">
           <ShieldCheck size={14} className="text-aurora-success" />
-          <span>Pago 100% seguro y encriptado</span>
+          <span>100% secure and encrypted payment</span>
         </div>
       </CardFooter>
     </Card>
@@ -99,13 +99,13 @@ export const OrderSummary: Story = {
 // 3. Card Interactiva / Clickable
 export const Interactive: Story = {
   render: () => (
-    <Card variant="interactive" className="w-[360px] p-6">
+    <Card variant="interactive" className="w-90 p-6">
       <div className="flex items-start gap-4">
         <div className="rounded-lg bg-aurora-primary-bg p-3 text-aurora-primary">
           <Truck size={24} />
         </div>
         <div className="flex-1">
-          <h4 className="font-semibold text-aurora-text-primary">Shipping Express en 24h</h4>
+          <h4 className="font-semibold text-aurora-text-primary">Express Shipping in 24h</h4>
           <p className="mt-1 text-xs text-aurora-text-secondary">
             Get your order tomorrow by selecting priority shipping.
           </p>

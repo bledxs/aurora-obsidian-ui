@@ -22,7 +22,7 @@ const meta = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño ofl disparador ofl selector',
+      description: 'Select trigger size',
     },
     disabled: {
       control: 'boolean',
@@ -34,7 +34,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Ordenar Catálogo of Productos (Composable)
+// 1. Sort Product Catalog (Composable)
 export const ProductSorting: Story = {
   render: () => {
     const [sort, setSort] = useState('relevance');
@@ -50,8 +50,8 @@ export const ProductSorting: Story = {
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="relevance">Most Relevant</SelectItem>
-            <SelectItem value="price-asc">Precio: Menor a mayor</SelectItem>
-            <SelectItem value="price-desc">Precio: Mayor a menor</SelectItem>
+            <SelectItem value="price-asc">Price: Low to High</SelectItem>
+            <SelectItem value="price-desc">Price: High to Low</SelectItem>
             <SelectItem value="rating">Highest Rated</SelectItem>
             <SelectItem value="newest">New Arrivals y lanzamientos</SelectItem>
           </SelectContent>
@@ -61,13 +61,13 @@ export const ProductSorting: Story = {
   },
 };
 
-// 2. Selector con Grupos y Separadores
+// 2. Selector with Groups and Separators
 export const GroupedCategories: Story = {
   render: () => (
     <div className="w-[280px] font-sans">
       <Select defaultValue="shoes-running">
         <SelectTrigger>
-          <SelectValue placeholder="Filter por categoría" />
+          <SelectValue placeholder="Filter by category" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
@@ -109,7 +109,7 @@ export const DeclarativeOptions: Story = {
   ),
 };
 
-// 4. Tamaños (Small, Medium, Large)
+// 4. Sizes (Small, Medium, Large)
 export const Sizes = () => (
   <div className="flex flex-col gap-4 w-[280px] font-sans">
     <div>

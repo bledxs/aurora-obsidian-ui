@@ -17,7 +17,7 @@ const meta = {
     },
     collapsible: {
       control: 'boolean',
-      description: 'Permitir cerrar el elemento activo al cliquearlo of nuevo',
+      description: 'Allow closing the active item by clicking on it again',
     },
   },
 } satisfies Meta<typeof Accordion>;
@@ -25,14 +25,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Especificaciones of Producto (Composable)
+// 1. Especificaciones of Product (Composable)
 export const ProductDetails: Story = {
   render: () => (
     <Accordion type="single" collapsible defaultValue="item-1" className="w-112.5">
       <AccordionItem value="item-1">
         <AccordionTrigger>
           <span className="flex items-center gap-2">
-            <Sparkles size={16} className="text-aurora-primary" /> Materiales y Sostenibilidad
+            <Sparkles size={16} className="text-aurora-primary" /> Matterials and sustainability
           </span>
         </AccordionTrigger>
         <AccordionContent>
@@ -44,13 +44,13 @@ export const ProductDetails: Story = {
       <AccordionItem value="item-2">
         <AccordionTrigger>
           <span className="flex items-center gap-2">
-            <Truck size={16} className="text-aurora-primary" /> Shippings y Plazos of Entrega
+            <Truck size={16} className="text-aurora-primary" /> Shipping & Delivery Times
           </span>
         </AccordionTrigger>
         <AccordionContent>
           <ul className="list-disc pl-4 space-y-1">
             <li>
-              <strong>Standard (2-4 business days):</strong> Free en pedidos superiores a 50€.
+              <strong>Standard (2-4 business days):</strong> Free for orders over 50€.
             </li>
             <li>
               <strong>Express 24h:</strong> $4.95 (free for Club Aurora members).
@@ -111,14 +111,14 @@ export const MultipleOpen: Story = {
   render: () => (
     <Accordion type="multiple" defaultValue={['item-1', 'item-2']} className="w-112.5">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Pregunta Frecuente 1</AccordionTrigger>
+        <AccordionTrigger>First question</AccordionTrigger>
         <AccordionContent>
           This accordion allows opening multiple panels at the same time.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Pregunta Frecuente 2</AccordionTrigger>
-        <AccordionContent>Iofal for user guides or extensive documentation.</AccordionContent>
+        <AccordionTrigger>Second question</AccordionTrigger>
+        <AccordionContent>Ideal for user guides or extensive documentation.</AccordionContent>
       </AccordionItem>
     </Accordion>
   ),

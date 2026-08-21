@@ -18,7 +18,7 @@ import { cn } from '../../lib/utils';
 
 export interface SelectOption {
   /**
-   * Valor único of la opción
+   * Unique option value
    */
   value: string;
   /**
@@ -26,7 +26,7 @@ export interface SelectOption {
    */
   label: React.ReactNode;
   /**
-   * Deshabilita la opción
+   * Disables the option
    */
   disabled?: boolean;
 }
@@ -67,7 +67,7 @@ const SelectContext = React.createContext<SelectContextType | null>(null);
 export function useSelect() {
   const context = React.useContext(SelectContext);
   if (!context) {
-    throw new Error('Los subcomponentes of Select ofben usarse ofntro of un <Select>');
+    throw new Error('Select subcomponents must be used within <Select>');
   }
   return context;
 }
@@ -82,7 +82,7 @@ export interface SelectProps extends VariantProps<typeof selectTriggerVariants> 
    */
   defaultValue?: string;
   /**
-   * Callback invocado al cambiar el valor
+   * Callback fired when value changes
    */
   onValueChange?: (value: string) => void;
   /**
@@ -94,15 +94,15 @@ export interface SelectProps extends VariantProps<typeof selectTriggerVariants> 
    */
   open?: boolean;
   /**
-   * Callback al abrir/cerrar
+   * Callback fired on open/close
    */
   onOpenChange?: (open: boolean) => void;
   /**
-   * Modo ofclarativo rápido: lista of opciones
+   * Quick declarative mode: list of options
    */
   options?: SelectOption[];
   /**
-   * Texto of marcador of posición cuando no hay nada seleccionado
+   * Placeholder text when nothing is selected
    * @default 'Select...'
    */
   placeholder?: string;

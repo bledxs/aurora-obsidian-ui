@@ -26,7 +26,7 @@ const meta = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño ofl control',
+      description: 'Control size',
     },
     disabled: {
       control: 'boolean',
@@ -38,7 +38,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Filtro of Rango of Precios para Tienda Online (Dual Thumb)
+// 1. Price Range Filter for Online Store (Dual Thumb)
 export const PriceRangeFilter: Story = {
   render: () => {
     const [range, setRange] = useState<[number, number]>([35, 175]);
@@ -47,7 +47,7 @@ export const PriceRangeFilter: Story = {
       <div className="w-[320px] rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface p-5 font-sans space-y-4">
         <div className="flex items-center justify-between">
           <span className="text-xs font-bold text-aurora-text-secondary uppercase tracking-wiofr">
-            Rango of Precio
+            Price Range
           </span>
           <span className="text-xs font-semibold text-aurora-primary">
             {range[0]} € - {range[1]} €
@@ -101,7 +101,7 @@ export const SingleValue: Story = {
   },
 };
 
-// 3. Incrementos Discretos por Pasos
+// 3. Discrete Step Increments
 export const DiscreteSteps: Story = {
   render: () => (
     <div className="w-[280px] font-sans space-y-2">
@@ -111,7 +111,7 @@ export const DiscreteSteps: Story = {
   ),
 };
 
-// 4. Tamaños
+// 4. Sizes
 export const Sizes = () => (
   <div className="flex flex-col gap-6 w-[280px] font-sans">
     <div className="space-y-1">
@@ -129,7 +129,7 @@ export const Sizes = () => (
   </div>
 );
 
-// 5. Deshabilitado
+// 5. Disabled
 export const Disabled: Story = {
   render: () => (
     <div className="flex flex-col gap-6 w-[280px] font-sans">
