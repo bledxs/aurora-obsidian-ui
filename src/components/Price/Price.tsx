@@ -5,7 +5,11 @@ export interface PriceProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * El precio actual a mostrar
    */
-  value: number;
+  value?: number;
+  /**
+   * Alias de value
+   */
+  amount?: number;
   /**
    * El precio original (si hay descuento, aparecerá tachado)
    */
@@ -36,6 +40,7 @@ export const Price = forwardRef<HTMLDivElement, PriceProps>(
   (
     {
       value,
+      amount,
       originalValue,
       currency = 'EUR',
       locale = 'es-ES',
@@ -46,16 +51,19 @@ export const Price = forwardRef<HTMLDivElement, PriceProps>(
     },
     ref,
   ) => {
+    const rawValue = value ?? amount ?? 0;
+
     const formatPrice = (price: number) => {
+      const num = typeof price === 'number' && !Number.isNaN(price) ? price : 0;
       return new Intl.NumberFormat(locale, {
         style: 'currency',
         currency: currency,
-      }).format(price);
+      }).format(num);
     };
 
-    const hasDiscount = originalValue !== undefined && originalValue > value;
+    const hasDiscount = originalValue !== undefined && originalValue > rawValue;
     const discountPercentage = hasDiscount
-      ? Math.round(((originalValue - value) / originalValue) * 100)
+      ? Math.round(((originalValue - rawValue) / originalValue) * 100)
       : 0;
 
     const sizeClasses = {
@@ -83,7 +91,7 @@ export const Price = forwardRef<HTMLDivElement, PriceProps>(
         {...props}
       >
         <span className={cn('font-bold text-aurora-text-primary', sizeClasses[size].current)}>
-          {formatPrice(value)}
+          {formatPrice(rawValue)}
         </span>
 
         {hasDiscount && (

@@ -117,6 +117,10 @@
     "files": ["src/components/Skeleton/Skeleton.tsx"],
     "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"]
   },
+  "table": {
+    "files": ["src/components/Table/Table.tsx"],
+    "dependencies": ["clsx", "tailwind-merge"]
+  },
   "toast": {
     "files": ["src/components/Toast/Toast.tsx", "src/components/Toast/toast-store.ts"],
     "dependencies": ["@floating-ui/react", "lucide-react", "clsx", "tailwind-merge"]
