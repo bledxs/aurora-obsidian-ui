@@ -6,6 +6,10 @@
   "main": "./dist/aurora-obsidian-ui.umd.cjs",
   "module": "./dist/aurora-obsidian-ui.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "aurora-obsidian-ui": "./bin/aurora.js",
+    "aurora": "./bin/aurora.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
