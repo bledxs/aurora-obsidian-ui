@@ -105,8 +105,8 @@ export const ProductQuickView = () => {
       name: 'Color',
       type: 'color' as const,
       options: [
-        { label: 'Negro Obsidiana', value: 'obsidian', color: '#0f172a' },
-        { label: 'Blanco Nieve', value: 'white', color: '#ffffff' },
+        { label: 'Obsidian Black', value: 'obsidian', color: '#0f172a' },
+        { label: 'Pure White', value: 'white', color: '#ffffff' },
       ],
     },
     {
@@ -201,8 +201,7 @@ export const ProductQuickView = () => {
                 />
               </div>
               <DialogDescription className="mt-3">
-                Amortiguación reactiva con espuma Nitro para máximo retorno of energía en cada
-                zancada.
+                Cushioning reactiva con espuma Nitro para máximo retorno of energía en cada zancada.
               </DialogDescription>
             </div>
 
@@ -231,10 +230,10 @@ export const ProductQuickView = () => {
                   disabled={!isAvailable}
                   className="flex-1"
                   onClick={() =>
-                    alert(`¡Added to cart! SKU: ${selectedVariant?.sku} (${qty} unidaofs)`)
+                    alert(`¡Added to cart! SKU: ${selectedVariant?.sku} (${qty} units)`)
                   }
                 >
-                  {!isAvailable ? 'Sin Existencias' : `Add al Carrito (${qty})`}
+                  {!isAvailable ? 'Out of Stock' : `Add to Cart (${qty})`}
                 </Button>
               </DialogClose>
             </div>

@@ -15,7 +15,7 @@ export interface PriceProps extends HTMLAttributes<HTMLDivElement> {
    */
   originalValue?: number;
   /**
-   * Código of moneda ISO (ej. 'EUR', 'USD', 'MXN')
+   * ISO currency code (e.g. 'USD', 'EUR', 'GBP')
    * @default 'EUR'
    */
   currency?: string;

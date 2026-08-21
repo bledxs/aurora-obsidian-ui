@@ -32,7 +32,7 @@ const meta = {
     },
     showControls: {
       control: 'boolean',
-      description: 'Muestra botones of anterior y siguiente',
+      description: 'Show previous and next buttons',
     },
   },
 } satisfies Meta<typeof Pagination>;
@@ -40,7 +40,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Paginación Interactiva of Catálogo (Modo Inteligente/Declarativo)
+// 1. Interactive Catalog Pagination (Smart / Declarative Mode)
 export const CatalogInteractive: Story = {
   render: () => {
     const [currentPage, setCurrentPage] = useState(4);
@@ -49,7 +49,7 @@ export const CatalogInteractive: Story = {
     return (
       <div className="flex flex-col items-center gap-4 font-sans">
         <span className="text-xs text-aurora-text-secondary">
-          Mostrando productos of la página{' '}
+          Showing products on page{' '}
           <strong className="text-aurora-text-primary">{currentPage}</strong> of {totalPages}
         </span>
         <Pagination
@@ -70,7 +70,7 @@ export const FirstPage: Story = {
   },
 };
 
-// 3. Última Page
+// 3. Last Page
 export const LastPage: Story = {
   args: {
     currentPage: 10,

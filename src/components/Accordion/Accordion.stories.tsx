@@ -68,7 +68,7 @@ export const ProductDetails: Story = {
         </AccordionTrigger>
         <AccordionContent>
           You have 30 days to test and return your product hassle-free. Includes 2 years official
-          manufacturer warranty against offects.
+          manufacturer warranty against defects.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

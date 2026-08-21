@@ -47,7 +47,7 @@ export const ProductTabs: Story = {
       <TabsContent value="specs" className="text-sm">
         <div className="divide-y divide-aurora-border">
           <div className="flex justify-between py-2">
-            <span className="text-aurora-text-secondary">Peso</span>
+            <span className="text-aurora-text-secondary">Weight</span>
             <span className="font-medium text-aurora-text-primary">245 gramos</span>
           </div>
           <div className="flex justify-between py-2">
@@ -71,7 +71,7 @@ export const ProductTabs: Story = {
         </div>
         <div className="space-y-2">
           <div className="text-xs font-semibold text-aurora-text-primary">
-            Carlos M. - Hace 2 días
+            Carlos M. - 2 days ago
           </div>
           <p className="text-xs text-aurora-text-secondary">
             Excellent purchase. Super comfortable from the first run. Fits true to size. perfecta.
@@ -88,9 +88,9 @@ export const PillsVariant: Story = {
     <Tabs defaultValue="all" variant="pills" className="w-[450px]">
       <TabsList>
         <TabsTrigger value="all">All</TabsTrigger>
-        <TabsTrigger value="men">Hombre</TabsTrigger>
-        <TabsTrigger value="women">Mujer</TabsTrigger>
-        <TabsTrigger value="kids">Niños</TabsTrigger>
+        <TabsTrigger value="men">Men</TabsTrigger>
+        <TabsTrigger value="women">Women</TabsTrigger>
+        <TabsTrigger value="kids">Kids</TabsTrigger>
       </TabsList>
 
       <TabsContent value="all" className="text-sm text-aurora-text-secondary">
@@ -109,7 +109,7 @@ export const PillsVariant: Story = {
   ),
 };
 
-// 3. Modo Declarativo Rápido (items)
+// 3. Quick Declarative Mode (items)
 export const DeclarativeItems: Story = {
   render: () => (
     <Tabs
@@ -124,12 +124,12 @@ export const DeclarativeItems: Story = {
         {
           value: 'returns',
           label: 'Returns',
-          content: 'Dispones of 30 días para realizar devoluciones gratuitas.',
+          content: '30-day free returns on all orders.',
         },
         {
           value: 'warranty',
-          label: 'Garantía',
-          content: '3 años of garantía oficial of fabricante.',
+          label: 'Warranty',
+          content: '3-year manufacturer warranty.',
         },
       ]}
     />

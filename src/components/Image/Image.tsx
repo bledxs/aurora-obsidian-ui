@@ -8,11 +8,11 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
    */
   alt: string;
   /**
-   * Imagen a mostrar si falla la carga of la imagen principal
+   * Imagen a mostrar si falla la carga of the imagen principal
    */
   fallbackSrc?: string;
   /**
-   * Proporción of la imagen para reservar su espacio y evitar layout shift
+   * Proporción of the imagen para reservar su espacio y evitar layout shift
    * @default 'auto'
    */
   aspectRatio?: '1/1' | '4/3' | '16/9' | 'auto';

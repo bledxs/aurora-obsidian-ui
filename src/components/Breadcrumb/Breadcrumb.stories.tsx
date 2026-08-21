@@ -36,7 +36,7 @@ type Story = StoryObj<typeof meta>;
 export const SimpleWithItems: Story = {
   args: {
     items: [
-      { label: 'Inicio', href: '/' },
+      { label: 'Home', href: '/' },
       { label: 'Products', href: '/productos' },
       { label: 'Audio', href: '/productos/audio' },
       { label: 'Obsidian Pro Headphones' }, // No href = current page
@@ -49,7 +49,7 @@ export const SimpleWithCustomSeparator: Story = {
   args: {
     separator: <Slash className="h-3.5 w-3.5" />,
     items: [
-      { label: 'Inicio', href: '/' },
+      { label: 'Home', href: '/' },
       { label: 'Tienda', href: '/tienda' },
       { label: 'Shopping Cart' },
     ],

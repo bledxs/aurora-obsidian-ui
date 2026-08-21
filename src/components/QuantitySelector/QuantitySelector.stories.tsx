@@ -11,8 +11,8 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     value: { control: 'number', description: 'Quantity actual' },
-    min: { control: 'number', description: 'Valor mínimo' },
-    max: { control: 'number', description: 'Valor máximo' },
+    min: { control: 'number', description: 'Minimum value' },
+    max: { control: 'number', description: 'Maximum value' },
     step: { control: 'number', description: 'Paso of incremento' },
     size: {
       control: 'radio',
@@ -21,7 +21,7 @@ const meta = {
     },
     showTrashOnMin: {
       control: 'boolean',
-      description: 'Show papelera al llegar al valor mínimo',
+      description: 'Show trash icon when reaching minimum value',
     },
     disabled: { control: 'boolean', description: 'Deshabilitar componente' },
     onChange: { action: 'changed' },

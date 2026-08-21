@@ -16,7 +16,7 @@ const meta = {
     variant: {
       control: 'select',
       options: ['default', 'outline', 'flat', 'interactive'],
-      description: 'Estilo visual of la tarjeta',
+      description: 'Estilo visual of the tarjeta',
     },
     padding: {
       control: 'select',

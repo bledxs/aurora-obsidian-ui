@@ -47,7 +47,7 @@ export interface TabsProps
    */
   defaultValue?: string;
   /**
-   * Callback invocado al cambiar of pestaña
+   * Callback fired when active tab changes
    */
   onValueChange?: (value: string) => void;
   /**
@@ -56,7 +56,7 @@ export interface TabsProps
    */
   variant?: 'pills' | 'underline';
   /**
-   * Modo ofclarativo rápido: lista of pestañas
+   * Quick declarative mode: tab list
    */
   items?: TabItem[];
   children?: React.ReactNode;

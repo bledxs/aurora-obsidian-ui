@@ -33,7 +33,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Variantes Básicas
+// 1. Basic Variants
 export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-wrap gap-3 font-sans">
@@ -113,7 +113,7 @@ export const WithAction: Story = {
             },
             cancel: {
               label: 'Deshacer',
-              onClick: () => toast('Acción ofshecha'),
+              onClick: () => toast('Action undone'),
             },
           })
         }
@@ -124,7 +124,7 @@ export const WithAction: Story = {
   ),
 };
 
-// 3. Notificación Asíncrona (toast.promise)
+// 3. Async Notification (toast.promise)
 export const AsyncPromise: Story = {
   render: () => {
     const handleCheckout = () => {
@@ -139,9 +139,9 @@ export const AsyncPromise: Story = {
       });
 
       toast.promise(simulatedApi, {
-        loading: 'Procesando pago y generando pedido...',
-        success: (data) => `¡Pedido #${data.orderId} confirmado con éxito!`,
-        error: 'No se pudo completar la transacción.',
+        loading: 'Processing payment and generating order...',
+        success: (data) => `Order #${data.orderId} confirmed successfully!`,
+        error: 'Transaction could not be completed.',
       });
     };
 

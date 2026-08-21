@@ -71,7 +71,7 @@ export const IntegratedWithCart = () => {
     },
     {
       id: '2',
-      title: 'Camiseta Técnica Transpirable',
+      title: 'Breathable Performance T-Shirt',
       variantTitle: 'Azul Marino / Size L',
       price: 34.99,
       quantity: 2,
@@ -84,7 +84,7 @@ export const IntegratedWithCart = () => {
   const subtotal = items.reduce((acc, it) => acc + it.price * it.quantity, 0);
 
   return (
-    <div className="min-h-[400px] bg-aurora-neutral-bg">
+    <div className="min-h-100 bg-aurora-neutral-bg">
       <Navbar
         brand={
           <span className="flex items-center gap-2 font-black text-xl tracking-wiofr text-aurora-primary">
@@ -93,9 +93,9 @@ export const IntegratedWithCart = () => {
           </span>
         }
         links={[
-          { label: 'Inicio', href: '#', active: true },
-          { label: 'Hombre', href: '#' },
-          { label: 'Mujer', href: '#' },
+          { label: 'Home', href: '#', active: true },
+          { label: 'Men', href: '#' },
+          { label: 'Women', href: '#' },
           { label: 'Equipamiento', href: '#' },
         ]}
         showSearch

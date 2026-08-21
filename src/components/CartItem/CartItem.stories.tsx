@@ -10,11 +10,11 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    title: { control: 'text', description: 'Name of product' },
+    title: { control: 'text', description: 'Product title' },
     price: { control: 'number', description: 'Unit price' },
     originalPrice: { control: 'number', description: 'Previous unit price' },
-    quantity: { control: 'number', description: 'Quantity selected' },
-    variantDescription: { control: 'text', description: 'Variant description' },
+    quantity: { control: 'number', description: 'Selected quantity' },
+    variantTitle: { control: 'text', description: 'Variant label / title' },
     isLoading: { control: 'boolean', description: 'Interaction lock' },
     onQuantityChange: { action: 'quantityChanged' },
     onRemove: { action: 'removed' },
@@ -32,7 +32,7 @@ export const Default: Story = {
     quantity: 1,
     imageUrl:
       'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=300&h=300',
-    variantDescription: 'Color: Obsidian Black',
+    variantTitle: 'Color: Obsidian Black',
   },
 };
 
@@ -45,7 +45,7 @@ export const WithDiscount: Story = {
     quantity: 2,
     imageUrl:
       'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=300&h=300',
-    variantDescription: 'Correa: Silicona • 44mm',
+    variantTitle: 'Strap: Silicone • 44mm',
   },
 };
 
@@ -72,11 +72,11 @@ export const Interactive = () => {
     <div style={{ width: '380px' }}>
       <CartItem
         id="3"
-        title="Zapatillas Urban Runner Pro"
+        title="Urban Runner Pro Sneakers"
         price={85.0}
         quantity={qty}
-        imageUrl="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=300&h=300"
-        variantDescription="Size: 42 • Color: Carmín"
+        imageSrc="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=300&h=300"
+        variantTitle="Size: 42 • Color: Crimson Red"
         onQuantityChange={setQty}
         onRemove={() => setRemoved(true)}
       />

@@ -13,11 +13,11 @@ const meta = {
   argTypes: {
     min: {
       control: 'number',
-      description: 'Valor mínimo',
+      description: 'Minimum value',
     },
     max: {
       control: 'number',
-      description: 'Valor máximo',
+      description: 'Maximum value',
     },
     step: {
       control: 'number',
@@ -65,11 +65,11 @@ export const PriceRangeFilter: Story = {
 
         <div className="flex items-center justify-between pt-1 text-xs text-aurora-text-secondary">
           <div className="flex flex-col">
-            <span className="text-[10px] uppercase">Mínimo</span>
+            <span className="text-[10px] uppercase">Min</span>
             <Price value={range[0]} size="small" />
           </div>
           <div className="flex flex-col text-right">
-            <span className="text-[10px] uppercase">Máximo</span>
+            <span className="text-[10px] uppercase">Max</span>
             <Price value={range[1]} size="small" />
           </div>
         </div>

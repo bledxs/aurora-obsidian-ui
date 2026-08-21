@@ -17,7 +17,7 @@ const meta = {
     animation: {
       control: 'radio',
       options: ['shimmer', 'pulse', 'none'],
-      description: 'Tipo of animación',
+      description: 'Animation type',
     },
   },
 } satisfies Meta<typeof Skeleton>;
@@ -72,13 +72,13 @@ export const AnimationTypes = () => (
 
     <div className="space-y-1.5">
       <span className="text-xs font-semibold text-aurora-text-secondary">
-        Pulse (Pulsación of opacidad)
+        Pulse (Opacity pulsation)
       </span>
       <Skeleton animation="pulse" className="h-10 w-full" />
     </div>
 
     <div className="space-y-1.5">
-      <span className="text-xs font-semibold text-aurora-text-secondary">None (Estático)</span>
+      <span className="text-xs font-semibold text-aurora-text-secondary">None (Static)</span>
       <Skeleton animation="none" className="h-10 w-full" />
     </div>
   </div>

@@ -28,7 +28,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Filtro Rápido of Catálogo of E-Commerce
+// 1. Quick E-Commerce Catalog Filter
 export const CatalogFilterPopover: Story = {
   render: () => {
     const [priceRange, setPriceRange] = useState<[number, number]>([20, 150]);
@@ -39,21 +39,19 @@ export const CatalogFilterPopover: Story = {
         <PopoverTrigger asChild>
           <Button variant="outline" className="gap-2">
             <SlidersHorizontal size={16} />
-            Filters rápidos
+            Quick Filters
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-80" showCloseButton>
           <PopoverHeader>
             <PopoverTitle>Filter Products</PopoverTitle>
-            <PopoverDescription>
-              Ajusta el rango of precio y disponibilidad of catálogo.
-            </PopoverDescription>
+            <PopoverDescription>Adjust price range and catalog availability.</PopoverDescription>
           </PopoverHeader>
 
           <div className="space-y-4 py-2">
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-medium">
-                <span className="text-aurora-text-secondary">Price máximo</span>
+                <span className="text-aurora-text-secondary">Max Price</span>
                 <span className="font-bold text-aurora-text-primary">
                   {priceRange[0]} € - {priceRange[1]} €
                 </span>
@@ -103,7 +101,7 @@ export const ShippingCalculatorPopover: Story = {
       <PopoverTrigger asChild>
         <Button variant="outline" className="gap-2 text-xs">
           <Truck size={15} />
-          Calcular costes of envío
+          Calculate Shipping Rates
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-72" showCloseButton>
@@ -179,12 +177,12 @@ export const UserQuickProfilePopover: Story = {
           </PopoverClose>
           <PopoverClose className="w-full justify-start gap-2.5 px-2.5 py-2 text-aurora-text-secondary hover:bg-aurora-surface-hover hover:text-aurora-text-primary font-normal">
             <Settings size={14} />
-            Settings of cuenta
+            Account Settings
           </PopoverClose>
           <div className="my-1 border-t border-aurora-border/40" />
           <PopoverClose className="w-full justify-start gap-2.5 px-2.5 py-2 text-rose-600 hover:bg-rose-50 font-normal">
             <LogOut size={14} />
-            Close sesión
+            Log Out
           </PopoverClose>
         </div>
       </PopoverContent>

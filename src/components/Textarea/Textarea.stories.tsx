@@ -17,7 +17,7 @@ const meta = {
     },
     isError: {
       control: 'boolean',
-      description: 'Estado of error of validación',
+      description: 'Validation error state',
     },
     showCount: {
       control: 'boolean',
@@ -82,7 +82,7 @@ export const ProductReview: Story = {
   },
 };
 
-// 3. Error of Validación
+// 3. Validation Error
 export const WithValidationError: Story = {
   render: () => (
     <div className="w-[380px] font-sans">

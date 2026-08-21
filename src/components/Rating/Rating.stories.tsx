@@ -10,14 +10,14 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    value: { control: { type: 'range', min: 0, max: 5, step: 0.1 }, description: 'Puntuación' },
+    value: { control: { type: 'range', min: 0, max: 5, step: 0.1 }, description: 'Rating score' },
     max: { control: 'number', description: 'Maximum star count' },
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
       description: 'Star icon size',
     },
-    showValue: { control: 'boolean', description: 'Show valor numérico' },
+    showValue: { control: 'boolean', description: 'Show numeric score' },
     reviewCount: { control: 'number', description: 'Review count' },
     interactive: { control: 'boolean', description: 'Habilitar modo interactivo' },
     disabled: { control: 'boolean', description: 'Deshabilitar componente' },
@@ -27,7 +27,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Estándar
+// 1. Standard
 export const Default: Story = {
   args: {
     value: 4.5,
@@ -71,7 +71,7 @@ export const InteractiveForm = () => {
       <h4 className="font-semibold text-aurora-text-primary">How would you rate this product?</h4>
       <Rating value={score} size="large" interactive onChange={setScore} />
       <p className="text-xs text-aurora-text-secondary">
-        Tu puntuación: <strong className="text-aurora-text-primary">{score} out of 5 stars</strong>
+        Your rating: <strong className="text-aurora-text-primary">{score} out of 5 stars</strong>
       </p>
     </div>
   );

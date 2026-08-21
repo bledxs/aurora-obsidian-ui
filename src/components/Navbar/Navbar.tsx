@@ -27,7 +27,7 @@ export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
    */
   brand?: React.ReactNode;
   /**
-   * Enlaces of navegación principales (modo ofclarativo)
+   * Enlaces of navegación principales (modo declarative)
    */
   links?: NavbarLink[];
   /**
@@ -62,7 +62,7 @@ export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
    */
   sticky?: boolean;
   /**
-   * Acciones personalizadas adicionales a la ofrecha
+   * Acciones personalizadas adicionales a la right
    */
   actions?: React.ReactNode;
   children?: React.ReactNode;

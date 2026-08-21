@@ -40,7 +40,7 @@ export const OrderHistory: Story = {
             <TableHead>Estado</TableHead>
             <TableHead>Items</TableHead>
             <TableHead className="text-right">Total</TableHead>
-            <TableHead className="text-center">Acción</TableHead>
+            <TableHead className="text-center">Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -48,7 +48,7 @@ export const OrderHistory: Story = {
             <TableCell className="font-semibold">#AUR-89412</TableCell>
             <TableCell className="text-aurora-text-secondary">21 Ago 2026</TableCell>
             <TableCell>
-              <Badge variant="success">Entregado</Badge>
+              <Badge variant="success">Delivered</Badge>
             </TableCell>
             <TableCell>2 items</TableCell>
             <TableCell className="text-right font-medium">
@@ -66,7 +66,7 @@ export const OrderHistory: Story = {
             <TableCell className="font-semibold">#AUR-89390</TableCell>
             <TableCell className="text-aurora-text-secondary">15 Ago 2026</TableCell>
             <TableCell>
-              <Badge variant="warning">En tránsito</Badge>
+              <Badge variant="warning">In Transit</Badge>
             </TableCell>
             <TableCell>1 item</TableCell>
             <TableCell className="text-right font-medium">
@@ -124,7 +124,7 @@ export const ProductInventory: Story = {
             </TableHead>
             <TableHead>Product</TableHead>
             <TableHead>SKU</TableHead>
-            <TableHead>Categoría</TableHead>
+            <TableHead>Category</TableHead>
             <TableHead>Stock</TableHead>
             <TableHead className="text-right">Price</TableHead>
           </TableRow>
@@ -158,7 +158,7 @@ export const ProductInventory: Story = {
 
           <TableRow>
             <TableCell>
-              <Checkbox aria-label="Select Camiseta Técnica" />
+              <Checkbox aria-label="Select Performance T-Shirt" />
             </TableCell>
             <TableCell className="font-medium">
               <div className="flex items-center gap-3">
@@ -167,7 +167,7 @@ export const ProductInventory: Story = {
                   alt="Camiseta"
                   className="h-9 w-9 rounded-xs object-cover"
                 />
-                <span>Camiseta Técnica Transpirable</span>
+                <span>Breathable Performance T-Shirt</span>
               </div>
             </TableCell>
             <TableCell className="text-aurora-text-secondary font-mono text-xs">
@@ -187,15 +187,15 @@ export const ProductInventory: Story = {
   ),
 };
 
-// 3. Ficha Técnica of Product
+// 3. Product Specifications Table
 export const TechnicalSpecs: Story = {
   render: () => (
     <div className="w-full max-w-md font-sans">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Especificación</TableHead>
-            <TableHead>Detalle</TableHead>
+            <TableHead>Specification</TableHead>
+            <TableHead>Detail</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -203,16 +203,14 @@ export const TechnicalSpecs: Story = {
             <TableCell className="font-semibold text-aurora-text-secondary">
               Matterial Superior
             </TableCell>
-            <TableCell>Malla técnica transpirable Jacquard</TableCell>
+            <TableCell>Breathable Jacquard technical mesh</TableCell>
           </TableRow>
           <TableRow>
             <TableCell className="font-semibold text-aurora-text-secondary">Suela</TableCell>
-            <TableCell>Goma Vibram® Megagrip of alta tracción</TableCell>
+            <TableCell>Vibram® Megagrip high-traction rubber</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="font-semibold text-aurora-text-secondary">
-              Amortiguación
-            </TableCell>
+            <TableCell className="font-semibold text-aurora-text-secondary">Cushioning</TableCell>
             <TableCell>Espuma reactiva EVA of doble ofnsidad</TableCell>
           </TableRow>
           <TableRow>
@@ -220,7 +218,7 @@ export const TechnicalSpecs: Story = {
             <TableCell>8 mm</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="font-semibold text-aurora-text-secondary">Peso</TableCell>
+            <TableCell className="font-semibold text-aurora-text-secondary">Weight</TableCell>
             <TableCell>245 g (Size 42)</TableCell>
           </TableRow>
         </TableBody>

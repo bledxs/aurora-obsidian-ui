@@ -19,7 +19,7 @@ const meta = {
       options: ['primary', 'success', 'warning', 'error', 'neutral'],
       description: 'Badge color',
     },
-    rating: { control: 'number', description: 'Puntuación (1 - 5)' },
+    rating: { control: 'number', description: 'Rating (1 - 5)' },
     reviewsCount: { control: 'number', description: 'Total reviews count' },
     cartQuantity: {
       control: 'number',
@@ -34,7 +34,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     id: 'prod-1',
-    title: 'Auriculares Inalámbricos Obsidian Pro',
+    title: 'Obsidian Pro Wireless Headphones',
     description:
       'Active noise cancellation, 30-hour battery life, and high-fidelity acoustics. Built for everyday luxury.',
     price: 129.99,
@@ -63,7 +63,7 @@ export const NewArrival: Story = {
     imageUrl:
       'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600&h=600',
     title: 'Smartwatch Titan Series',
-    description: 'Rastreo ofportivo avanzado, monitor of oxígeno y diseño premium.',
+    description: 'Advanced sports tracking, blood oxygen monitor, and premium titanium build.',
   },
 };
 

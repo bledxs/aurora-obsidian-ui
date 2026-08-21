@@ -20,7 +20,7 @@ const meta = {
     currency: {
       control: 'select',
       options: ['EUR', 'USD', 'GBP', 'MXN', 'COP'],
-      description: 'Código of moneda ISO',
+      description: 'ISO currency code',
     },
     locale: {
       control: 'select',

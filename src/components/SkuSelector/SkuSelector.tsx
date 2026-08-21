@@ -223,7 +223,7 @@ const OptionItem: FC<OptionItemProps> = (props) => {
   return <PillOption {...props} />;
 };
 
-// Subcomponente interno para renderizar un grupo of opciones individual
+// Internal subcomponent to render an individual option group
 interface AttributeGroupProps {
   name: string;
   label: string;
@@ -276,7 +276,7 @@ const AttributeGroup: FC<AttributeGroupProps> = ({
 };
 
 // -------------------------------------------------------------
-// SUBCOMPONENTE MODO 1: AUTOMÁTICO MULTI-ATRIBUTO
+// SUBCOMPONENTE MODO 1: AUTOMATIC MULTI-ATRIBUTO
 // -------------------------------------------------------------
 const MultiAttributeSkuSelector = forwardRef<HTMLDivElement, SkuSelectorProps>(
   (
@@ -383,7 +383,7 @@ const MultiAttributeSkuSelector = forwardRef<HTMLDivElement, SkuSelectorProps>(
 MultiAttributeSkuSelector.displayName = 'MultiAttributeSkuSelector';
 
 // -------------------------------------------------------------
-// SUBCOMPONENTE MODO 2: SIMPLE (Un solo grupo)
+// INTERNAL SUBCOMPONENT MODE 2: SIMPLE (Single Group)
 // -------------------------------------------------------------
 const SingleAttributeSkuSelector = forwardRef<HTMLDivElement, SkuSelectorProps>(
   (

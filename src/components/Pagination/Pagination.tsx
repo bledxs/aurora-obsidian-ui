@@ -52,20 +52,20 @@ export interface PaginationProps extends React.ComponentProps<'nav'> {
    */
   currentPage?: number;
   /**
-   * Total of páginas en modo auto-generado
+   * Total number of pages in auto-generated mode
    */
   totalPages?: number;
   /**
-   * Callback invocado al cambiar of página
+   * Callback fired when page changes
    */
   onPageChange?: (page: number) => void;
   /**
-   * Quantity of páginas vecinas a mostrar a cada lado of la activa
+   * Number of sibling pages to display on each side of active page
    * @default 1
    */
   siblingCount?: number;
   /**
-   * Si es true, muestra botones con texto "Anterior" / "Siguiente"
+   * If true, displays buttons with "Previous" / "Next" text
    * @default true
    */
   showControls?: boolean;
@@ -85,14 +85,14 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
     },
     ref,
   ) => {
-    // Si se pasan props ofclarativas (currentPage y totalPages), renderiza el paginador auto-gestionado
+    // When declarative props (currentPage and totalPages) are provided, renders self-managed pagination
     if (currentPage !== undefined && totalPages !== undefined) {
       const range = generatePaginationRange(currentPage, totalPages, siblingCount);
 
       return (
         <nav
           ref={ref}
-          aria-label="Paginación"
+          aria-label="Pagination"
           className={cn('mx-auto flex w-full justify-center font-sans', className)}
           {...props}
         >
@@ -154,7 +154,7 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
     return (
       <nav
         ref={ref}
-        aria-label="Paginación"
+        aria-label="Pagination"
         className={cn('mx-auto flex w-full justify-center font-sans', className)}
         {...props}
       >
@@ -228,7 +228,7 @@ export const PaginationPrevious = React.forwardRef<HTMLAnchorElement, Pagination
   ({ className, label = 'Anterior', size = 'medium', ...props }, ref) => (
     <PaginationLink
       ref={ref}
-      aria-label="Ir a la página anterior"
+      aria-label="Go to previous page"
       size={size}
       className={cn('gap-1 pr-2.5', className)}
       {...props}
@@ -248,7 +248,7 @@ export const PaginationNext = React.forwardRef<HTMLAnchorElement, PaginationNext
   ({ className, label = 'Siguiente', size = 'medium', ...props }, ref) => (
     <PaginationLink
       ref={ref}
-      aria-label="Ir a la página siguiente"
+      aria-label="Go to next page"
       size={size}
       className={cn('gap-1 pl-2.5', className)}
       {...props}

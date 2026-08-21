@@ -93,7 +93,7 @@ export const NavigationMenu: Story = {
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
-          <SheetTitle>Categorías</SheetTitle>
+          <SheetTitle>Categories</SheetTitle>
           <SheetDescription>Browse our product collections</SheetDescription>
         </SheetHeader>
 
@@ -102,7 +102,7 @@ export const NavigationMenu: Story = {
             href="#electronica"
             className="rounded-sm p-2 font-medium hover:bg-aurora-surface-hover"
           >
-            Electrónica & Audio
+            Electronics & Audio
           </a>
           <a href="#relojes" className="rounded-sm p-2 font-medium hover:bg-aurora-surface-hover">
             Relojes Inteligentes

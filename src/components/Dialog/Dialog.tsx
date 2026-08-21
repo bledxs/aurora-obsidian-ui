@@ -162,7 +162,7 @@ export interface DialogContentProps
   extends React.DialogHTMLAttributes<HTMLDialogElement>,
     VariantProps<typeof dialogVariants> {
   /**
-   * Si es false, oculta el botón 'X' en la esquina superior ofrecha
+   * Si es false, oculta el botón 'X' en la esquina superior right
    * @default true
    */
   showCloseButton?: boolean;

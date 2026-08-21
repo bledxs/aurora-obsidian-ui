@@ -76,7 +76,7 @@ export const TableActionMenu: Story = {
   ),
 };
 
-// 2. Ordenación of Catálogo con Radio Items
+// 2. Ordenación of Catalog con Radio Items
 export const SortCatalogMenu: Story = {
   render: () => {
     const [sort, setSort] = useState('relevance');
@@ -124,7 +124,7 @@ export const FilterCheckboxMenu: Story = {
         <DropdownMenuTrigger asChild>
           <Button variant="outline" className="gap-2 text-xs">
             <Filter size={15} />
-            Filters rápidos
+            Quick Filters
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-52">
@@ -186,7 +186,7 @@ export const UserAccountMenu: Story = {
         <DropdownMenuSeparator />
         <DropdownMenuItem variant="danger">
           <LogOut size={14} />
-          Close sesión
+          Log Out
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>

@@ -16,7 +16,7 @@ const meta = {
     orientation: {
       control: 'radio',
       options: ['vertical', 'horizontal'],
-      description: 'Orientación of grupo',
+      description: 'Group orientation',
     },
     disabled: {
       control: 'boolean',
@@ -69,9 +69,7 @@ export const PaymentMethods: Story = {
                 Apple Pay / Google Pay
               </span>
             </div>
-            <p className="text-xs text-aurora-text-secondary">
-              Autorización biométrica instantánea
-            </p>
+            <p className="text-xs text-aurora-text-secondary">Instant biometric authorization</p>
           </RadioGroupCard>
         </RadioGroup>
       </div>
@@ -101,7 +99,7 @@ export const ShippingMethods: Story = {
               <div className="flex items-center gap-2">
                 <Truck size={17} className="text-aurora-text-secondary" />
                 <span className="text-sm font-bold text-aurora-text-primary">
-                  Shipping Estándar
+                  Standard Shipping
                 </span>
               </div>
               <span className="text-xs font-bold text-emerald-600 uppercase">Free</span>
@@ -137,7 +135,7 @@ export const ShippingMethods: Story = {
               <Price value={9.99} size="small" />
             </div>
             <p className="text-xs text-aurora-text-disabled">
-              Solo disponible en Madrid y Barcelona
+              Available in select metropolitan regions only
             </p>
           </RadioGroupCard>
         </RadioGroup>
@@ -146,7 +144,7 @@ export const ShippingMethods: Story = {
   },
 };
 
-// 3. Formulario Simple con Labels
+// 3. Simple Form with Labels
 export const BasicList: Story = {
   render: () => (
     <div className="w-[300px] font-sans space-y-3">

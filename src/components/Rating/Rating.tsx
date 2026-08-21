@@ -29,12 +29,12 @@ export interface RatingProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>,
     VariantProps<typeof ratingVariants> {
   /**
-   * Puntuación actual (ej. 4.5)
+   * Current rating score (e.g. 4.5)
    * @default 0
    */
   value?: number;
   /**
-   * Puntuación máxima posible
+   * Maximum rating score
    * @default 5
    */
   max?: number;
@@ -53,11 +53,11 @@ export interface RatingProps
    */
   showValue?: boolean;
   /**
-   * Review count o reseñas (ej. 128 -> "(128)")
+   * Review count (e.g. 128 -> "(128)")
    */
   reviewCount?: number;
   /**
-   * Custom formatter function for review counter (ej. (count) => `${count} reseñas`)
+   * Custom formatter function for review counter (e.g. (count) => `${count} reviews`)
    */
   formatReviewCount?: (count: number) => React.ReactNode;
   /**
@@ -115,7 +115,7 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
 
         {interactive ? (
           <fieldset
-            aria-label="Select puntuación"
+            aria-label="Select rating"
             className="m-0 flex items-center gap-0.5 border-0 p-0"
             onMouseLeave={handleMouseLeave}
           >
@@ -135,7 +135,7 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
                   disabled={disabled}
                   onClick={() => handleStarClick(starNumber)}
                   onMouseEnter={() => handleMouseEnter(starNumber)}
-                  aria-label={`${starNumber} of ${max} estrellas`}
+                  aria-label={`${starNumber} of ${max} stars`}
                   className={cn(
                     'relative inline-flex items-center justify-center p-0.5 transition-transform cursor-pointer hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus rounded-xs',
                     disabled && 'opacity-50 cursor-not-allowed hover:scale-100',

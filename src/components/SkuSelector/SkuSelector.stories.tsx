@@ -73,9 +73,9 @@ export const UnifiedProductCustomizer = () => {
       name: 'Color',
       type: 'color' as const,
       options: [
-        { label: 'Negro Obsidiana', value: 'obsidian', color: '#0f172a' },
-        { label: 'Blanco Nieve', value: 'white', color: '#ffffff' },
-        { label: 'Azul Espacial', value: 'blue', color: '#1d4ed8' },
+        { label: 'Obsidian Black', value: 'obsidian', color: '#0f172a' },
+        { label: 'Pure White', value: 'white', color: '#ffffff' },
+        { label: 'Space Blue', value: 'blue', color: '#1d4ed8' },
       ],
     },
     {
@@ -90,7 +90,7 @@ export const UnifiedProductCustomizer = () => {
     },
   ];
 
-  // 2. Matriz of variantes y stock (directo of la base of datos o API)
+  // 2. Variant and stock matrix (direct from database or API)
   const variants = [
     // Negro
     {
@@ -186,7 +186,7 @@ export const UnifiedProductCustomizer = () => {
   const handleAddToCart = () => {
     if (!selectedVariant || !isAvailable) return;
     setNotification(
-      `Added to cart: SKU "${selectedVariant.sku}" (${qty} un.) por ${(
+      `Added to cart: SKU "${selectedVariant.sku}" (x${qty}) for ${(
         (selectedVariant.price ?? 119.99) * qty
       ).toFixed(2)} €`,
     );
@@ -198,7 +198,7 @@ export const UnifiedProductCustomizer = () => {
       <div>
         <div className="flex items-center justify-between">
           <span className="rounded-xs bg-aurora-primary-bg px-2 py-0.5 text-[11px] font-bold text-aurora-primary">
-            AUTOMÁTICO
+            AUTOMATIC
           </span>
           {selectedVariant?.sku && (
             <span className="text-xs text-aurora-text-secondary font-mono">
@@ -210,14 +210,14 @@ export const UnifiedProductCustomizer = () => {
           Zapatillas Runner Nitro Pro
         </h3>
         <p className="text-xs text-aurora-text-secondary">
-          Un solo componente gestiona todas las opciones y calcula el stock cruzado.
+          A single component handles all options and cross-calculates available stock.
         </p>
         <div className="mt-2">
           <Price value={selectedVariant?.price ?? 119.99} size="medium" />
         </div>
       </div>
 
-      {/* UN SOLO COMPONENTE PARA TODO */}
+      {/* ALL-IN-ONE COMPONENT */}
       <SkuSelector
         attributes={attributes}
         variants={variants}
@@ -242,13 +242,13 @@ export const UnifiedProductCustomizer = () => {
           className="flex-1"
           onClick={handleAddToCart}
         >
-          {!isAvailable ? 'Sin Existencias' : `Add al Carrito (${qty})`}
+          {!isAvailable ? 'Out of Stock' : `Add to Cart (${qty})`}
         </Button>
       </div>
 
       {notification && (
         <div className="rounded-md border border-aurora-success/30 bg-aurora-success-bg p-3 text-xs text-aurora-text-primary animate-faof-in">
-          <p className="font-bold text-aurora-success">✅ ¡Añadido con éxito!</p>
+          <p className="font-bold text-aurora-success">✅ Successfully added to cart!</p>
           <p className="mt-0.5">{notification}</p>
         </div>
       )}
