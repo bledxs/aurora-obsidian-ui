@@ -38,5 +38,9 @@
   "price": {
     "files": ["src/components/Price/Price.tsx"],
     "dependencies": ["clsx", "tailwind-merge"]
+  },
+  "breadcrumb": {
+    "files": ["src/components/Breadcrumb/Breadcrumb.tsx"],
+    "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
   }
 }

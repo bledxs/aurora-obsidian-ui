@@ -4,6 +4,7 @@ export type { AddToCartProps } from './components/AddToCart';
 export { AddToCart } from './components/AddToCart';
 export type { BadgeProps } from './components/Badge';
 export { Badge } from './components/Badge';
+export * from './components/Breadcrumb';
 export type { ButtonProps } from './components/Button';
 export { Button } from './components/Button';
 export type { CheckboxProps } from './components/Checkbox';
