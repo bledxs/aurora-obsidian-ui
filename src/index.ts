@@ -3,6 +3,7 @@ import './index.css';
 export * from './components/Accordion';
 export type { AddToCartProps } from './components/AddToCart';
 export { AddToCart } from './components/AddToCart';
+export * from './components/Avatar';
 export type { BadgeProps } from './components/Badge';
 export { Badge } from './components/Badge';
 export * from './components/Breadcrumb';
