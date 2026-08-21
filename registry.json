@@ -82,5 +82,9 @@
   "accordion": {
     "files": ["src/components/Accordion/Accordion.tsx"],
     "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
+  },
+  "rating": {
+    "files": ["src/components/Rating/Rating.tsx"],
+    "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"]
   }
 }
