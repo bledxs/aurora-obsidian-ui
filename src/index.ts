@@ -1,5 +1,6 @@
 import './index.css';
 
+export * from './components/Accordion';
 export type { AddToCartProps } from './components/AddToCart';
 export { AddToCart } from './components/AddToCart';
 export type { BadgeProps } from './components/Badge';

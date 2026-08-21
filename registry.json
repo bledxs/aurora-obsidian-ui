@@ -78,5 +78,9 @@
   "card": {
     "files": ["src/components/Card/Card.tsx"],
     "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"]
+  },
+  "accordion": {
+    "files": ["src/components/Accordion/Accordion.tsx"],
+    "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
   }
 }
