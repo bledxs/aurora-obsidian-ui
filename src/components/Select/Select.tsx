@@ -314,7 +314,7 @@ export const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps
         >
           <div
             className={cn(
-              'max-h-60 overflow-y-auto scrollbar-aurora rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface p-1 shadow-lg font-sans text-aurora-text-primary animate-scale-in',
+              'max-h-60 overflow-y-auto scrollbar-aurora rounded-(--radius-aurora) border border-aurora-border bg-aurora-surface p-1 shadow-lg font-sans text-aurora-text-primary animate-scale-in',
               className,
             )}
           >

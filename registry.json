@@ -95,6 +95,10 @@
     "files": ["src/components/Navbar/Navbar.tsx"],
     "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
   },
+  "pagination": {
+    "files": ["src/components/Pagination/Pagination.tsx"],
+    "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
+  },
   "select": {
     "files": ["src/components/Select/Select.tsx"],
     "dependencies": [
