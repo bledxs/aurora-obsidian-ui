@@ -6,6 +6,11 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      '@': resolve(import.meta.dirname, 'src'),
+    },
+  },
   build: {
     lib: {
       entry: resolve(import.meta.dirname, 'src/index.ts'),

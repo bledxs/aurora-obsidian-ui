@@ -23,7 +23,12 @@
     /* Library specific */
     "declaration": true,
     "declarationDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+
+    /* Path Aliases */
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "**/*.stories.tsx", "**/*.test.tsx"]
