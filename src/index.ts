@@ -17,6 +17,7 @@ export type { PriceProps } from './components/Price';
 export { Price } from './components/Price';
 export type { ProductCardProps } from './components/ProductCard';
 export { ProductCard } from './components/ProductCard';
+export * from './components/Sheet';
 export type { SpinnerProps } from './components/Spinner';
 export { Spinner } from './components/Spinner';
 export type { TooltipProps } from './components/Tooltip';
