@@ -65,21 +65,36 @@ export const Sheet: React.FC<SheetProps> = ({
 };
 Sheet.displayName = 'Sheet';
 
-export interface SheetTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface SheetTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Si es true, fusiona las propiedades con el elemento hijo en lugar de renderizar un botón adicional
+   * @default false
+   */
+  asChild?: boolean;
+}
 
 export const SheetTrigger = React.forwardRef<HTMLButtonElement, SheetTriggerProps>(
-  ({ onClick, children, ...props }, ref) => {
+  ({ asChild = false, onClick, children, ...props }, ref) => {
     const { onOpenChange } = useSheet();
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      onOpenChange(true);
+      onClick?.(e);
+    };
+
+    if (asChild && React.isValidElement(children)) {
+      const child = children as React.ReactElement<React.HTMLAttributes<HTMLElement>>;
+      return React.cloneElement(child, {
+        ...props,
+        onClick: (e: React.MouseEvent<HTMLElement>) => {
+          child.props?.onClick?.(e);
+          handleClick(e as unknown as React.MouseEvent<HTMLButtonElement>);
+        },
+      });
+    }
+
     return (
-      <button
-        ref={ref}
-        type="button"
-        onClick={(e) => {
-          onOpenChange(true);
-          onClick?.(e);
-        }}
-        {...props}
-      >
+      <button ref={ref} type="button" onClick={handleClick} {...props}>
         {children}
       </button>
     );
@@ -87,25 +102,41 @@ export const SheetTrigger = React.forwardRef<HTMLButtonElement, SheetTriggerProp
 );
 SheetTrigger.displayName = 'SheetTrigger';
 
-export const SheetClose = React.forwardRef<
-  HTMLButtonElement,
-  React.ButtonHTMLAttributes<HTMLButtonElement>
->(({ onClick, children, ...props }, ref) => {
-  const { onOpenChange } = useSheet();
-  return (
-    <button
-      ref={ref}
-      type="button"
-      onClick={(e) => {
-        onOpenChange(false);
-        onClick?.(e);
-      }}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-});
+export interface SheetCloseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Si es true, fusiona las propiedades con el elemento hijo en lugar de renderizar un botón adicional
+   * @default false
+   */
+  asChild?: boolean;
+}
+
+export const SheetClose = React.forwardRef<HTMLButtonElement, SheetCloseProps>(
+  ({ asChild = false, onClick, children, ...props }, ref) => {
+    const { onOpenChange } = useSheet();
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      onOpenChange(false);
+      onClick?.(e);
+    };
+
+    if (asChild && React.isValidElement(children)) {
+      const child = children as React.ReactElement<React.HTMLAttributes<HTMLElement>>;
+      return React.cloneElement(child, {
+        ...props,
+        onClick: (e: React.MouseEvent<HTMLElement>) => {
+          child.props?.onClick?.(e);
+          handleClick(e as unknown as React.MouseEvent<HTMLButtonElement>);
+        },
+      });
+    }
+
+    return (
+      <button ref={ref} type="button" onClick={handleClick} {...props}>
+        {children}
+      </button>
+    );
+  },
+);
 SheetClose.displayName = 'SheetClose';
 
 const sheetVariants = cva(

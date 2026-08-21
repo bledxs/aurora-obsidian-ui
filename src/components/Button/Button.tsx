@@ -13,6 +13,8 @@ const buttonVariants = cva(
           'bg-aurora-surface text-aurora-text-primary hover:bg-aurora-surface-hover hover:-translate-y-[1px]',
         outline:
           'bg-transparent text-aurora-text-primary shadow-[inset_0_0_0_1px_var(--color-aurora-border)] hover:bg-aurora-surface hover:-translate-y-[1px]',
+        danger:
+          'bg-aurora-error text-white hover:bg-aurora-error/90 hover:-translate-y-[1px] focus-visible:ring-2 focus-visible:ring-aurora-error',
       },
       size: {
         small: 'text-[12px] px-4 py-2',

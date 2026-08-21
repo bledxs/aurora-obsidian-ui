@@ -15,7 +15,7 @@ const meta = {
     },
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'outline'],
+      options: ['primary', 'secondary', 'outline', 'danger'],
       description: 'Variante visual del botón',
     },
     size: {
@@ -51,6 +51,13 @@ export const Outline: Story = {
   args: {
     variant: 'outline',
     children: 'Cancelar',
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    variant: 'danger',
+    children: 'Eliminar producto',
   },
 };
 
