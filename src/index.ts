@@ -11,6 +11,7 @@ export type { CartItemProps } from './components/CartItem';
 export { CartItem } from './components/CartItem';
 export type { CheckboxProps } from './components/Checkbox';
 export { Checkbox } from './components/Checkbox';
+export * from './components/Dialog';
 export type { ImageProps } from './components/Image';
 export { Image } from './components/Image';
 export type { InputProps } from './components/Input';
@@ -22,6 +23,13 @@ export { ProductCard } from './components/ProductCard';
 export type { QuantitySelectorProps } from './components/QuantitySelector';
 export { QuantitySelector } from './components/QuantitySelector';
 export * from './components/Sheet';
+export type {
+  SkuOption,
+  SkuSelectorProps,
+  SkuSelectorSize,
+  SkuVariantType,
+} from './components/SkuSelector';
+export { SkuSelector } from './components/SkuSelector';
 export type { SpinnerProps } from './components/Spinner';
 export { Spinner } from './components/Spinner';
 export type { TooltipProps } from './components/Tooltip';

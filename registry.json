@@ -60,5 +60,19 @@
   "quantity-selector": {
     "files": ["src/components/QuantitySelector/QuantitySelector.tsx"],
     "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"]
+  },
+  "sku-selector": {
+    "files": ["src/components/SkuSelector/SkuSelector.tsx"],
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"]
+  },
+  "dialog": {
+    "files": ["src/components/Dialog/Dialog.tsx"],
+    "dependencies": [
+      "@floating-ui/react",
+      "lucide-react",
+      "class-variance-authority",
+      "clsx",
+      "tailwind-merge"
+    ]
   }
 }
