@@ -21,7 +21,10 @@ const meta = {
       control: 'radio',
       options: ['small', 'medium'],
     },
-    children: { control: false },
+    children: {
+      control: 'text',
+      description: 'Texto dentro del badge',
+    },
   },
 } satisfies Meta<typeof Badge>;
 

@@ -106,15 +106,22 @@ export const BreadcrumbSeparator = ({
   children,
   className,
   ...props
-}: React.ComponentProps<'li'>) => (
-  <li
-    aria-hidden="true"
-    className={cn('text-aurora-text-disabled [&>svg]:size-3.5', className)}
-    {...props}
-  >
-    {children ?? <ChevronRight className="h-3.5 w-3.5" />}
-  </li>
-);
+}: React.ComponentProps<'li'>) => {
+  const hasValidChildren =
+    React.isValidElement(children) ||
+    (typeof children === 'string' && children.trim().length > 0) ||
+    typeof children === 'number';
+
+  return (
+    <li
+      aria-hidden="true"
+      className={cn('text-aurora-text-disabled [&>svg]:size-3.5 select-none', className)}
+      {...props}
+    >
+      {hasValidChildren ? children : <ChevronRight className="h-3.5 w-3.5" />}
+    </li>
+  );
+};
 BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
 
 export const BreadcrumbEllipsis = ({ className, ...props }: React.ComponentProps<'span'>) => (

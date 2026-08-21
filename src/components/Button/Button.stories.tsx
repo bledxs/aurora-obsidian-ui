@@ -9,7 +9,24 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    children: { control: false },
+    children: {
+      control: 'text',
+      description: 'Texto o contenido del botón',
+    },
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'outline'],
+      description: 'Variante visual del botón',
+    },
+    size: {
+      control: 'radio',
+      options: ['small', 'medium', 'large'],
+      description: 'Tamaño del botón',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Estado deshabilitado',
+    },
   },
 } satisfies Meta<typeof Button>;
 

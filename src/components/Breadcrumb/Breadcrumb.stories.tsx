@@ -17,6 +17,17 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    separator: {
+      control: 'text',
+      description:
+        'Separador personalizado (escribe caracteres como "/", ">", "|" o pasa iconos JSX en código)',
+    },
+    items: {
+      control: 'object',
+      description: 'Lista de elementos para generar el breadcrumb automáticamente',
+    },
+  },
 } satisfies Meta<typeof Breadcrumb>;
 
 export default meta;

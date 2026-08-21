@@ -8,6 +8,21 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    title: { control: 'text', description: 'Nombre del producto' },
+    description: { control: 'text', description: 'Descripción corta' },
+    price: { control: 'number', description: 'Precio actual' },
+    originalPrice: { control: 'number', description: 'Precio original' },
+    badge: { control: 'text', description: 'Texto de la etiqueta' },
+    badgeColor: {
+      control: 'select',
+      options: ['primary', 'success', 'warning', 'error', 'neutral'],
+      description: 'Color del badge',
+    },
+    rating: { control: 'number', description: 'Puntuación (1 - 5)' },
+    reviewsCount: { control: 'number', description: 'Total de reseñas' },
+    cartQuantity: { control: 'number', description: 'Cantidad actual en carrito' },
+  },
 } satisfies Meta<typeof ProductCard>;
 
 export default meta;

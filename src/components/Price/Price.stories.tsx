@@ -8,6 +8,35 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    value: {
+      control: 'number',
+      description: 'Precio actual',
+    },
+    originalValue: {
+      control: 'number',
+      description: 'Precio original anterior (para mostrar descuento)',
+    },
+    currency: {
+      control: 'select',
+      options: ['EUR', 'USD', 'GBP', 'MXN', 'COP'],
+      description: 'Código de moneda ISO',
+    },
+    locale: {
+      control: 'select',
+      options: ['es-ES', 'en-US', 'en-GB', 'es-MX', 'es-CO'],
+      description: 'Localización para formateo numérico',
+    },
+    showDiscountBadge: {
+      control: 'boolean',
+      description: 'Mostrar insignia de porcentaje de descuento',
+    },
+    size: {
+      control: 'radio',
+      options: ['small', 'medium', 'large'],
+      description: 'Tamaño tipográfico',
+    },
+  },
 } satisfies Meta<typeof Price>;
 
 export default meta;
