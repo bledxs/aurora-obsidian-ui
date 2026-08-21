@@ -7,6 +7,7 @@ export { Badge } from './components/Badge';
 export * from './components/Breadcrumb';
 export type { ButtonProps } from './components/Button';
 export { Button } from './components/Button';
+export * from './components/Card';
 export type { CartItemProps } from './components/CartItem';
 export { CartItem } from './components/CartItem';
 export type { CheckboxProps } from './components/Checkbox';

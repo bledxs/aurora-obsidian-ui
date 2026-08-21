@@ -74,5 +74,9 @@
       "clsx",
       "tailwind-merge"
     ]
+  },
+  "card": {
+    "files": ["src/components/Card/Card.tsx"],
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"]
   }
 }
