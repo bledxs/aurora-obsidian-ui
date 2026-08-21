@@ -51,6 +51,9 @@
   .animate-scale-in {
     animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
+  .animate-shimmer {
+    animation: shimmer 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 
   /* Barra de desplazamiento personalizada y elegante */
   .scrollbar-aurora {
@@ -126,5 +129,14 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }

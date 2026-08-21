@@ -31,6 +31,7 @@ export type { RatingProps } from './components/Rating';
 export { Rating } from './components/Rating';
 export * from './components/Select';
 export * from './components/Sheet';
+export * from './components/Skeleton';
 export type {
   SkuOption,
   SkuSelectorProps,
