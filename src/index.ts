@@ -49,6 +49,7 @@ export { Spinner } from './components/Spinner';
 export * from './components/Switch';
 export * from './components/Table';
 export * from './components/Tabs';
+export * from './components/Textarea';
 export * from './components/Toast';
 export type { TooltipProps } from './components/Tooltip';
 export { Tooltip } from './components/Tooltip';

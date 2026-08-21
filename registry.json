@@ -145,6 +145,10 @@
     "files": ["src/components/Table/Table.tsx"],
     "dependencies": ["clsx", "tailwind-merge"]
   },
+  "textarea": {
+    "files": ["src/components/Textarea/Textarea.tsx"],
+    "dependencies": ["clsx", "tailwind-merge"]
+  },
   "toast": {
     "files": ["src/components/Toast/Toast.tsx", "src/components/Toast/toast-store.ts"],
     "dependencies": ["@floating-ui/react", "lucide-react", "clsx", "tailwind-merge"]
