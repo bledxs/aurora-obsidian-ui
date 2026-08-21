@@ -117,6 +117,10 @@
     "files": ["src/components/Skeleton/Skeleton.tsx"],
     "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"]
   },
+  "slider": {
+    "files": ["src/components/Slider/Slider.tsx"],
+    "dependencies": ["clsx", "tailwind-merge"]
+  },
   "table": {
     "files": ["src/components/Table/Table.tsx"],
     "dependencies": ["clsx", "tailwind-merge"]

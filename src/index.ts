@@ -39,6 +39,7 @@ export type {
   SkuVariantType,
 } from './components/SkuSelector';
 export { SkuSelector } from './components/SkuSelector';
+export * from './components/Slider';
 export type { SpinnerProps } from './components/Spinner';
 export { Spinner } from './components/Spinner';
 export * from './components/Table';
