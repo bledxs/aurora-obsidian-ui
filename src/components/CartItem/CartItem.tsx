@@ -1,8 +1,9 @@
-import { Minus, Plus, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 import * as React from 'react';
 import { cn } from '../../lib/utils';
 import { Image } from '../Image';
 import { Price } from '../Price';
+import { QuantitySelector } from '../QuantitySelector';
 
 export interface CartItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'id'> {
   /**
@@ -77,20 +78,6 @@ export const CartItem = React.forwardRef<HTMLDivElement, CartItemProps>(
     },
     ref,
   ) => {
-    const handleIncrement = () => {
-      if (quantity < maxQuantity && onQuantityChange) {
-        onQuantityChange(quantity + 1);
-      }
-    };
-
-    const handleDecrement = () => {
-      if (quantity > 1 && onQuantityChange) {
-        onQuantityChange(quantity - 1);
-      } else if (quantity === 1 && onRemove) {
-        onRemove();
-      }
-    };
-
     return (
       <div
         ref={ref}
@@ -138,30 +125,17 @@ export const CartItem = React.forwardRef<HTMLDivElement, CartItemProps>(
           </div>
 
           <div className="mt-2 flex items-center justify-between gap-2">
-            {/* Stepper compacto */}
-            <div className="flex h-7 items-center rounded-(--radius-aurora) border border-aurora-border bg-aurora-surface">
-              <button
-                type="button"
-                onClick={handleDecrement}
-                disabled={isLoading}
-                aria-label="Disminuir cantidad"
-                className="flex h-full w-7 items-center justify-center rounded-l-(--radius-aurora) text-aurora-text-secondary transition-colors hover:bg-aurora-surface-hover hover:text-aurora-text-primary disabled:opacity-50"
-              >
-                <Minus className="h-3 w-3" />
-              </button>
-              <span className="min-w-6 text-center text-xs font-bold text-aurora-text-primary">
-                {quantity}
-              </span>
-              <button
-                type="button"
-                onClick={handleIncrement}
-                disabled={isLoading || quantity >= maxQuantity}
-                aria-label="Aumentar cantidad"
-                className="flex h-full w-7 items-center justify-center rounded-r-(--radius-aurora) text-aurora-text-secondary transition-colors hover:bg-aurora-surface-hover hover:text-aurora-text-primary disabled:opacity-50"
-              >
-                <Plus className="h-3 w-3" />
-              </button>
-            </div>
+            {/* Stepper reutilizable compacto */}
+            <QuantitySelector
+              value={quantity}
+              min={1}
+              max={maxQuantity}
+              showTrashOnMin
+              onChange={onQuantityChange}
+              onRemove={onRemove}
+              disabled={isLoading}
+              size="small"
+            />
 
             {/* Precio acumulado */}
             <Price

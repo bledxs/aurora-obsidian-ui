@@ -56,5 +56,9 @@
   "cart-item": {
     "files": ["src/components/CartItem/CartItem.tsx"],
     "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
+  },
+  "quantity-selector": {
+    "files": ["src/components/QuantitySelector/QuantitySelector.tsx"],
+    "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"]
   }
 }

@@ -33,7 +33,7 @@ export interface SheetProps {
    * Callback invocado cuando cambia el estado de apertura
    */
   onOpenChange?: (open: boolean) => void;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Sheet: React.FC<SheetProps> = ({
