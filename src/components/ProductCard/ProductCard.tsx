@@ -25,6 +25,7 @@ export interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
+  id,
   title,
   description,
   price,
@@ -51,9 +52,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div
       className={cn(
-        'group relative flex w-full max-w-sm flex-col overflow-hidden rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface transition-all hover:shadow-lg',
+        'group relative flex w-full max-w-sm flex-col overflow-hidden rounded-(--radius-aurora) border border-aurora-border bg-aurora-surface transition-all hover:shadow-lg',
         className,
       )}
+      data-product-id={`product-${id}`}
     >
       {/* Image Section */}
       <div className="relative w-full overflow-hidden bg-aurora-neutral-bg">
@@ -106,7 +108,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             <span className="font-sans text-xl font-bold text-aurora-text-primary">
               {formatPrice(price)}
             </span>
-            {originalPrice && originalPrice > price && (
+            {!!originalPrice && originalPrice > price && (
               <span className="font-sans text-sm text-aurora-text-secondary line-through">
                 {formatPrice(originalPrice)}
               </span>
