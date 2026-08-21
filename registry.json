@@ -31,6 +31,10 @@
     "files": ["src/components/AddToCart/AddToCart.tsx"],
     "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
   },
+  "alert": {
+    "files": ["src/components/Alert/Alert.tsx"],
+    "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"]
+  },
   "avatar": {
     "files": ["src/components/Avatar/Avatar.tsx"],
     "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"]
