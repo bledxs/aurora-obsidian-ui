@@ -36,5 +36,6 @@ export type {
 export { SkuSelector } from './components/SkuSelector';
 export type { SpinnerProps } from './components/Spinner';
 export { Spinner } from './components/Spinner';
+export * from './components/Tabs';
 export type { TooltipProps } from './components/Tooltip';
 export { Tooltip } from './components/Tooltip';

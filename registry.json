@@ -86,5 +86,9 @@
   "rating": {
     "files": ["src/components/Rating/Rating.tsx"],
     "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"]
+  },
+  "tabs": {
+    "files": ["src/components/Tabs/Tabs.tsx"],
+    "dependencies": ["clsx", "tailwind-merge"]
   }
 }
