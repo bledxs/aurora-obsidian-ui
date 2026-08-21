@@ -107,6 +107,10 @@
     "files": ["src/components/Popover/Popover.tsx"],
     "dependencies": ["@floating-ui/react", "lucide-react", "clsx", "tailwind-merge"]
   },
+  "radio-group": {
+    "files": ["src/components/RadioGroup/RadioGroup.tsx"],
+    "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
+  },
   "select": {
     "files": ["src/components/Select/Select.tsx"],
     "dependencies": [

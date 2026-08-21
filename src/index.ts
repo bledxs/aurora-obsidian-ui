@@ -28,6 +28,7 @@ export type { ProductCardProps } from './components/ProductCard';
 export { ProductCard } from './components/ProductCard';
 export type { QuantitySelectorProps } from './components/QuantitySelector';
 export { QuantitySelector } from './components/QuantitySelector';
+export * from './components/RadioGroup';
 export type { RatingProps } from './components/Rating';
 export { Rating } from './components/Rating';
 export * from './components/Select';
