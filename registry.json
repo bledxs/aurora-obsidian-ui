@@ -103,6 +103,10 @@
     "files": ["src/components/Pagination/Pagination.tsx"],
     "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
   },
+  "popover": {
+    "files": ["src/components/Popover/Popover.tsx"],
+    "dependencies": ["@floating-ui/react", "lucide-react", "clsx", "tailwind-merge"]
+  },
   "select": {
     "files": ["src/components/Select/Select.tsx"],
     "dependencies": [

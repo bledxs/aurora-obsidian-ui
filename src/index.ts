@@ -21,6 +21,7 @@ export type { InputProps } from './components/Input';
 export { Input } from './components/Input';
 export * from './components/Navbar';
 export * from './components/Pagination';
+export * from './components/Popover';
 export type { PriceProps } from './components/Price';
 export { Price } from './components/Price';
 export type { ProductCardProps } from './components/ProductCard';
