@@ -1,5 +1,7 @@
 import './tokens/variables.css';
 
+export type { AddToCartProps } from './components/AddToCart';
+export { AddToCart } from './components/AddToCart';
 export type { BadgeProps } from './components/Badge';
 export { Badge } from './components/Badge';
 export type { ButtonProps } from './components/Button';
