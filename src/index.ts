@@ -12,6 +12,8 @@ export type { ImageProps } from './components/Image';
 export { Image } from './components/Image';
 export type { InputProps } from './components/Input';
 export { Input } from './components/Input';
+export type { PriceProps } from './components/Price';
+export { Price } from './components/Price';
 export type { ProductCardProps } from './components/ProductCard';
 export { ProductCard } from './components/ProductCard';
 export type { SpinnerProps } from './components/Spinner';

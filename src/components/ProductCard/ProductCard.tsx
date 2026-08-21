@@ -4,6 +4,7 @@ import { cn } from '../../lib/utils';
 import { AddToCart } from '../AddToCart';
 import { Badge } from '../Badge';
 import { Image } from '../Image';
+import { Price } from '../Price';
 
 export interface ProductCardProps {
   id: string | number;
@@ -42,13 +43,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   onRemoveFromCart,
   cartQuantity = 0,
 }) => {
-  const formatPrice = (value: number) => {
-    return new Intl.NumberFormat('es-ES', {
-      style: 'currency',
-      currency: 'EUR',
-    }).format(value);
-  };
-
   return (
     <div
       className={cn(
@@ -104,16 +98,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         <div className="mt-auto pt-4">
           {/* Price Section */}
-          <div className="mb-4 flex items-baseline gap-2">
-            <span className="font-sans text-xl font-bold text-aurora-text-primary">
-              {formatPrice(price)}
-            </span>
-            {!!originalPrice && originalPrice > price && (
-              <span className="font-sans text-sm text-aurora-text-secondary line-through">
-                {formatPrice(originalPrice)}
-              </span>
-            )}
-          </div>
+          <Price
+            value={price}
+            originalValue={originalPrice}
+            showDiscountBadge={false}
+            size="medium"
+            className="mb-4"
+          />
 
           {/* Action Section */}
           <AddToCart
