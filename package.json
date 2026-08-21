@@ -8,9 +8,9 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/aurora-obsidian-ui.js",
-      "require": "./dist/aurora-obsidian-ui.umd.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/aurora-obsidian-ui.umd.cjs"
     }
   },
   "scripts": {
