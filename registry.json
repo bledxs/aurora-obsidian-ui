@@ -90,5 +90,9 @@
   "tabs": {
     "files": ["src/components/Tabs/Tabs.tsx"],
     "dependencies": ["clsx", "tailwind-merge"]
+  },
+  "navbar": {
+    "files": ["src/components/Navbar/Navbar.tsx"],
+    "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
   }
 }
