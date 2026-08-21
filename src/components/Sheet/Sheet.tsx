@@ -140,7 +140,7 @@ export const SheetClose = React.forwardRef<HTMLButtonElement, SheetCloseProps>(
 SheetClose.displayName = 'SheetClose';
 
 const sheetVariants = cva(
-  'fixed z-50 m-0 box-border flex flex-col gap-4 bg-aurora-surface p-6 shadow-2xl font-sans text-aurora-text-primary max-w-none max-h-none border-0 overflow-y-auto',
+  'fixed z-50 m-0 box-border flex flex-col gap-4 bg-aurora-surface p-6 shadow-2xl font-sans text-aurora-text-primary max-w-none max-h-none border-0 overflow-y-auto scrollbar-aurora',
   {
     variants: {
       side: {

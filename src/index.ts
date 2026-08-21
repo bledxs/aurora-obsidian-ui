@@ -27,6 +27,7 @@ export type { QuantitySelectorProps } from './components/QuantitySelector';
 export { QuantitySelector } from './components/QuantitySelector';
 export type { RatingProps } from './components/Rating';
 export { Rating } from './components/Rating';
+export * from './components/Select';
 export * from './components/Sheet';
 export type {
   SkuOption,

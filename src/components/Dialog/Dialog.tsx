@@ -140,7 +140,7 @@ export const DialogClose = React.forwardRef<HTMLButtonElement, DialogCloseProps>
 DialogClose.displayName = 'DialogClose';
 
 const dialogVariants = cva(
-  'pointer-events-auto relative z-50 m-0 box-border flex w-full flex-col gap-4 rounded-[calc(var(--radius-aurora)*1.5)] border border-aurora-border bg-aurora-surface p-6 shadow-2xl font-sans text-aurora-text-primary border-0 max-h-[85vh] overflow-y-auto animate-scale-in',
+  'pointer-events-auto relative z-50 m-0 box-border flex w-full flex-col gap-4 rounded-[calc(var(--radius-aurora)*1.5)] border border-aurora-border bg-aurora-surface p-6 shadow-2xl font-sans text-aurora-text-primary border-0 max-h-[85vh] overflow-y-auto scrollbar-aurora animate-scale-in',
   {
     variants: {
       size: {
