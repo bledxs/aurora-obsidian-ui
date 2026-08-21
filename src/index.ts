@@ -44,6 +44,7 @@ export { SkuSelector } from './components/SkuSelector';
 export * from './components/Slider';
 export type { SpinnerProps } from './components/Spinner';
 export { Spinner } from './components/Spinner';
+export * from './components/Switch';
 export * from './components/Table';
 export * from './components/Tabs';
 export * from './components/Toast';
