@@ -47,6 +47,10 @@
     "files": ["src/components/Breadcrumb/Breadcrumb.tsx"],
     "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
   },
+  "dropdown-menu": {
+    "files": ["src/components/DropdownMenu/DropdownMenu.tsx"],
+    "dependencies": ["@floating-ui/react", "lucide-react", "clsx", "tailwind-merge"]
+  },
   "sheet": {
     "files": ["src/components/Sheet/Sheet.tsx"],
     "dependencies": [
