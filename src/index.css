@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-aurora-primary: #0f172a;
+  --color-aurora-primary-hover: #1e293b;
+  --color-aurora-surface: #f1f5f9;
+  --color-aurora-surface-hover: #e2e8f0;
+  --color-aurora-surface-active: #f8fafc;
+  --color-aurora-border: #cbd5e1;
+  --color-aurora-border-hover: #94a3b8;
+  --color-aurora-border-focus: #3b82f6;
+
+  --color-aurora-error: #ef4444;
+  --color-aurora-error-bg: #fee2e2;
+  --color-aurora-success: #10b981;
+  --color-aurora-success-bg: #d1fae5;
+  --color-aurora-warning: #f59e0b;
+  --color-aurora-warning-bg: #fef3c7;
+  --color-aurora-primary-bg: #e0e7ff;
+  --color-aurora-neutral: #64748b;
+  --color-aurora-neutral-bg: #f1f5f9;
+
+  --color-aurora-text-on-primary: #ffffff;
+  --color-aurora-text-primary: #0f172a;
+  --color-aurora-text-secondary: #64748b;
+  --color-aurora-text-disabled: #94a3b8;
+  --color-aurora-bg-disabled: #f1f5f9;
+
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --radius-aurora: 6px;
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

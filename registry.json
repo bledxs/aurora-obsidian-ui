@@ -1,0 +1,38 @@
+{
+  "button": {
+    "files": ["src/components/Button/Button.tsx"],
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"]
+  },
+  "input": {
+    "files": ["src/components/Input/Input.tsx"],
+    "dependencies": ["clsx", "tailwind-merge"]
+  },
+  "badge": {
+    "files": ["src/components/Badge/Badge.tsx"],
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"]
+  },
+  "spinner": {
+    "files": ["src/components/Spinner/Spinner.tsx"],
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"]
+  },
+  "checkbox": {
+    "files": ["src/components/Checkbox/Checkbox.tsx"],
+    "dependencies": ["clsx", "tailwind-merge"]
+  },
+  "tooltip": {
+    "files": ["src/components/Tooltip/Tooltip.tsx"],
+    "dependencies": ["@floating-ui/react", "clsx", "tailwind-merge"]
+  },
+  "image": {
+    "files": ["src/components/Image/Image.tsx"],
+    "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
+  },
+  "add-to-cart": {
+    "files": ["src/components/AddToCart/AddToCart.tsx"],
+    "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
+  },
+  "product-card": {
+    "files": ["src/components/ProductCard/ProductCard.tsx"],
+    "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
+  }
+}

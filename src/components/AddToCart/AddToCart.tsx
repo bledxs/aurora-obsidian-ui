@@ -1,9 +1,9 @@
 import { Minus, Plus, ShoppingCart, Trash2 } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
+import { cn } from '../../lib/utils';
 import { Button } from '../Button';
 import { Spinner } from '../Spinner';
-import styles from './AddToCart.module.css';
 
 export interface AddToCartProps {
   initialQuantity?: number;
@@ -12,6 +12,7 @@ export interface AddToCartProps {
   onAdd?: (quantity: number) => void;
   onUpdate?: (quantity: number) => void;
   onRemove?: () => void;
+  className?: string;
 }
 
 export const AddToCart: React.FC<AddToCartProps> = ({
@@ -21,6 +22,7 @@ export const AddToCart: React.FC<AddToCartProps> = ({
   onAdd,
   onUpdate,
   onRemove,
+  className,
 }) => {
   const [quantity, setQuantity] = useState(initialQuantity);
 
@@ -55,55 +57,51 @@ export const AddToCart: React.FC<AddToCartProps> = ({
 
   if (quantity === 0) {
     return (
-      <Button
-        variant="primary"
-        onClick={handleAddClick}
-        disabled={isLoading}
-        className={`${styles.container} ${styles.addButton}`}
-      >
-        {isLoading ? (
-          <Spinner color="neutral" />
-        ) : (
-          <>
-            <ShoppingCart size={18} aria-hidden="true" />
-            Añadir al carrito
-          </>
-        )}
-      </Button>
+      <div className={cn('h-9 w-full min-w-40', className)}>
+        <Button
+          variant="primary"
+          onClick={handleAddClick}
+          disabled={isLoading}
+          className="flex h-full w-full items-center justify-center gap-2"
+        >
+          {isLoading ? (
+            <Spinner size="small" color="white" />
+          ) : (
+            <>
+              <ShoppingCart size={16} />
+              Añadir
+            </>
+          )}
+        </Button>
+      </div>
     );
   }
 
   return (
-    <div className={`${styles.container} ${styles.stepperContainer}`}>
-      <Button
-        variant="outline"
-        size="small"
-        onClick={handleDecrement}
-        disabled={isLoading}
-        className={styles.stepperButton}
-        aria-label="Disminuir cantidad"
-      >
-        {quantity === 1 ? (
-          <Trash2 size={16} aria-hidden="true" />
-        ) : (
-          <Minus size={16} aria-hidden="true" />
-        )}
-      </Button>
+    <div className={cn('h-9 w-full min-w-40', className)}>
+      <div className="flex h-full w-full items-center justify-between gap-2 rounded-(--radius-aurora) border border-aurora-primary bg-aurora-surface p-1 shadow-[0_0_0_1px_var(--color-aurora-primary)]">
+        <Button
+          variant="outline"
+          onClick={handleDecrement}
+          disabled={isLoading}
+          className="flex aspect-square h-full items-center justify-center border-transparent p-0 hover:border-transparent hover:bg-aurora-surface-hover"
+        >
+          {quantity === 1 ? <Trash2 size={16} /> : <Minus size={16} />}
+        </Button>
 
-      <span className={styles.quantityDisplay} aria-live="polite">
-        {isLoading ? <Spinner color="neutral" /> : quantity}
-      </span>
+        <div className="flex min-w-8 grow items-center justify-center text-center font-sans text-[14px] font-bold text-aurora-text-primary">
+          {isLoading ? <Spinner size="small" color="primary" /> : quantity}
+        </div>
 
-      <Button
-        variant="outline"
-        size="small"
-        onClick={handleIncrement}
-        disabled={isLoading || quantity >= maxQuantity}
-        className={styles.stepperButton}
-        aria-label="Aumentar cantidad"
-      >
-        <Plus size={16} aria-hidden="true" />
-      </Button>
+        <Button
+          variant="outline"
+          onClick={handleIncrement}
+          disabled={isLoading || quantity >= maxQuantity}
+          className="flex aspect-square h-full items-center justify-center border-transparent p-0 hover:border-transparent hover:bg-aurora-surface-hover"
+        >
+          <Plus size={16} />
+        </Button>
+      </div>
     </div>
   );
 };

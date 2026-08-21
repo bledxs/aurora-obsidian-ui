@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { cn } from '../../lib/utils';
 import { Spinner } from '../Spinner';
-import styles from './Image.module.css';
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /**
@@ -62,27 +62,44 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
       if (onError) onError(e);
     };
 
-    // Reseteamos el estado si la fuente externa cambia
     useEffect(() => {
-      setCurrentSrc(src);
       setStatus('loading');
+      setCurrentSrc(src);
     }, [src]);
 
-    // Mapeo seguro de la prop aspectRatio a una clase CSS
-    const aspectClass = `aspect-${aspectRatio.replace('/', '-')}`;
+    const aspectClasses = {
+      '1/1': 'aspect-square',
+      '4/3': 'aspect-[4/3]',
+      '16/9': 'aspect-video',
+      auto: 'aspect-auto',
+    };
+
+    const fitClasses = {
+      cover: 'object-cover',
+      contain: 'object-contain',
+      fill: 'object-fill',
+      none: 'object-none',
+    };
 
     return (
-      <div className={`${styles.wrapper} ${styles[aspectClass]} ${className || ''}`} style={style}>
+      <div
+        className={cn(
+          'relative flex w-full overflow-hidden rounded-(--radius-aurora) bg-aurora-neutral-bg',
+          aspectClasses[aspectRatio],
+          className,
+        )}
+        style={style}
+      >
         {status === 'loading' && (
-          <div className={styles.loaderContainer}>
+          <div className="absolute inset-0 z-10 flex items-center justify-center">
             <Spinner color="neutral" />
           </div>
         )}
 
         {status === 'error' && !fallbackSrc && (
-          <div className={styles.errorContainer}>
+          <div className="absolute inset-0 z-10 flex items-center justify-center">
             <svg
-              className={styles.errorIcon}
+              className="h-8 w-8 text-aurora-text-disabled"
               aria-hidden="true"
               viewBox="0 0 24 24"
               fill="none"
@@ -91,10 +108,8 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-              <line x1="3" y1="3" x2="21" y2="21" />
+              <line x1="1" y1="1" x2="23" y2="23" />
+              <path d="M21 21H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3m3-3h6l2 3h4a2 2 0 0 1 2 2v9.34m-7.72-2.06a4 4 0 1 1-5.56-5.56" />
             </svg>
           </div>
         )}
@@ -106,12 +121,16 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
           loading={lazy ? 'lazy' : 'eager'}
           onLoad={handleLoad}
           onError={handleError}
-          className={`${styles.image} ${styles[objectFit]} ${status === 'loaded' ? styles.loaded : ''} ${status === 'error' ? styles.hidden : ''}`}
+          className={cn(
+            'block h-full w-full transition-opacity duration-300 ease-in-out',
+            status === 'loaded' ? 'opacity-100' : 'opacity-0',
+            status === 'error' && !fallbackSrc ? 'hidden' : '',
+            fitClasses[objectFit],
+          )}
           {...props}
         />
       </div>
     );
   },
 );
-
 Image.displayName = 'Image';

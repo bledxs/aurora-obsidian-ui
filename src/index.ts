@@ -1,4 +1,4 @@
-import './tokens/variables.css';
+import './index.css';
 
 export type { AddToCartProps } from './components/AddToCart';
 export { AddToCart } from './components/AddToCart';
@@ -12,6 +12,8 @@ export type { ImageProps } from './components/Image';
 export { Image } from './components/Image';
 export type { InputProps } from './components/Input';
 export { Input } from './components/Input';
+export type { ProductCardProps } from './components/ProductCard';
+export { ProductCard } from './components/ProductCard';
 export type { SpinnerProps } from './components/Spinner';
 export { Spinner } from './components/Spinner';
 export type { TooltipProps } from './components/Tooltip';
