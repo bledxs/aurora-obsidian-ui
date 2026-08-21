@@ -172,10 +172,10 @@ export const ProductQuickView = () => {
           <Eye size={16} /> Vista Rápida
         </Button>
       </DialogTrigger>
-      <DialogContent size="xl" className="p-0 overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2">
+      <DialogContent size="2xl" className="p-0 overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
           {/* Imagen de producto */}
-          <div className="relative bg-aurora-neutral-bg h-[300px] md:h-full min-h-[350px]">
+          <div className="relative bg-aurora-neutral-bg h-64 sm:h-auto sm:min-h-full">
             <Image
               src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800&h=800"
               alt="Zapatillas Runner Nitro Pro"
