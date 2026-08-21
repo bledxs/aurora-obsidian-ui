@@ -13,19 +13,19 @@ const meta = {
   argTypes: {
     disabled: {
       control: 'boolean',
-      description: 'Estado deshabilitado',
+      description: 'Estado ofshabilitado',
     },
     isError: {
       control: 'boolean',
-      description: 'Estado de error de validación',
+      description: 'Estado of error of validación',
     },
     showCount: {
       control: 'boolean',
-      description: 'Mostrar contador de caracteres',
+      description: 'Show contador of caracteres',
     },
     autoResize: {
       control: 'boolean',
-      description: 'Auto-ajuste de altura al escribir',
+      description: 'Auto-ajuste of altura al escribir',
     },
   },
 } satisfies Meta<typeof Textarea>;
@@ -33,14 +33,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Instrucciones de Entrega para el Transportista (E-Commerce Checkout)
+// 1. Instrucciones of Entrega para el Transportista (E-Commerce Checkout)
 export const DeliveryInstructions: Story = {
   render: () => (
     <div className="w-[380px] font-sans">
       <Textarea
-        label="Instrucciones para la entrega"
-        placeholder="Ej. Dejar el paquete en conserjería o llamar al telefonillo 4º B..."
-        helperText="Información visible únicamente para el transportista."
+        label="Delivery instructions"
+        placeholder="e.g., Leave package at front ofsk or ring bell 4B..."
+        helperText="Information visible only to the courier."
         showCount
         maxLength={200}
         rows={3}
@@ -49,7 +49,7 @@ export const DeliveryInstructions: Story = {
   ),
 };
 
-// 2. Reseña de Producto con Auto-Resize y Valoración
+// 2. Reseña of Producto con Auto-Resize y Valoración
 export const ProductReview: Story = {
   render: () => {
     const [rating, setRating] = useState(5);
@@ -58,20 +58,20 @@ export const ProductReview: Story = {
       <div className="w-[420px] rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface p-5 font-sans space-y-4">
         <div className="space-y-1">
           <h4 className="text-sm font-bold text-aurora-text-primary">
-            Escribe tu opinión sobre el producto
+            Write a review for this product
           </h4>
           <div className="flex items-center gap-2">
             <Rating value={rating} onChange={setRating} />
             <span className="text-xs font-semibold text-aurora-text-secondary">
-              {rating === 5 ? '¡Excelente!' : `${rating} de 5 estrellas`}
+              {rating === 5 ? 'Excellent!' : `${rating} out of 5 stars`}
             </span>
           </div>
         </div>
 
         <Textarea
-          label="Tu experiencia"
-          placeholder="¿Qué te ha parecido la calidad, el tejido y el tallaje del producto?"
-          helperText="Mínimo 20 caracteres para publicar la reseña."
+          label="Your experience"
+          placeholder="How was the quality, fabric, and sizing of the item?"
+          helperText="Minimum 20 characters to submit review."
           autoResize
           showCount
           maxLength={500}
@@ -82,14 +82,14 @@ export const ProductReview: Story = {
   },
 };
 
-// 3. Error de Validación
+// 3. Error of Validación
 export const WithValidationError: Story = {
   render: () => (
     <div className="w-[380px] font-sans">
       <Textarea
-        label="Motivo de la devolución"
+        label="Return reason"
         defaultValue="No me gusta"
-        errorMessage="Por favor, describe con mayor detalle el motivo de la devolución (mínimo 20 caracteres)."
+        errorMessage="Please describe your return reason in greater detail (min. 20 chars)."
         showCount
         maxLength={300}
         rows={3}
@@ -103,8 +103,8 @@ export const Disabled: Story = {
   render: () => (
     <div className="w-[380px] font-sans">
       <Textarea
-        label="Comentarios del pedido (Cerrado)"
-        defaultValue="Entrega realizada con éxito en portería el 21/08/2026."
+        label="Order Notes (Closed)"
+        defaultValue="Delivered successfully at reception on 08/21/2026."
         disabled
         rows={2}
       />

@@ -28,14 +28,14 @@ export const Default: Story = {
 
 export const WithLabel: Story = {
   args: {
-    label: 'Nombre completo',
+    label: 'Name completo',
     placeholder: 'Ej. Juan Pérez',
   },
 };
 
 export const WithHelperText: Story = {
   args: {
-    label: 'Contraseña',
+    label: 'Password',
     type: 'password',
     helperText: 'Debe contener al menos 8 caracteres.',
   },
@@ -51,7 +51,7 @@ export const ErrorState: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Código de descuento',
+    label: 'Código of descuento',
     disabled: true,
     defaultValue: 'PROMO2026',
     helperText: 'Este código ya no es válido',
@@ -60,9 +60,9 @@ export const Disabled: Story = {
 
 export const FullWidth: Story = {
   args: {
-    label: 'Dirección de envío',
+    label: 'Address of envío',
     fullWidth: true,
-    placeholder: 'Calle 123, Ciudad...',
+    placeholder: 'Calle 123, City...',
   },
   decorators: [
     (Story) => (

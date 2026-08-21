@@ -53,11 +53,11 @@ export interface RatingProps
    */
   showValue?: boolean;
   /**
-   * Número de opiniones o reseñas (ej. 128 -> "(128)")
+   * Número of opiniones o reseñas (ej. 128 -> "(128)")
    */
   reviewCount?: number;
   /**
-   * Formato personalizado para el contador de reseñas (ej. (count) => `${count} reseñas`)
+   * Formato personalizado para el contador of reseñas (ej. (count) => `${count} reseñas`)
    */
   formatReviewCount?: (count: number) => React.ReactNode;
   /**
@@ -105,7 +105,7 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
     };
 
     const roundedValue = Number(value.toFixed(1));
-    const ariaText = `Valoración: ${roundedValue} de ${max} estrellas${
+    const ariaText = `Valoración: ${roundedValue} of ${max} estrellas${
       reviewCount !== undefined ? `, ${reviewCount} reseñas` : ''
     }`;
 
@@ -115,7 +115,7 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
 
         {interactive ? (
           <fieldset
-            aria-label="Seleccionar puntuación"
+            aria-label="Select puntuación"
             className="m-0 flex items-center gap-0.5 border-0 p-0"
             onMouseLeave={handleMouseLeave}
           >
@@ -135,7 +135,7 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
                   disabled={disabled}
                   onClick={() => handleStarClick(starNumber)}
                   onMouseEnter={() => handleMouseEnter(starNumber)}
-                  aria-label={`${starNumber} de ${max} estrellas`}
+                  aria-label={`${starNumber} of ${max} estrellas`}
                   className={cn(
                     'relative inline-flex items-center justify-center p-0.5 transition-transform cursor-pointer hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus rounded-xs',
                     disabled && 'opacity-50 cursor-not-allowed hover:scale-100',
@@ -197,14 +197,14 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
           </div>
         )}
 
-        {/* Valor numérico opcional (ej. 4.8) */}
+        {/* Optional numeric value (ej. 4.8) */}
         {showValue && (
           <span className="font-bold text-aurora-text-primary ml-1" aria-hidden="true">
             {roundedValue}
           </span>
         )}
 
-        {/* Contador de opiniones opcional */}
+        {/* Optional review count */}
         {reviewCount !== undefined && (
           <span className="text-aurora-text-secondary text-xs ml-0.5" aria-hidden="true">
             {formatReviewCount ? formatReviewCount(reviewCount) : `(${reviewCount})`}

@@ -7,22 +7,22 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
    */
   label?: string;
   /**
-   * Estado de error (booleano) o mensaje de error (string)
+   * Estado of error (booleano) o mensaje of error (string)
    */
   error?: string | boolean;
   /**
-   * Texto de ayuda en la parte inferior
+   * Texto of ayuda en la parte inferior
    */
   helperText?: string;
   /**
-   * Si es true, el input ocupará todo el ancho de su contenedor
+   * Si es true, el input ocupará todo el ancho of su contenedor
    */
   fullWidth?: boolean;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, helperText, fullWidth, className, id, ...props }, ref) => {
-    // Generar un ID único en caso de que no se provea uno, para vincular el label al input
+    // Generar un ID único en caso of que no se provea uno, para vincular el label al input
     const generatedId = React.useId();
     const inputId = id || generatedId;
     const hasError = !!error;

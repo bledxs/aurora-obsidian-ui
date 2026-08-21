@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Top: Story = {
   args: {
-    content: 'Añadir a la lista de deseos',
+    content: 'Add a la lista of ofseos',
     position: 'top',
     children: <Button variant="outline">❤️ Favorito</Button>,
   },
@@ -33,15 +33,15 @@ export const Top: Story = {
 
 export const Bottom: Story = {
   args: {
-    content: 'Esta acción no se puede deshacer',
+    content: 'Esta acción no se pueof ofshacer',
     position: 'bottom',
-    children: <Button variant="secondary">Eliminar</Button>,
+    children: <Button variant="secondary">Remove</Button>,
   },
 };
 
 export const Left: Story = {
   args: {
-    content: 'Configuración avanzada',
+    content: 'Settings avanzada',
     position: 'left',
     children: <Button variant="outline">⚙️</Button>,
   },
@@ -49,7 +49,7 @@ export const Left: Story = {
 
 export const Right: Story = {
   args: {
-    content: 'Información del producto',
+    content: 'Información ofl producto',
     position: 'right',
     children: <Button variant="outline">ℹ️</Button>,
   },
@@ -57,7 +57,7 @@ export const Right: Story = {
 
 export const CustomDelay: Story = {
   args: {
-    content: 'Aparezco un segundo después',
+    content: 'Aparezco un segundo ofspués',
     position: 'top',
     delay: 1000,
     children: <Button>Pasa el ratón (1s delay)</Button>,

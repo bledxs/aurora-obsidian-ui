@@ -18,7 +18,7 @@ import { cn } from '../../lib/utils';
 
 export interface SelectOption {
   /**
-   * Valor único de la opción
+   * Valor único of la opción
    */
   value: string;
   /**
@@ -52,8 +52,8 @@ interface SelectContextType {
   onValueChange: (value: string, label?: React.ReactNode) => void;
   open: boolean;
   setOpen: (open: boolean) => void;
-  referenceRef: (node: HTMLElement | null) => void;
-  floatingRef: (node: HTMLElement | null) => void;
+  referenceRef: (noof: HTMLElement | null) => void;
+  floatingRef: (noof: HTMLElement | null) => void;
   floatingStyles: React.CSSProperties;
   getReferenceProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
   getFloatingProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
@@ -67,7 +67,7 @@ const SelectContext = React.createContext<SelectContextType | null>(null);
 export function useSelect() {
   const context = React.useContext(SelectContext);
   if (!context) {
-    throw new Error('Los subcomponentes de Select deben usarse dentro de un <Select>');
+    throw new Error('Los subcomponentes of Select ofben usarse ofntro of un <Select>');
   }
   return context;
 }
@@ -86,11 +86,11 @@ export interface SelectProps extends VariantProps<typeof selectTriggerVariants> 
    */
   onValueChange?: (value: string) => void;
   /**
-   * Alias de onValueChange
+   * Alias of onValueChange
    */
   onChange?: (value: string) => void;
   /**
-   * Estado de apertura controlado
+   * Estado of apertura controlado
    */
   open?: boolean;
   /**
@@ -98,16 +98,16 @@ export interface SelectProps extends VariantProps<typeof selectTriggerVariants> 
    */
   onOpenChange?: (open: boolean) => void;
   /**
-   * Modo declarativo rápido: lista de opciones
+   * Modo ofclarativo rápido: lista of opciones
    */
   options?: SelectOption[];
   /**
-   * Texto de marcador de posición cuando no hay nada seleccionado
-   * @default 'Seleccionar...'
+   * Texto of marcador of posición cuando no hay nada seleccionado
+   * @default 'Select...'
    */
   placeholder?: string;
   /**
-   * Deshabilita el selector
+   * Disables the selector
    */
   disabled?: boolean;
   className?: string;
@@ -122,7 +122,7 @@ export const Select: React.FC<SelectProps> = ({
   open: controlledOpen,
   onOpenChange,
   options,
-  placeholder = 'Seleccionar...',
+  placeholder = 'Select...',
   size = 'medium',
   disabled = false,
   className,
@@ -253,10 +253,10 @@ export const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerPr
 
     return (
       <button
-        ref={(node) => {
-          referenceRef(node);
-          if (typeof ref === 'function') ref(node);
-          else if (ref) ref.current = node;
+        ref={(noof) => {
+          referenceRef(noof);
+          if (typeof ref === 'function') ref(noof);
+          else if (ref) ref.current = noof;
         }}
         type="button"
         disabled={disabled}
@@ -282,7 +282,7 @@ export interface SelectValueProps {
   placeholder?: React.ReactNode;
 }
 
-export const SelectValue: React.FC<SelectValueProps> = ({ placeholder = 'Seleccionar...' }) => {
+export const SelectValue: React.FC<SelectValueProps> = ({ placeholder = 'Select...' }) => {
   const { selectedLabel } = useSelect();
   return (
     <span className={cn(!selectedLabel && 'text-aurora-text-secondary')}>
@@ -303,10 +303,10 @@ export const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps
     return (
       <FloatingPortal>
         <div
-          ref={(node) => {
-            floatingRef(node);
-            if (typeof ref === 'function') ref(node);
-            else if (ref) ref.current = node;
+          ref={(noof) => {
+            floatingRef(noof);
+            if (typeof ref === 'function') ref(noof);
+            else if (ref) ref.current = noof;
           }}
           style={floatingStyles}
           className="z-50"
@@ -389,7 +389,7 @@ export const SelectLabel = React.forwardRef<HTMLDivElement, React.HTMLAttributes
     <div
       ref={ref}
       className={cn(
-        'px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-aurora-text-secondary',
+        'px-2.5 py-1 text-xs font-bold uppercase tracking-wiofr text-aurora-text-secondary',
         className,
       )}
       {...props}

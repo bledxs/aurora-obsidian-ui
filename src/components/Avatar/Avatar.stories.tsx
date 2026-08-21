@@ -12,17 +12,17 @@ const meta = {
     size: {
       control: 'select',
       options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'],
-      description: 'Tamaño del avatar',
+      description: 'Avatar size',
     },
     shape: {
       control: 'radio',
       options: ['circle', 'square'],
-      description: 'Forma geométrica del avatar',
+      description: 'Geometric shape of the avatar',
     },
     status: {
       control: 'select',
       options: ['online', 'offline', 'busy', 'away'],
-      description: 'Insignia de disponibilidad',
+      description: 'Insignia of disponibilidad',
     },
   },
 } satisfies Meta<typeof Avatar>;
@@ -30,7 +30,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Galería Básica con Fallbacks
+// 1. Basic Gallery with Fallbacks
 export const Basic: Story = {
   render: () => (
     <div className="flex items-center gap-4 font-sans">
@@ -46,7 +46,7 @@ export const Basic: Story = {
   ),
 };
 
-// 2. Todos los Tamaños
+// 2. All Sizes
 export const AllSizes: Story = {
   render: () => (
     <div className="flex items-end gap-3 font-sans">
@@ -84,31 +84,31 @@ export const AllSizes: Story = {
   ),
 };
 
-// 3. Insignias de Estado
+// 3. Insignias of Estado
 export const StatusBadges: Story = {
   render: () => (
     <div className="flex items-center gap-6 font-sans">
       <div className="flex flex-col items-center gap-1.5">
         <Avatar size="lg" fallback="ON" status="online" />
-        <span className="text-xs text-aurora-text-secondary">En línea</span>
+        <span className="text-xs text-aurora-text-secondary">Online</span>
       </div>
       <div className="flex flex-col items-center gap-1.5">
         <Avatar size="lg" fallback="AW" status="away" />
-        <span className="text-xs text-aurora-text-secondary">Ausente</span>
+        <span className="text-xs text-aurora-text-secondary">Away</span>
       </div>
       <div className="flex flex-col items-center gap-1.5">
         <Avatar size="lg" fallback="BS" status="busy" />
-        <span className="text-xs text-aurora-text-secondary">Ocupado</span>
+        <span className="text-xs text-aurora-text-secondary">Busy</span>
       </div>
       <div className="flex flex-col items-center gap-1.5">
         <Avatar size="lg" fallback="OF" status="offline" />
-        <span className="text-xs text-aurora-text-secondary">Desconectado</span>
+        <span className="text-xs text-aurora-text-secondary">Defline</span>
       </div>
     </div>
   ),
 };
 
-// 4. Grupo de Avatares (E-Commerce Reviewers)
+// 4. Grupo of Avatares (E-Commerce Reviewers)
 export const ReviewersGroup: Story = {
   render: () => (
     <div className="flex flex-col gap-3 font-sans">
@@ -123,8 +123,7 @@ export const ReviewersGroup: Story = {
           <Avatar fallback="KP" />
         </AvatarGroup>
         <span className="text-xs font-semibold text-aurora-text-secondary">
-          Más de <strong className="text-aurora-text-primary">1,400+ compradores</strong>{' '}
-          verificados
+          Over <strong className="text-aurora-text-primary">1,400+ customers</strong> verificados
         </span>
       </div>
     </div>

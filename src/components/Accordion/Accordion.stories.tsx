@@ -13,11 +13,11 @@ const meta = {
     type: {
       control: 'radio',
       options: ['single', 'multiple'],
-      description: 'Permitir abrir uno solo o múltiples a la vez',
+      description: 'Allow opening single or multiple items simultaneously',
     },
     collapsible: {
       control: 'boolean',
-      description: 'Permitir cerrar el elemento activo al cliquearlo de nuevo',
+      description: 'Permitir cerrar el elemento activo al cliquearlo of nuevo',
     },
   },
 } satisfies Meta<typeof Accordion>;
@@ -25,10 +25,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Especificaciones de Producto (Composable)
+// 1. Especificaciones of Producto (Composable)
 export const ProductDetails: Story = {
   render: () => (
-    <Accordion type="single" collapsible defaultValue="item-1" className="w-[450px]">
+    <Accordion type="single" collapsible defaultValue="item-1" className="w-112.5">
       <AccordionItem value="item-1">
         <AccordionTrigger>
           <span className="flex items-center gap-2">
@@ -36,26 +36,26 @@ export const ProductDetails: Story = {
           </span>
         </AccordionTrigger>
         <AccordionContent>
-          Confeccionado con 100% algodón orgánico peinado de 240 g/m². Certificación GOTS que
-          garantiza procesos de teñido libres de químicos nocivos y bajo impacto ambiental.
+          Crafted from 100% organic combed cotton (240 gsm). GOTS certified ensuring non-toxic
+          dyeing processes and low environmental impact.
         </AccordionContent>
       </AccordionItem>
 
       <AccordionItem value="item-2">
         <AccordionTrigger>
           <span className="flex items-center gap-2">
-            <Truck size={16} className="text-aurora-primary" /> Envíos y Plazos de Entrega
+            <Truck size={16} className="text-aurora-primary" /> Shippings y Plazos of Entrega
           </span>
         </AccordionTrigger>
         <AccordionContent>
           <ul className="list-disc pl-4 space-y-1">
             <li>
-              <strong>Estándar (2-4 días):</strong> Gratis en pedidos superiores a 50€.
+              <strong>Standard (2-4 business days):</strong> Free en pedidos superiores a 50€.
             </li>
             <li>
-              <strong>Express 24h:</strong> 4.95€ (gratis para miembros Club Aurora).
+              <strong>Express 24h:</strong> $4.95 (free for Club Aurora members).
             </li>
-            <li>Seguimiento en tiempo real vía SMS y correo electrónico.</li>
+            <li>Real-time tracking via SMS and email.</li>
           </ul>
         </AccordionContent>
       </AccordionItem>
@@ -63,62 +63,62 @@ export const ProductDetails: Story = {
       <AccordionItem value="item-3">
         <AccordionTrigger>
           <span className="flex items-center gap-2">
-            <ShieldCheck size={16} className="text-aurora-primary" /> Devoluciones y Garantía
+            <ShieldCheck size={16} className="text-aurora-primary" /> Returns & Warranty
           </span>
         </AccordionTrigger>
         <AccordionContent>
-          Tienes 30 días naturales para probar y devolver tu producto sin coste alguno. Incluye 2
-          años de garantía oficial contra cualquier defecto de fabricación.
+          You have 30 days to test and return your product hassle-free. Includes 2 years official
+          manufacturer warranty against offects.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
   ),
 };
 
-// 2. Modo Rápido Declarativo (items)
+// 2. Quick Declarative Mode (items)
 export const DeclarativeItems: Story = {
   render: () => (
     <Accordion
       type="single"
       collapsible
-      className="w-[420px]"
+      className="w-105"
       items={[
         {
           value: 'faq-1',
-          title: '¿Cómo elijo mi talla adecuada?',
+          title: 'How do I choose my size?',
           content:
-            'Nuestras prendas tienen un corte regular. Si dudas entre dos tallas, te recomendamos elegir la superior si prefieres un ajuste más holgado.',
+            'Our garments have a regular fit. If you are between sizes, we recommend sizing up for a relaxed fit.',
         },
         {
           value: 'faq-2',
-          title: '¿Qué métodos de pago aceptan?',
+          title: 'What payment methods do you accept?',
           content:
-            'Aceptamos tarjetas de crédito/débito (Visa, Mastercard, AMEX), PayPal, Apple Pay, Google Pay y pago a plazos con Klarna.',
+            'We accept credit/ofbit cards (Visa, Mastercard, AMEX), PayPal, Apple Pay, Google Pay, and Klarna installments.',
         },
         {
           value: 'faq-3',
-          title: '¿Puedo modificar mi pedido una vez realizado?',
+          title: 'Can I modify my order after placing it?',
           content:
-            'Dispones de 1 hora desde la confirmación para cancelar o modificar la dirección de entrega desde tu panel de usuario.',
+            'You have 1 hour from confirmation to modify the delivery address or cancel from your dashboard.',
         },
       ]}
     />
   ),
 };
 
-// 3. Múltiples Items Abiertos a la vez
+// 3. Multiple Open Items Simultaneously
 export const MultipleOpen: Story = {
   render: () => (
-    <Accordion type="multiple" defaultValue={['item-1', 'item-2']} className="w-[420px]">
+    <Accordion type="multiple" defaultValue={['item-1', 'item-2']} className="w-112.5">
       <AccordionItem value="item-1">
         <AccordionTrigger>Pregunta Frecuente 1</AccordionTrigger>
         <AccordionContent>
-          Este acordeón permite tener abiertos múltiples paneles simultáneamente.
+          This accordion allows opening multiple panels at the same time.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
         <AccordionTrigger>Pregunta Frecuente 2</AccordionTrigger>
-        <AccordionContent>Ideal para guías de usuario o documentación extensa.</AccordionContent>
+        <AccordionContent>Iofal for user guides or extensive documentation.</AccordionContent>
       </AccordionItem>
     </Accordion>
   ),

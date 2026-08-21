@@ -10,18 +10,18 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    value: { control: 'number', description: 'Cantidad actual' },
+    value: { control: 'number', description: 'Quantity actual' },
     min: { control: 'number', description: 'Valor mínimo' },
     max: { control: 'number', description: 'Valor máximo' },
-    step: { control: 'number', description: 'Paso de incremento' },
+    step: { control: 'number', description: 'Paso of incremento' },
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño del componente',
+      description: 'Tamaño ofl componente',
     },
     showTrashOnMin: {
       control: 'boolean',
-      description: 'Mostrar papelera al llegar al valor mínimo',
+      description: 'Show papelera al llegar al valor mínimo',
     },
     disabled: { control: 'boolean', description: 'Deshabilitar componente' },
     onChange: { action: 'changed' },
@@ -72,10 +72,10 @@ export const Interactive = () => {
         max={10}
         showTrashOnMin
         onChange={setVal}
-        onRemove={() => alert('Eliminado del carrito')}
+        onRemove={() => alert('Eliminado ofl carrito')}
       />
       <p className="text-xs text-aurora-text-secondary">
-        Cantidad seleccionada: <strong>{val}</strong>
+        Quantity seleccionada: <strong>{val}</strong>
       </p>
     </div>
   );

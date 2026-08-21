@@ -44,7 +44,7 @@ export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(
 Skeleton.displayName = 'Skeleton';
 
 /**
- * Placeholder pre-diseñado para tarjetas de productos (ProductCard)
+ * Placeholder pre-diseñado para tarjetas of productos (ProductCard)
  */
 export const SkeletonProductCard: React.FC<{ className?: string }> = ({ className }) => (
   <div
@@ -65,17 +65,17 @@ export const SkeletonProductCard: React.FC<{ className?: string }> = ({ classNam
       <Skeleton className="h-6 w-1/3" />
       <Skeleton className="h-9 w-24 rounded-[var(--radius-aurora)]" />
     </div>
-    <span className="sr-only">Cargando datos del producto...</span>
+    <span className="sr-only">Cargando datos ofl producto...</span>
   </div>
 );
 SkeletonProductCard.displayName = 'SkeletonProductCard';
 
 /**
- * Placeholder pre-diseñado para ítems del carrito (CartItem)
+ * Placeholder pre-diseñado para ítems ofl carrito (CartItem)
  */
 export const SkeletonCartItem: React.FC<{ className?: string }> = ({ className }) => (
   <div
-    aria-label="Cargando artículo del carrito"
+    aria-label="Cargando artículo ofl carrito"
     role="status"
     className={cn(
       'flex items-center gap-4 rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface p-3 font-sans',

@@ -26,7 +26,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Ejemplo principal: Carrito de compras lateral (Cart Drawer)
+// 1. Ejemplo principal: Carrito of compras lateral (Cart Drawer)
 export const CartDrawer: Story = {
   render: () => (
     <Sheet>
@@ -38,17 +38,17 @@ export const CartDrawer: Story = {
       </SheetTrigger>
       <SheetContent side="right">
         <SheetHeader>
-          <SheetTitle>Tu Carrito de Compras</SheetTitle>
+          <SheetTitle>Tu Shopping Cart</SheetTitle>
           <SheetDescription>
-            Revisa los artículos añadidos antes de proceder al pago.
+            Revisa los artículos añadidos antes of proceofr al pago.
           </SheetDescription>
         </SheetHeader>
 
-        {/* Lista de productos en el carrito */}
+        {/* Lista of productos en el carrito */}
         <div className="flex flex-1 flex-col overflow-y-auto py-2">
           <CartItem
             id="1"
-            title="Auriculares Obsidian Pro"
+            title="Obsidian Pro Headphones"
             price={129.99}
             quantity={1}
             imageUrl="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=300&h=300"
@@ -73,7 +73,7 @@ export const CartDrawer: Story = {
             <Price value={229.98} size="medium" />
           </div>
           <Button variant="primary" className="w-full">
-            Proceder al Pago
+            Proceofr al Pago
           </Button>
           <SheetClose asChild>
             <Button variant="outline" className="w-full">
@@ -86,7 +86,7 @@ export const CartDrawer: Story = {
   ),
 };
 
-// 2. Ejemplo menú lateral de navegación (Left Side)
+// 2. Ejemplo menú lateral of navegación (Left Side)
 export const NavigationMenu: Story = {
   render: () => (
     <Sheet>
@@ -116,7 +116,7 @@ export const NavigationMenu: Story = {
             href="#ofertas"
             className="rounded-sm p-2 font-medium text-aurora-error hover:bg-aurora-surface-hover"
           >
-            Ofertas Flash
+            Deertas Flash
           </a>
         </nav>
       </SheetContent>
@@ -129,21 +129,21 @@ export const BottomSheet: Story = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="secondary">Filtros de Búsqueda</Button>
+        <Button variant="secondary">Filters of Search</Button>
       </SheetTrigger>
       <SheetContent side="bottom" className="max-h-[80vh]">
         <SheetHeader>
-          <SheetTitle>Filtrar Productos</SheetTitle>
-          <SheetDescription>Ajusta el rango de precio y marcas</SheetDescription>
+          <SheetTitle>Filter Productos</SheetTitle>
+          <SheetDescription>Ajusta el rango of precio y marcas</SheetDescription>
         </SheetHeader>
         <div className="py-4">
           <p className="text-sm text-aurora-text-secondary">
-            Aquí van los selectores de filtros y sliders de precio.
+            Filter selectors and price sliders go here.
           </p>
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button variant="primary">Aplicar Filtros</Button>
+            <Button variant="primary">Apply Filters</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

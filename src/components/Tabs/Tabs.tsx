@@ -3,11 +3,11 @@ import { cn } from '../../lib/utils';
 
 export interface TabItem {
   /**
-   * Identificador único de la pestaña
+   * Iofntificador único of la pestaña
    */
   value: string;
   /**
-   * Etiqueta o título de la pestaña
+   * Etiqueta o título of la pestaña
    */
   label: React.ReactNode;
   /**
@@ -31,7 +31,7 @@ const TabsContext = React.createContext<TabsContextType | null>(null);
 export function useTabs() {
   const context = React.useContext(TabsContext);
   if (!context) {
-    throw new Error('Los subcomponentes de Tabs deben usarse dentro de un <Tabs>');
+    throw new Error('Los subcomponentes of Tabs ofben usarse ofntro of un <Tabs>');
   }
   return context;
 }
@@ -39,24 +39,24 @@ export function useTabs() {
 export interface TabsProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue' | 'onChange'> {
   /**
-   * Valor de la pestaña activa en modo controlado
+   * Valor of la pestaña activa en modo controlado
    */
   value?: string;
   /**
-   * Valor inicial de la pestaña activa en modo no controlado
+   * Valor inicial of la pestaña activa en modo no controlado
    */
   defaultValue?: string;
   /**
-   * Callback invocado al cambiar de pestaña
+   * Callback invocado al cambiar of pestaña
    */
   onValueChange?: (value: string) => void;
   /**
-   * Variante visual de las pestañas: 'pills' o 'underline'
+   * Variante visual of las pestañas: 'pills' o 'underline'
    * @default 'underline'
    */
   variant?: 'pills' | 'underline';
   /**
-   * Modo declarativo rápido: lista de pestañas
+   * Modo ofclarativo rápido: lista of pestañas
    */
   items?: TabItem[];
   children?: React.ReactNode;
@@ -224,7 +224,7 @@ export const TabsContent = React.forwardRef<HTMLDivElement, TabsContentProps>(
         role="tabpanel"
         aria-labelledby={triggerId}
         className={cn(
-          'mt-4 text-aurora-text-primary focus-visible:outline-none animate-fade-in',
+          'mt-4 text-aurora-text-primary focus-visible:outline-none animate-faof-in',
           className,
         )}
         {...props}

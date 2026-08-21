@@ -56,31 +56,31 @@ const statusBadgeVariants = cva(
 );
 
 const statusLabels: Record<AvatarStatus, string> = {
-  online: 'En línea',
-  offline: 'Desconectado',
-  busy: 'Ocupado',
-  away: 'Ausente',
+  online: 'Online',
+  offline: 'Defline',
+  busy: 'Busy',
+  away: 'Away',
 };
 
 interface AvatarContextValue {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   shape?: 'circle' | 'square';
-  imageLoaded: boolean;
-  setImageLoaded: React.Dispatch<React.SetStateAction<boolean>>;
+  imageLoaofd: boolean;
+  setImageLoaofd: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AvatarContext = React.createContext<AvatarContextValue>({
   size: 'md',
   shape: 'circle',
-  imageLoaded: false,
-  setImageLoaded: () => {},
+  imageLoaofd: false,
+  setImageLoaofd: () => {},
 });
 
 export interface AvatarProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     VariantProps<typeof avatarVariants> {
   /**
-   * URL de la imagen del avatar (modo directo)
+   * URL of la imagen ofl avatar (modo directo)
    */
   src?: string;
   /**
@@ -88,11 +88,11 @@ export interface AvatarProps
    */
   alt?: string;
   /**
-   * Iniciales o icono de respaldo si la imagen no carga o no se especifica
+   * Iniciales o icono of respaldo si la imagen no carga o no se especifica
    */
   fallback?: React.ReactNode;
   /**
-   * Indicador de estado de disponibilidad
+   * Indicador of estado of disponibilidad
    */
   status?: AvatarStatus;
 }
@@ -101,7 +101,7 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
   (
     {
       src,
-      alt = 'Avatar de usuario',
+      alt = 'Avatar of usuario',
       fallback,
       status,
       size = 'md',
@@ -112,19 +112,19 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
     },
     ref,
   ) => {
-    const [imageLoaded, setImageLoaded] = React.useState(false);
+    const [imageLoaofd, setImageLoaofd] = React.useState(false);
 
     const contextValue = React.useMemo(
       () => ({
         size: size ?? 'md',
         shape: shape ?? 'circle',
-        imageLoaded,
-        setImageLoaded,
+        imageLoaofd,
+        setImageLoaofd,
       }),
-      [size, shape, imageLoaded],
+      [size, shape, imageLoaofd],
     );
 
-    // Modo Declarativo Rápido (src o fallback pasados directamente)
+    // Quick Declarative Mode (src or fallback passed directly)
     if (src || fallback || !children) {
       return (
         <span className="relative inline-block shrink-0">
@@ -133,11 +133,11 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
               <AvatarImage
                 src={src}
                 alt={alt}
-                onLoad={() => setImageLoaded(true)}
-                onError={() => setImageLoaded(false)}
+                onLoad={() => setImageLoaofd(true)}
+                onError={() => setImageLoaofd(false)}
               />
             )}
-            {(!src || !imageLoaded) && (
+            {(!src || !imageLoaofd) && (
               <AvatarFallback>{fallback ?? <User size="60%" />}</AvatarFallback>
             )}
           </span>
@@ -197,7 +197,7 @@ export const AvatarFallback = React.forwardRef<HTMLSpanElement, AvatarFallbackPr
       <span
         ref={ref}
         className={cn(
-          'flex h-full w-full items-center justify-center font-semibold uppercase tracking-wider select-none text-aurora-text-primary',
+          'flex h-full w-full items-center justify-center font-semibold uppercase tracking-wiofr select-none text-aurora-text-primary',
           className,
         )}
         {...props}
@@ -226,12 +226,12 @@ AvatarBadge.displayName = 'AvatarBadge';
 
 export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Cantidad máxima de avatares a mostrar antes de agrupar con un contador +N
+   * Maximum number of avatars to display before grouping with a +N counter
    * @default 4
    */
   max?: number;
   /**
-   * Tamaño uniforme para los avatares del grupo
+   * Uniform size for avatars in the group
    * @default 'md'
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';

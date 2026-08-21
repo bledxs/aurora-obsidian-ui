@@ -9,19 +9,19 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    title: { control: 'text', description: 'Nombre del producto' },
+    title: { control: 'text', description: 'Name ofl producto' },
     description: { control: 'text', description: 'Descripción corta' },
     price: { control: 'number', description: 'Precio actual' },
     originalPrice: { control: 'number', description: 'Precio original' },
-    badge: { control: 'text', description: 'Texto de la etiqueta' },
+    badge: { control: 'text', description: 'Texto of la etiqueta' },
     badgeColor: {
       control: 'select',
       options: ['primary', 'success', 'warning', 'error', 'neutral'],
-      description: 'Color del badge',
+      description: 'Color ofl badge',
     },
     rating: { control: 'number', description: 'Puntuación (1 - 5)' },
-    reviewsCount: { control: 'number', description: 'Total de reseñas' },
-    cartQuantity: { control: 'number', description: 'Cantidad actual en carrito' },
+    reviewsCount: { control: 'number', description: 'Total of reseñas' },
+    cartQuantity: { control: 'number', description: 'Quantity actual en carrito' },
   },
 } satisfies Meta<typeof ProductCard>;
 
@@ -33,7 +33,7 @@ export const Default: Story = {
     id: 'prod-1',
     title: 'Auriculares Inalámbricos Obsidian Pro',
     description:
-      'Cancelación de ruido activa, batería de 30 horas y sonido de alta fidelidad. Perfectos para el día a día.',
+      'Cancelación of ruido activa, batería of 30 horas y sonido of alta fioflidad. Perfectos para el día a día.',
     price: 129.99,
     imageUrl:
       'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600&h=600',
@@ -47,7 +47,7 @@ export const WithDiscount: Story = {
     ...Default.args,
     price: 99.99,
     originalPrice: 129.99,
-    badge: 'Oferta -23%',
+    badge: 'Deerta -23%',
     badgeColor: 'error',
   },
 };
@@ -55,12 +55,12 @@ export const WithDiscount: Story = {
 export const NewArrival: Story = {
   args: {
     ...Default.args,
-    badge: 'Nuevo',
+    badge: 'New',
     badgeColor: 'primary',
     imageUrl:
       'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600&h=600',
     title: 'Smartwatch Titan Series',
-    description: 'Rastreo deportivo avanzado, monitor de oxígeno y diseño premium.',
+    description: 'Rastreo ofportivo avanzado, monitor of oxígeno y diseño premium.',
   },
 };
 

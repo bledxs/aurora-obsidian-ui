@@ -41,34 +41,34 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Menú de Acciones de Fila (E-Commerce Table Action Menu)
+// 1. Menú of Acciones of Fila (E-Commerce Table Action Menu)
 export const TableActionMenu: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="small" aria-label="Abrir opciones de fila">
+        <Button variant="ghost" size="small" aria-label="Open row options">
           <MoreHorizontal size={16} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-48">
-        <DropdownMenuLabel>Acciones de Pedido</DropdownMenuLabel>
+        <DropdownMenuLabel>Order Actions</DropdownMenuLabel>
         <DropdownMenuItem>
           <Eye size={14} className="text-aurora-text-secondary" />
-          Ver detalles
+          View Details
           <DropdownMenuShortcut>⌘V</DropdownMenuShortcut>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Download size={14} className="text-aurora-text-secondary" />
-          Descargar factura
+          Download Invoice
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Copy size={14} className="text-aurora-text-secondary" />
-          Repetir pedido
+          Reorder
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem variant="danger">
           <Trash2 size={14} />
-          Cancelar pedido
+          Cancel pedido
           <DropdownMenuShortcut>⌫</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -76,17 +76,17 @@ export const TableActionMenu: Story = {
   ),
 };
 
-// 2. Ordenación de Catálogo con Radio Items
+// 2. Ordenación of Catálogo con Radio Items
 export const SortCatalogMenu: Story = {
   render: () => {
     const [sort, setSort] = useState('relevance');
 
     const sortLabels: Record<string, string> = {
-      relevance: 'Más relevantes',
-      price_asc: 'Precio: Menor a Mayor',
-      price_desc: 'Precio: Mayor a Menor',
-      rating: 'Mejor valorados',
-      newest: 'Novedades',
+      relevance: 'Most Relevant',
+      price_asc: 'Price: Low to High',
+      price_desc: 'Price: High to Low',
+      rating: 'Highest Rated',
+      newest: 'New Arrivals',
     };
 
     return (
@@ -94,17 +94,17 @@ export const SortCatalogMenu: Story = {
         <DropdownMenuTrigger asChild>
           <Button variant="outline" className="gap-2 text-xs">
             <ArrowDownAZ size={15} />
-            Ordenar por: <strong className="text-aurora-primary">{sortLabels[sort]}</strong>
+            Sort by: <strong className="text-aurora-primary">{sortLabels[sort]}</strong>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
-          <DropdownMenuLabel>Ordenar catálogo</DropdownMenuLabel>
+          <DropdownMenuLabel>Sort Catalog</DropdownMenuLabel>
           <DropdownMenuRadioGroup value={sort} onValueChange={setSort}>
-            <DropdownMenuRadioItem value="relevance">Más relevantes</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="price_asc">Precio: Menor a Mayor</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="price_desc">Precio: Mayor a Menor</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="rating">Mejor valorados</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="newest">Novedades</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="relevance">Most Relevant</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="price_asc">Price: Low to High</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="price_desc">Price: High to Low</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="rating">Highest Rated</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="newest">New Arrivals</DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -112,7 +112,7 @@ export const SortCatalogMenu: Story = {
   },
 };
 
-// 3. Filtros Rápidos con Checkbox Items
+// 3. Filters Rápidos con Checkbox Items
 export const FilterCheckboxMenu: Story = {
   render: () => {
     const [inStock, setInStock] = useState(true);
@@ -124,19 +124,19 @@ export const FilterCheckboxMenu: Story = {
         <DropdownMenuTrigger asChild>
           <Button variant="outline" className="gap-2 text-xs">
             <Filter size={15} />
-            Filtros rápidos
+            Filters rápidos
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-52">
-          <DropdownMenuLabel>Disponibilidad</DropdownMenuLabel>
+          <DropdownMenuLabel>Availability</DropdownMenuLabel>
           <DropdownMenuCheckboxItem checked={inStock} onCheckedChange={setInStock}>
-            Solo en stock
+            In Stock Only
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem checked={onSale} onCheckedChange={setOnSale}>
-            En oferta
+            On Sale
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem checked={freeShipping} onCheckedChange={setFreeShipping}>
-            Envío gratuito
+            Shipping gratuito
           </DropdownMenuCheckboxItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -144,14 +144,14 @@ export const FilterCheckboxMenu: Story = {
   },
 };
 
-// 4. Menú de Usuario con Atajos de Teclado
+// 4. Menú of Usuario con Atajos of Teclado
 export const UserAccountMenu: Story = {
   render: () => (
     <DropdownMenu placement="bottom-end">
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          aria-label="Abrir menú de usuario"
+          aria-label="Open user menu"
           className="rounded-full ring-2 ring-transparent hover:ring-aurora-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus transition-all"
         >
           <Avatar
@@ -163,30 +163,30 @@ export const UserAccountMenu: Story = {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
+        <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuItem>
           <User size={14} className="text-aurora-text-secondary" />
-          Mi perfil
+          My Profile
           <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Package size={14} className="text-aurora-text-secondary" />
-          Mis pedidos
+          My Orders
           <DropdownMenuShortcut>⌘O</DropdownMenuShortcut>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <CreditCard size={14} className="text-aurora-text-secondary" />
-          Métodos de pago
+          Payment Methods
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Settings size={14} className="text-aurora-text-secondary" />
-          Configuración
+          Settings
           <DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem variant="danger">
           <LogOut size={14} />
-          Cerrar sesión
+          Close sesión
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>

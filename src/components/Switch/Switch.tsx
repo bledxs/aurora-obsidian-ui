@@ -43,19 +43,19 @@ export interface SwitchProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
     VariantProps<typeof switchTrackVariants> {
   /**
-   * Estado controlado del interruptor
+   * Controlled state of the switch
    */
   checked?: boolean;
   /**
-   * Estado inicial no controlado
+   * Initial uncontrolled state
    */
   defaultChecked?: boolean;
   /**
-   * Callback invocado cuando cambia el estado
+   * Callback fired when state changes
    */
   onCheckedChange?: (checked: boolean) => void;
   /**
-   * Icono opcional dentro del pulgar
+   * Optional icon inside thumb
    */
   thumbIcon?: React.ReactNode;
 }
@@ -142,7 +142,7 @@ export interface SwitchCardProps extends Omit<React.HTMLAttributes<HTMLDivElemen
 }
 
 /**
- * Fila o tarjeta con interruptor integrada para preferencias y checkout
+ * Row or card with integrated switch for preferences and checkout
  */
 export const SwitchCard = React.forwardRef<HTMLDivElement, SwitchCardProps>(
   (

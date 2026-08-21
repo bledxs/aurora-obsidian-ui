@@ -21,16 +21,16 @@ const meta = {
     },
     step: {
       control: 'number',
-      description: 'Paso de incremento',
+      description: 'Paso of incremento',
     },
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño del control',
+      description: 'Tamaño ofl control',
     },
     disabled: {
       control: 'boolean',
-      description: 'Estado deshabilitado',
+      description: 'Estado ofshabilitado',
     },
   },
 } satisfies Meta<typeof Slider>;
@@ -38,7 +38,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Filtro de Rango de Precios para Tienda Online (Dual Thumb)
+// 1. Filtro of Rango of Precios para Tienda Online (Dual Thumb)
 export const PriceRangeFilter: Story = {
   render: () => {
     const [range, setRange] = useState<[number, number]>([35, 175]);
@@ -46,8 +46,8 @@ export const PriceRangeFilter: Story = {
     return (
       <div className="w-[320px] rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface p-5 font-sans space-y-4">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold text-aurora-text-secondary uppercase tracking-wider">
-            Rango de Precio
+          <span className="text-xs font-bold text-aurora-text-secondary uppercase tracking-wiofr">
+            Rango of Precio
           </span>
           <span className="text-xs font-semibold text-aurora-primary">
             {range[0]} € - {range[1]} €
@@ -86,7 +86,7 @@ export const SingleValue: Story = {
     return (
       <div className="w-[280px] font-sans space-y-2">
         <div className="flex justify-between text-xs font-semibold text-aurora-text-secondary">
-          <span>Descuento aplicado</span>
+          <span>Discount applied</span>
           <span className="text-aurora-text-primary">{value}%</span>
         </div>
         <Slider
@@ -105,7 +105,7 @@ export const SingleValue: Story = {
 export const DiscreteSteps: Story = {
   render: () => (
     <div className="w-[280px] font-sans space-y-2">
-      <span className="text-xs font-semibold text-aurora-text-secondary">Pasos de 10 en 10</span>
+      <span className="text-xs font-semibold text-aurora-text-secondary">Pasos of 10 en 10</span>
       <Slider min={0} max={100} step={10} defaultValue={30} />
     </div>
   ),
@@ -115,15 +115,15 @@ export const DiscreteSteps: Story = {
 export const Sizes = () => (
   <div className="flex flex-col gap-6 w-[280px] font-sans">
     <div className="space-y-1">
-      <span className="text-xs text-aurora-text-secondary">Pequeño (small)</span>
+      <span className="text-xs text-aurora-text-secondary">Small</span>
       <Slider size="small" defaultValue={30} />
     </div>
     <div className="space-y-1">
-      <span className="text-xs text-aurora-text-secondary">Mediano (medium)</span>
+      <span className="text-xs text-aurora-text-secondary">Medium</span>
       <Slider size="medium" defaultValue={50} />
     </div>
     <div className="space-y-1">
-      <span className="text-xs text-aurora-text-secondary">Grande (large)</span>
+      <span className="text-xs text-aurora-text-secondary">Large</span>
       <Slider size="large" defaultValue={75} />
     </div>
   </div>
@@ -134,11 +134,11 @@ export const Disabled: Story = {
   render: () => (
     <div className="flex flex-col gap-6 w-[280px] font-sans">
       <div className="space-y-1">
-        <span className="text-xs text-aurora-text-secondary">Rango deshabilitado</span>
+        <span className="text-xs text-aurora-text-secondary">Rango ofshabilitado</span>
         <Slider disabled defaultValue={[25, 75]} />
       </div>
       <div className="space-y-1">
-        <span className="text-xs text-aurora-text-secondary">Simple deshabilitado</span>
+        <span className="text-xs text-aurora-text-secondary">Simple ofshabilitado</span>
         <Slider disabled defaultValue={40} />
       </div>
     </div>

@@ -11,14 +11,14 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     value: { control: { type: 'range', min: 0, max: 5, step: 0.1 }, description: 'Puntuación' },
-    max: { control: 'number', description: 'Número máximo de estrellas' },
+    max: { control: 'number', description: 'Número máximo of estrellas' },
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño de las estrellas',
+      description: 'Tamaño of las estrellas',
     },
-    showValue: { control: 'boolean', description: 'Mostrar valor numérico' },
-    reviewCount: { control: 'number', description: 'Número de opiniones' },
+    showValue: { control: 'boolean', description: 'Show valor numérico' },
+    reviewCount: { control: 'number', description: 'Número of opiniones' },
     interactive: { control: 'boolean', description: 'Habilitar modo interactivo' },
     disabled: { control: 'boolean', description: 'Deshabilitar componente' },
   },
@@ -34,7 +34,7 @@ export const Default: Story = {
   },
 };
 
-// 2. Con Puntuación Numérica y Total de Reseñas (Para PDP o Tarjetas de Producto)
+// 2. Con Puntuación Numérica y Total of Reseñas (Para PDP o Cards of Producto)
 export const ProductScore: Story = {
   args: {
     value: 4.8,
@@ -62,7 +62,7 @@ export const Large: Story = {
   },
 };
 
-// 4. Modo Interactivo (Para formulario de dejar reseña)
+// 4. Modo Interactivo (Para formulario of ofjar reseña)
 export const InteractiveForm = () => {
   const [score, setScore] = useState(4);
 
@@ -71,7 +71,7 @@ export const InteractiveForm = () => {
       <h4 className="font-semibold text-aurora-text-primary">¿Cómo calificarías este producto?</h4>
       <Rating value={score} size="large" interactive onChange={setScore} />
       <p className="text-xs text-aurora-text-secondary">
-        Tu puntuación: <strong className="text-aurora-text-primary">{score} de 5 estrellas</strong>
+        Tu puntuación: <strong className="text-aurora-text-primary">{score} out of 5 stars</strong>
       </p>
     </div>
   );

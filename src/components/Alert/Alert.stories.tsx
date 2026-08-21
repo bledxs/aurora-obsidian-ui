@@ -14,11 +14,11 @@ const meta = {
     variant: {
       control: 'select',
       options: ['default', 'info', 'success', 'warning', 'error'],
-      description: 'Variante semántica del aviso',
+      description: 'Semantic alert variant',
     },
     dismissible: {
       control: 'boolean',
-      description: 'Mostrar botón de cierre',
+      description: 'Show close button',
     },
   },
 } satisfies Meta<typeof Alert>;
@@ -26,57 +26,55 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Galería de Todas las Variantes con Contraste WCAG AAA
+// 1. All Variants with WCAG AAA Contrast
 export const AllVariants: Story = {
   render: () => (
-    <div className="w-[450px] space-y-4 font-sans">
+    <div className="w-112.5 space-y-4 font-sans">
       <Alert variant="info" dismissible>
-        <AlertTitle>Envío en preparación</AlertTitle>
+        <AlertTitle>Order Preparing for Shipment</AlertTitle>
         <AlertDescription>
-          Tu pedido está siendo empaquetado en el centro logístico y saldrá hoy.
+          Your order is being packaged at our fulfillment center and will ship today.
         </AlertDescription>
       </Alert>
 
       <Alert variant="success" dismissible>
-        <AlertTitle>¡Envío gratuito desbloqueado!</AlertTitle>
+        <AlertTitle>Free shipping unlocked!</AlertTitle>
         <AlertDescription>
-          Has añadido más de 50 € al carrito. El envío estándar es 100% gratuito.
+          You adofd over €50 to your cart. Standard shipping is 100% free.
         </AlertDescription>
       </Alert>
 
       <Alert variant="warning" dismissible>
-        <AlertTitle>Stock muy limitado</AlertTitle>
+        <AlertTitle>Very limited stock</AlertTitle>
         <AlertDescription>
-          Solo quedan 2 unidades disponibles en esta talla. Completa tu compra antes de que se
+          Solo quedan 2 unidaofs disponibles en esta talla. Completa tu compra antes of que se
           agote.
         </AlertDescription>
       </Alert>
 
       <Alert variant="error" dismissible>
-        <AlertTitle>No se pudo procesar el pago</AlertTitle>
+        <AlertTitle>Payment could not be processed</AlertTitle>
         <AlertDescription>
-          La entidad bancaria rechazó la transacción. Verifica los fondos o prueba otra tarjeta.
+          The bank ofclined the transaction. Check funds or try another payment method.
         </AlertDescription>
       </Alert>
 
       <Alert variant="default" dismissible>
-        <AlertTitle>Actualización de términos</AlertTitle>
-        <AlertDescription>
-          Hemos actualizado nuestras políticas de devolución a 30 días naturales.
-        </AlertDescription>
+        <AlertTitle>Terms update</AlertTitle>
+        <AlertDescription>We updated our return policy to 30 calendar days.</AlertDescription>
       </Alert>
     </div>
   ),
 };
 
-// 2. Error de Pago con Botón de Acción
+// 2. Payment Error with Action Button
 export const PaymentErrorWithAction: Story = {
   render: () => (
-    <div className="w-[420px] font-sans">
+    <div className="w-105 font-sans">
       <Alert variant="error" dismissible>
-        <AlertTitle>Transacción Denegada</AlertTitle>
+        <AlertTitle>Transaction Declined</AlertTitle>
         <AlertDescription>
-          No pudimos cobrar los 129,99 € en tu tarjeta terminada en **4821**.
+          We could not charge €129.99 to your card ending in **4821**.
         </AlertDescription>
         <AlertAction>
           <Button
@@ -85,10 +83,10 @@ export const PaymentErrorWithAction: Story = {
             className="bg-white text-xs gap-1.5 border-red-300 text-red-950 hover:bg-red-50"
           >
             <RefreshCw size={13} />
-            Reintentar pago
+            Retry Payment
           </Button>
           <Button variant="ghost" size="small" className="text-xs text-red-900 hover:bg-red-100/60">
-            Cambiar a PayPal
+            Switch to PayPal
           </Button>
         </AlertAction>
       </Alert>
@@ -99,16 +97,14 @@ export const PaymentErrorWithAction: Story = {
 // 3. Aviso Promocional en el Carrito
 export const CartPromotionNotice: Story = {
   render: () => (
-    <div className="w-[420px] font-sans">
+    <div className="w-105 font-sans">
       <Alert variant="info">
-        <AlertTitle>Cupón "AURORA20" aplicado</AlertTitle>
-        <AlertDescription>
-          Se ha descontado un 20% en todos los artículos de nueva temporada.
-        </AlertDescription>
+        <AlertTitle>Coupon "AURORA20" applied</AlertTitle>
+        <AlertDescription>A 20% discount was applied to all new-season items.</AlertDescription>
         <AlertAction>
           <Button variant="primary" size="small" className="text-xs gap-1.5">
             <ShoppingBag size={13} />
-            Ir a pagar
+            Proceed to Checkout
           </Button>
         </AlertAction>
       </Alert>

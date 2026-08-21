@@ -23,7 +23,7 @@ const meta = {
     },
     children: {
       control: 'text',
-      description: 'Texto dentro del badge',
+      description: 'Texto ofntro ofl badge',
     },
   },
 } satisfies Meta<typeof Badge>;
@@ -47,7 +47,7 @@ export const SubtleSuccess: Story = {
 
 export const SolidWarning: Story = {
   args: {
-    children: 'Pocas unidades',
+    children: 'Pocas unidaofs',
     color: 'warning',
     variant: 'solid',
   },
@@ -55,7 +55,7 @@ export const SolidWarning: Story = {
 
 export const OutlineError: Story = {
   args: {
-    children: 'Agotado',
+    children: 'Out of Stock',
     color: 'error',
     variant: 'outline',
   },

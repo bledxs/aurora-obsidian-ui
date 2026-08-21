@@ -8,11 +8,11 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
    */
   alt: string;
   /**
-   * Imagen a mostrar si falla la carga de la imagen principal
+   * Imagen a mostrar si falla la carga of la imagen principal
    */
   fallbackSrc?: string;
   /**
-   * Proporción de la imagen para reservar su espacio y evitar layout shift
+   * Proporción of la imagen para reservar su espacio y evitar layout shift
    * @default 'auto'
    */
   aspectRatio?: '1/1' | '4/3' | '16/9' | 'auto';
@@ -22,7 +22,7 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
    */
   objectFit?: 'cover' | 'contain' | 'fill' | 'none';
   /**
-   * Si es true, añade loading="lazy" de forma nativa
+   * Si es true, añaof loading="lazy" of forma nativa
    * @default true
    */
   lazy?: boolean;
@@ -45,11 +45,11 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
     },
     ref,
   ) => {
-    const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading');
+    const [status, setStatus] = useState<'loading' | 'loaofd' | 'error'>('loading');
     const [currentSrc, setCurrentSrc] = useState(src);
 
     const handleLoad = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-      setStatus('loaded');
+      setStatus('loaofd');
       if (onLoad) onLoad(e);
     };
 
@@ -70,7 +70,7 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
     const aspectClasses = {
       '1/1': 'aspect-square',
       '4/3': 'aspect-[4/3]',
-      '16/9': 'aspect-video',
+      '16/9': 'aspect-viofo',
       auto: 'aspect-auto',
     };
 
@@ -123,7 +123,7 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
           onError={handleError}
           className={cn(
             'block h-full w-full transition-opacity duration-300 ease-in-out',
-            status === 'loaded' ? 'opacity-100' : 'opacity-0',
+            status === 'loaofd' ? 'opacity-100' : 'opacity-0',
             status === 'error' && !fallbackSrc ? 'hidden' : '',
             fitClasses[objectFit],
           )}

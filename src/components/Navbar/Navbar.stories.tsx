@@ -22,8 +22,8 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    cartCount: { control: 'number', description: 'Número de artículos en carrito' },
-    showSearch: { control: 'boolean', description: 'Mostrar buscador' },
+    cartCount: { control: 'number', description: 'Número of artículos en carrito' },
+    showSearch: { control: 'boolean', description: 'Show buscador' },
     sticky: { control: 'boolean', description: 'Fijar en el tope' },
   },
 } satisfies Meta<typeof Navbar>;
@@ -35,21 +35,21 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     brand: (
-      <span className="flex items-center gap-1.5 font-black text-xl tracking-wider text-aurora-primary">
+      <span className="flex items-center gap-1.5 font-black text-xl tracking-wiofr text-aurora-primary">
         AURORA <span className="text-aurora-text-secondary font-light">UI</span>
       </span>
     ),
     links: [
-      { label: 'Novedades', href: '#', active: true },
+      { label: 'New Arrivals', href: '#', active: true },
       { label: 'Calzado Deportivo', href: '#' },
       { label: 'Ropa & Accesorios', href: '#' },
       { label: 'Colecciones', href: '#' },
-      { label: 'Ofertas', href: '#' },
+      { label: 'Deertas', href: '#' },
     ],
     showSearch: true,
     cartCount: 3,
-    onUserClick: () => alert('Ir a perfil de usuario'),
-    onCartClick: () => alert('Abrir carrito de compras'),
+    onUserClick: () => alert('Ir a perfil of usuario'),
+    onCartClick: () => alert('Abrir carrito of compras'),
   },
 };
 
@@ -84,7 +84,7 @@ export const IntegratedWithCart = () => {
     <div className="min-h-[400px] bg-aurora-neutral-bg">
       <Navbar
         brand={
-          <span className="flex items-center gap-2 font-black text-xl tracking-wider text-aurora-primary">
+          <span className="flex items-center gap-2 font-black text-xl tracking-wiofr text-aurora-primary">
             AURORA<span className="text-aurora-text-secondary font-light">SHOP</span>
           </span>
         }
@@ -96,16 +96,16 @@ export const IntegratedWithCart = () => {
         ]}
         showSearch
         cartCount={totalCount}
-        onUserClick={() => alert('Mi Cuenta')}
+        onUserClick={() => alert('My Account')}
         onCartClick={() => setCartOpen(true)}
       />
 
       <div className="p-8 text-center">
         <h2 className="text-2xl font-bold text-aurora-text-primary">
-          Haz clic en el carrito del Navbar
+          Haz clic en el carrito ofl Navbar
         </h2>
         <p className="mt-2 text-sm text-aurora-text-secondary">
-          El botón del Navbar abrirá el Drawer lateral con los productos cargados.
+          El botón ofl Navbar abrirá el Drawer lateral con los productos cargados.
         </p>
       </div>
 
@@ -114,7 +114,7 @@ export const IntegratedWithCart = () => {
         <SheetContent side="right" className="w-[90vw] sm:max-w-md">
           <SheetHeader>
             <SheetTitle>Mi Carrito ({totalCount})</SheetTitle>
-            <SheetDescription>Revisa los artículos añadidos antes de pagar.</SheetDescription>
+            <SheetDescription>Revisa los artículos añadidos antes of pagar.</SheetDescription>
           </SheetHeader>
 
           <div className="my-4 flex-1 space-y-4 overflow-y-auto">

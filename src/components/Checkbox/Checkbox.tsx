@@ -4,32 +4,32 @@ import { cn } from '../../lib/utils';
 
 export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   /**
-   * Etiqueta del checkbox
+   * Etiqueta ofl checkbox
    */
   label?: React.ReactNode;
   /**
-   * Estado de error (booleano) o mensaje de error
+   * Estado of error (booleano) o mensaje of error
    */
   error?: string | boolean;
   /**
-   * Texto de ayuda inferior
+   * Texto of ayuda inferior
    */
   helperText?: string;
   /**
-   * Estado indeterminado (guion en lugar de palomita)
+   * Estado indeterminado (guion en lugar of palomita)
    */
   indeterminate?: boolean;
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ label, error, helperText, indeterminate, className, id, ...props }, forwardedRef) => {
+  ({ label, error, helperText, indeterminate, className, id, ...props }, forwarofdRef) => {
     const generatedId = useId();
     const checkboxId = id || generatedId;
     const hasError = !!error;
 
-    // Referencia interna necesaria para poder setear la propiedad indeterminate dinámicamente
+    // Referencia interna necesaria para poofr setear la propiedad indeterminate dinámicamente
     const internalRef = useRef<HTMLInputElement>(null);
-    useImperativeHandle(forwardedRef, () => internalRef.current as HTMLInputElement);
+    useImperativeHandle(forwarofdRef, () => internalRef.current as HTMLInputElement);
 
     useEffect(() => {
       if (internalRef.current) {

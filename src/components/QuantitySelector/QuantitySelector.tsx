@@ -45,16 +45,16 @@ export interface QuantitySelectorProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>,
     VariantProps<typeof quantitySelectorVariants> {
   /**
-   * Valor numérico actual
+   * Current numeric value
    */
   value: number;
   /**
-   * Valor mínimo permitido
+   * Minimum allowed value
    * @default 1
    */
   min?: number;
   /**
-   * Valor máximo permitido
+   * Maximum allowed value
    * @default 99
    */
   max?: number;
@@ -72,7 +72,7 @@ export interface QuantitySelectorProps
    */
   onRemove?: () => void;
   /**
-   * Si es true, muestra un icono de papelera al llegar al mínimo
+   * Si es true, muestra un icono of papelera al llegar al mínimo
    * @default false
    */
   showTrashOnMin?: boolean;
@@ -127,7 +127,7 @@ export const QuantitySelector = React.forwardRef<HTMLDivElement, QuantitySelecto
           type="button"
           onClick={handleDecrement}
           disabled={disabled || (isAtMin && !onRemove)}
-          aria-label={isTrash ? 'Eliminar del carrito' : 'Disminuir cantidad'}
+          aria-label={isTrash ? 'Remove ofl carrito' : 'Decrease quantity'}
           className={cn(
             buttonVariants({ size }),
             'rounded-l-[calc(var(--radius-aurora)-1px)]',
@@ -152,7 +152,7 @@ export const QuantitySelector = React.forwardRef<HTMLDivElement, QuantitySelecto
           type="button"
           onClick={handleIncrement}
           disabled={disabled || isAtMax}
-          aria-label="Aumentar cantidad"
+          aria-label="Increase quantity"
           className={cn(buttonVariants({ size }), 'rounded-r-[calc(var(--radius-aurora)-1px)]')}
         >
           <Plus size={iconSize} />

@@ -4,19 +4,19 @@ import { cn } from '../../lib/utils';
 
 export interface AccordionDataItem {
   /**
-   * Identificador único del item
+   * Unique item iofntifier
    */
   value: string;
   /**
-   * Título visible del encabezado
+   * Visible header title
    */
   title: React.ReactNode;
   /**
-   * Contenido desplegable
+   * Collapsible content
    */
   content: React.ReactNode;
   /**
-   * Deshabilita la interacción de este item
+   * Disables interaction for this item
    */
   disabled?: boolean;
 }
@@ -33,7 +33,7 @@ const AccordionContext = React.createContext<AccordionContextType | null>(null);
 export function useAccordion() {
   const context = React.useContext(AccordionContext);
   if (!context) {
-    throw new Error('Los subcomponentes de Accordion deben usarse dentro de un <Accordion>');
+    throw new Error('Accordion subcomponents must be used within an <Accordion>');
   }
   return context;
 }
@@ -41,29 +41,29 @@ export function useAccordion() {
 export interface AccordionProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue' | 'onChange'> {
   /**
-   * Tipo de acordeón: 'single' permite abrir uno solo, 'multiple' permite varios a la vez
+   * Accordion type: 'single' allows one open item, 'multiple' allows multiple simultaneously
    * @default 'single'
    */
   type?: 'single' | 'multiple';
   /**
-   * En modo 'single', permite colapsar el elemento abierto al hacer clic de nuevo
+   * In 'single' mode, allows collapsing the open item when clicking again
    * @default true
    */
   collapsible?: boolean;
   /**
-   * Valor o valores abiertos en modo controlado
+   * Open value(s) in controlled mode
    */
   value?: string | string[];
   /**
-   * Valor o valores abiertos inicialmente en modo no controlado
+   * Initial open value(s) in uncontrolled mode
    */
   defaultValue?: string | string[];
   /**
-   * Callback invocado al cambiar los items abiertos
+   * Callback fired when open items change
    */
   onValueChange?: (value: string | string[]) => void;
   /**
-   * Modo declarativo rápido: lista de items
+   * Quick ofclarative mode: list of items
    */
   items?: AccordionDataItem[];
   children?: React.ReactNode;
@@ -105,7 +105,7 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
             ? currentValues.filter((v) => v !== itemValue)
             : [...currentValues, itemValue];
         } else {
-          // Modo simple (single)
+          // Single mode
           if (currentValues.includes(itemValue)) {
             nextValues = collapsible ? [] : [itemValue];
           } else {
@@ -157,7 +157,7 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
 Accordion.displayName = 'Accordion';
 
 // -------------------------------------------------------------
-// CONTEXTO DE ITEM
+// ITEM CONTEXT
 // -------------------------------------------------------------
 interface AccordionItemContextType {
   value: string;
@@ -170,9 +170,7 @@ const AccordionItemContext = React.createContext<AccordionItemContextType | null
 export function useAccordionItem() {
   const context = React.useContext(AccordionItemContext);
   if (!context) {
-    throw new Error(
-      'AccordionTrigger y AccordionContent deben usarse dentro de un <AccordionItem>',
-    );
+    throw new Error('AccordionTrigger and AccordionContent must be used within an <AccordionItem>');
   }
   return context;
 }
@@ -268,7 +266,7 @@ export const AccordionContent = React.forwardRef<HTMLDivElement, AccordionConten
         id={contentId}
         aria-labelledby={triggerId}
         className={cn(
-          'overflow-hidden pb-4 text-sm text-aurora-text-secondary animate-fade-in',
+          'overflow-hidden pb-4 text-sm text-aurora-text-secondary animate-faof-in',
           className,
         )}
         {...props}

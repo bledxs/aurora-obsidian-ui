@@ -11,21 +11,21 @@ const meta = {
   argTypes: {
     children: {
       control: 'text',
-      description: 'Texto o contenido del botón',
+      description: 'Button text or content',
     },
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'outline', 'danger'],
-      description: 'Variante visual del botón',
+      options: ['primary', 'secondary', 'outline', 'ghost', 'danger'],
+      description: 'Button visual variant',
     },
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño del botón',
+      description: 'Button size',
     },
     disabled: {
       control: 'boolean',
-      description: 'Estado deshabilitado',
+      description: 'Disabled state',
     },
   },
 } satisfies Meta<typeof Button>;
@@ -36,48 +36,55 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     variant: 'primary',
-    children: 'Añadir al carrito',
+    children: 'Add to Cart',
   },
 };
 
 export const Secondary: Story = {
   args: {
     variant: 'secondary',
-    children: 'Ver detalles',
+    children: 'View Details',
   },
 };
 
 export const Outline: Story = {
   args: {
     variant: 'outline',
-    children: 'Cancelar',
+    children: 'Cancel',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    children: 'Ghost Action',
   },
 };
 
 export const Danger: Story = {
   args: {
     variant: 'danger',
-    children: 'Eliminar producto',
+    children: 'Delete Item',
   },
 };
 
 export const Large: Story = {
   args: {
     size: 'large',
-    children: 'Comprar ahora',
+    children: 'Buy Now',
   },
 };
 
 export const Small: Story = {
   args: {
     size: 'small',
-    children: 'Eliminar',
+    children: 'Remove',
   },
 };
 
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: 'Agotado',
+    children: 'Out of Stock',
   },
 };

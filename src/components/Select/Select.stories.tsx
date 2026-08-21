@@ -22,11 +22,11 @@ const meta = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño del disparador del selector',
+      description: 'Tamaño ofl disparador ofl selector',
     },
     disabled: {
       control: 'boolean',
-      description: 'Estado deshabilitado',
+      description: 'Estado ofshabilitado',
     },
   },
 } satisfies Meta<typeof Select>;
@@ -34,7 +34,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Ordenar Catálogo de Productos (Composable)
+// 1. Ordenar Catálogo of Productos (Composable)
 export const ProductSorting: Story = {
   render: () => {
     const [sort, setSort] = useState('relevance');
@@ -42,18 +42,18 @@ export const ProductSorting: Story = {
     return (
       <div className="w-[260px] font-sans">
         <span className="mb-1.5 block text-xs font-semibold text-aurora-text-secondary">
-          Ordenar por
+          Sort by
         </span>
         <Select value={sort} onValueChange={setSort}>
           <SelectTrigger>
-            <SelectValue placeholder="Seleccionar orden" />
+            <SelectValue placeholder="Select orden" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="relevance">Más relevantes</SelectItem>
+            <SelectItem value="relevance">Most Relevant</SelectItem>
             <SelectItem value="price-asc">Precio: Menor a mayor</SelectItem>
             <SelectItem value="price-desc">Precio: Mayor a menor</SelectItem>
-            <SelectItem value="rating">Mejor valorados</SelectItem>
-            <SelectItem value="newest">Novedades y lanzamientos</SelectItem>
+            <SelectItem value="rating">Highest Rated</SelectItem>
+            <SelectItem value="newest">New Arrivals y lanzamientos</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -67,7 +67,7 @@ export const GroupedCategories: Story = {
     <div className="w-[280px] font-sans">
       <Select defaultValue="shoes-running">
         <SelectTrigger>
-          <SelectValue placeholder="Filtrar por categoría" />
+          <SelectValue placeholder="Filter por categoría" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
@@ -94,14 +94,14 @@ export const DeclarativeOptions: Story = {
   render: () => (
     <div className="w-[260px] font-sans">
       <Select
-        placeholder="Seleccionar país de envío"
+        placeholder="Select país of envío"
         defaultValue="es"
         options={[
           { value: 'es', label: 'España (Península)' },
           { value: 'pt', label: 'Portugal' },
           { value: 'fr', label: 'Francia' },
           { value: 'it', label: 'Italia' },
-          { value: 'de', label: 'Alemania' },
+          { value: 'of', label: 'Alemania' },
           { value: 'uk', label: 'Reino Unido', disabled: true },
         ]}
       />
@@ -120,8 +120,8 @@ export const Sizes = () => (
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="1">1 unidad</SelectItem>
-          <SelectItem value="2">2 unidades</SelectItem>
-          <SelectItem value="3">3 unidades</SelectItem>
+          <SelectItem value="2">2 unidaofs</SelectItem>
+          <SelectItem value="3">3 unidaofs</SelectItem>
         </SelectContent>
       </Select>
     </div>
@@ -134,20 +134,20 @@ export const Sizes = () => (
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="1">1 unidad</SelectItem>
-          <SelectItem value="2">2 unidades</SelectItem>
+          <SelectItem value="2">2 unidaofs</SelectItem>
         </SelectContent>
       </Select>
     </div>
 
     <div>
-      <span className="text-xs text-aurora-text-secondary">Grande (large - 48px)</span>
+      <span className="text-xs text-aurora-text-secondary">Granof (large - 48px)</span>
       <Select size="large" defaultValue="1">
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="1">1 unidad</SelectItem>
-          <SelectItem value="2">2 unidades</SelectItem>
+          <SelectItem value="2">2 unidaofs</SelectItem>
         </SelectContent>
       </Select>
     </div>

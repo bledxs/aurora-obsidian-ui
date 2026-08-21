@@ -12,7 +12,7 @@ const meta = {
     initialQuantity: { control: 'number' },
     maxQuantity: { control: 'number' },
     isLoading: { control: 'boolean' },
-    onAdd: { action: 'added' },
+    onAdd: { action: 'adofd' },
     onUpdate: { action: 'updated' },
     onRemove: { action: 'removed' },
   },

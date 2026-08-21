@@ -28,7 +28,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Filtro Rápido de Catálogo de E-Commerce
+// 1. Filtro Rápido of Catálogo of E-Commerce
 export const CatalogFilterPopover: Story = {
   render: () => {
     const [priceRange, setPriceRange] = useState<[number, number]>([20, 150]);
@@ -39,14 +39,14 @@ export const CatalogFilterPopover: Story = {
         <PopoverTrigger asChild>
           <Button variant="outline" className="gap-2">
             <SlidersHorizontal size={16} />
-            Filtros rápidos
+            Filters rápidos
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-80" showCloseButton>
           <PopoverHeader>
-            <PopoverTitle>Filtrar Productos</PopoverTitle>
+            <PopoverTitle>Filter Productos</PopoverTitle>
             <PopoverDescription>
-              Ajusta el rango de precio y disponibilidad del catálogo.
+              Ajusta el rango of precio y disponibilidad ofl catálogo.
             </PopoverDescription>
           </PopoverHeader>
 
@@ -84,10 +84,10 @@ export const CatalogFilterPopover: Story = {
 
           <div className="flex justify-end gap-2 pt-3 border-t border-aurora-border/50">
             <PopoverClose className="bg-aurora-neutral-bg text-aurora-text-secondary hover:bg-aurora-surface-hover">
-              Cancelar
+              Cancel
             </PopoverClose>
             <PopoverClose className="bg-aurora-primary text-white hover:bg-aurora-primary-hover">
-              Aplicar
+              Apply
             </PopoverClose>
           </div>
         </PopoverContent>
@@ -96,21 +96,21 @@ export const CatalogFilterPopover: Story = {
   },
 };
 
-// 2. Calculadora de Envío en Ficha de Producto
+// 2. Calculadora of Shipping en Ficha of Producto
 export const ShippingCalculatorPopover: Story = {
   render: () => (
     <Popover placement="bottom">
       <PopoverTrigger asChild>
         <Button variant="outline" className="gap-2 text-xs">
           <Truck size={15} />
-          Calcular costes de envío
+          Calcular costes of envío
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-72" showCloseButton>
         <PopoverHeader>
-          <PopoverTitle>Estimar Envío</PopoverTitle>
+          <PopoverTitle>Estimar Shipping</PopoverTitle>
           <PopoverDescription>
-            Introduce tu código postal para ver plazos de entrega.
+            Introduce tu código postal para ver plazos of entrega.
           </PopoverDescription>
         </PopoverHeader>
 
@@ -120,20 +120,20 @@ export const ShippingCalculatorPopover: Story = {
               htmlFor="shipping-zip"
               className="text-xs font-medium text-aurora-text-secondary"
             >
-              Código Postal
+              Postal Code
             </label>
             <Input id="shipping-zip" placeholder="28001" />
           </div>
 
           <div className="rounded-xs bg-emerald-50 border border-emerald-200 p-2.5 text-xs text-emerald-900">
-            <p className="font-semibold">Envío estándar gratis</p>
+            <p className="font-semibold">Standard shipping gratis</p>
             <p className="text-[11px] text-emerald-800">Entrega estimada en 24-48 horas.</p>
           </div>
         </div>
 
         <div className="flex justify-end pt-2">
           <PopoverClose className="w-full bg-aurora-primary text-white hover:bg-aurora-primary-hover">
-            Aceptar
+            Confirm
           </PopoverClose>
         </div>
       </PopoverContent>
@@ -141,14 +141,14 @@ export const ShippingCalculatorPopover: Story = {
   ),
 };
 
-// 3. Menú Rápido de Perfil de Usuario
+// 3. Menú Rápido of Perfil of Usuario
 export const UserQuickProfilePopover: Story = {
   render: () => (
     <Popover placement="bottom-end">
       <PopoverTrigger asChild>
         <button
           type="button"
-          aria-label="Abrir menú de usuario"
+          aria-label="Open user menu"
           className="rounded-full ring-2 ring-transparent hover:ring-aurora-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus transition-all"
         >
           <Avatar
@@ -175,16 +175,16 @@ export const UserQuickProfilePopover: Story = {
         <div className="flex flex-col py-1 text-xs">
           <PopoverClose className="w-full justify-start gap-2.5 px-2.5 py-2 text-aurora-text-secondary hover:bg-aurora-surface-hover hover:text-aurora-text-primary font-normal">
             <Package size={14} />
-            Mis pedidos
+            My Orders
           </PopoverClose>
           <PopoverClose className="w-full justify-start gap-2.5 px-2.5 py-2 text-aurora-text-secondary hover:bg-aurora-surface-hover hover:text-aurora-text-primary font-normal">
             <Settings size={14} />
-            Configuración de cuenta
+            Settings of cuenta
           </PopoverClose>
           <div className="my-1 border-t border-aurora-border/40" />
           <PopoverClose className="w-full justify-start gap-2.5 px-2.5 py-2 text-rose-600 hover:bg-rose-50 font-normal">
             <LogOut size={14} />
-            Cerrar sesión
+            Close sesión
           </PopoverClose>
         </div>
       </PopoverContent>

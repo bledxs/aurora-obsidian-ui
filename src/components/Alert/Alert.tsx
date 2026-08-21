@@ -36,15 +36,15 @@ export interface AlertProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof alertVariants> {
   /**
-   * Icono personalizado o false para ocultar el icono
+   * Custom icon or false to hide the icon
    */
   icon?: React.ReactNode | false;
   /**
-   * Si es true, muestra un botón de cierre en la esquina
+   * If true, displays a close button in the corner
    */
   dismissible?: boolean;
   /**
-   * Callback invocado al cerrar la alerta
+   * Callback fired when closing the alert
    */
   onClose?: () => void;
 }
@@ -80,7 +80,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
           <button
             type="button"
             onClick={handleDismiss}
-            aria-label="Cerrar notificación"
+            aria-label="Close notification"
             className="shrink-0 -mr-1 -mt-1 rounded-xs p-1 opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus"
           >
             <X size={15} />

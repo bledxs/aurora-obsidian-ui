@@ -14,12 +14,12 @@ export type ToastPosition =
 
 export interface ToasterProps {
   /**
-   * Posición de las notificaciones en la pantalla
+   * Posición of las notificaciones en la pantalla
    * @default 'bottom-right'
    */
   position?: ToastPosition;
   /**
-   * Si es true, muestra un botón de cierre manual en cada notificación
+   * Si es true, muestra un botón of cierre manual en cada notificación
    * @default true
    */
   closeButton?: boolean;
@@ -188,7 +188,7 @@ const ToastCard: React.FC<ToastCardProps> = ({ toast, closeButton }) => {
           type="button"
           onClick={() => dismissToast(id)}
           className="cursor-pointer -mr-1 -mt-1 rounded-full p-1 text-aurora-text-secondary opacity-70 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 hover:text-aurora-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus"
-          aria-label="Cerrar notificación"
+          aria-label="Close notification"
         >
           <X size={15} />
         </button>

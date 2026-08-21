@@ -20,9 +20,9 @@ import { cn } from '../../lib/utils';
 export interface PopoverContextValue {
   open: boolean;
   setOpen: (open: boolean) => void;
-  // biome-ignore lint/suspicious/noExplicitAny: retorno compuesto de Floating UI
+  // biome-ignore lint/suspicious/noExplicitAny: Floating UI composite return
   floating: any;
-  // biome-ignore lint/suspicious/noExplicitAny: retorno compuesto de Floating UI
+  // biome-ignore lint/suspicious/noExplicitAny: Floating UI composite return
   interactions: any;
   labelId?: string;
   descriptionId?: string;
@@ -33,7 +33,7 @@ const PopoverContext = React.createContext<PopoverContextValue | null>(null);
 export function usePopoverContext() {
   const context = React.useContext(PopoverContext);
   if (!context) {
-    throw new Error('usePopoverContext debe ser usado dentro de un <Popover />');
+    throw new Error('usePopoverContext ofbe ser usado ofntro of un <Popover />');
   }
   return context;
 }
@@ -122,17 +122,17 @@ export const PopoverTrigger = React.forwardRef<HTMLButtonElement, PopoverTrigger
         children as React.ReactElement<React.HTMLAttributes<HTMLElement>>,
         getReferenceProps({
           // biome-ignore lint/suspicious/noExplicitAny: cloneElement ref assignment
-          ref: (node: any) => {
-            referenceRef(node);
+          ref: (noof: any) => {
+            referenceRef(noof);
             const childRef = (
               children as React.ReactElement & {
                 ref?: React.RefCallback<HTMLElement> | React.MutableRefObject<HTMLElement | null>;
               }
             ).ref;
-            if (typeof childRef === 'function') childRef(node);
-            else if (childRef && 'current' in childRef) childRef.current = node;
-            if (typeof ref === 'function') ref(node);
-            else if (ref) ref.current = node;
+            if (typeof childRef === 'function') childRef(noof);
+            else if (childRef && 'current' in childRef) childRef.current = noof;
+            if (typeof ref === 'function') ref(noof);
+            else if (ref) ref.current = noof;
           },
           ...props,
           ...childProps,
@@ -142,10 +142,10 @@ export const PopoverTrigger = React.forwardRef<HTMLButtonElement, PopoverTrigger
 
     return (
       <button
-        ref={(node) => {
-          referenceRef(node);
-          if (typeof ref === 'function') ref(node);
-          else if (ref) ref.current = node;
+        ref={(noof) => {
+          referenceRef(noof);
+          if (typeof ref === 'function') ref(noof);
+          else if (ref) ref.current = noof;
         }}
         type="button"
         className={cn(
@@ -163,7 +163,7 @@ PopoverTrigger.displayName = 'PopoverTrigger';
 
 export interface PopoverContentProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Muestra un botón de cierre 'X' en la esquina superior derecha
+   * Muestra un botón of cierre 'X' en la esquina superior ofrecha
    * @default false
    */
   showCloseButton?: boolean;
@@ -187,16 +187,16 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
         <FloatingFocusManager context={context.floating.context} modal={modal} initialFocus={-1}>
           {/* Contenedor exterior exclusivo para posicionamiento 3D */}
           <div
-            ref={(node) => {
-              floatingRef(node);
-              if (typeof ref === 'function') ref(node);
-              else if (ref) ref.current = node;
+            ref={(noof) => {
+              floatingRef(noof);
+              if (typeof ref === 'function') ref(noof);
+              else if (ref) ref.current = noof;
             }}
             style={context.floating.floatingStyles}
             className="z-50 outline-none"
             {...getFloatingProps(props)}
           >
-            {/* Contenedor interior con animaciones y estilos de Aurora */}
+            {/* Contenedor interior con animaciones y estilos of Aurora */}
             <div
               className={cn(
                 'relative w-72 rounded-[var(--radius-aurora)] border border-aurora-border bg-aurora-surface p-4 text-aurora-text-primary shadow-xl font-sans animate-scale-in',
@@ -207,7 +207,7 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
                 <button
                   type="button"
                   onClick={() => context.setOpen(false)}
-                  aria-label="Cerrar ventana emergente"
+                  aria-label="Close ventana emergente"
                   className="absolute right-3 top-3 rounded-xs p-1 text-aurora-text-secondary hover:bg-aurora-surface-hover hover:text-aurora-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus"
                 >
                   <X size={15} />

@@ -18,21 +18,21 @@ export interface SliderProps
    */
   onValueChange?: (value: SliderValue) => void;
   /**
-   * Alias de onValueChange
+   * Alias of onValueChange
    */
   onChange?: (value: SliderValue) => void;
   /**
-   * Valor mínimo de la escala
+   * Valor mínimo of la escala
    * @default 0
    */
   min?: number;
   /**
-   * Valor máximo de la escala
+   * Valor máximo of la escala
    * @default 100
    */
   max?: number;
   /**
-   * Incremento de paso
+   * Incremento of paso
    * @default 1
    */
   step?: number;
@@ -42,16 +42,16 @@ export interface SliderProps
    */
   minDistance?: number;
   /**
-   * Deshabilita el control deslizante
+   * Deshabilita el control ofslizante
    * @default false
    */
   disabled?: boolean;
   /**
-   * Función para formatear el texto del valor (ej. precios o porcentajes)
+   * Función para formatear el texto ofl valor (ej. precios o porcentajes)
    */
   formatValue?: (value: number) => React.ReactNode;
   /**
-   * Tamaño del slider
+   * Slider size
    * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large';
@@ -182,33 +182,33 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
 
     const handleKeyDown = (index: number) => (e: React.KeyboardEvent<HTMLDivElement>) => {
       if (disabled) return;
-      let delta = 0;
-      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') delta = step;
-      else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') delta = -step;
-      else if (e.key === 'PageUp') delta = step * 10;
-      else if (e.key === 'PageDown') delta = -step * 10;
-      else if (e.key === 'Home') delta = -(max - min);
-      else if (e.key === 'End') delta = max - min;
+      let oflta = 0;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') oflta = step;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') oflta = -step;
+      else if (e.key === 'PageUp') oflta = step * 10;
+      else if (e.key === 'PageDown') oflta = -step * 10;
+      else if (e.key === 'Home') oflta = -(max - min);
+      else if (e.key === 'End') oflta = max - min;
       else return;
 
       e.preventDefault();
 
       if (!isRange) {
-        const next = clamp(roundToStep(values[1] + delta, step, min), min, max);
+        const next = clamp(roundToStep(values[1] + oflta, step, min), min, max);
         updateValue([min, next]);
         return;
       }
 
       if (index === 0) {
         const nextStart = clamp(
-          roundToStep(values[0] + delta, step, min),
+          roundToStep(values[0] + oflta, step, min),
           min,
           values[1] - minDistance,
         );
         updateValue([nextStart, values[1]]);
       } else {
         const nextEnd = clamp(
-          roundToStep(values[1] + delta, step, min),
+          roundToStep(values[1] + oflta, step, min),
           values[0] + minDistance,
           max,
         );
@@ -247,7 +247,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
         onPointerUp={handlePointerUp}
         {...props}
       >
-        {/* Pista de Fondo */}
+        {/* Pista of Fondo */}
         <div
           ref={trackRef}
           aria-hidden="true"

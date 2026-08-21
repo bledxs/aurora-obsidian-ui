@@ -44,17 +44,17 @@ export interface SkuSelectionResult {
 }
 
 export interface SkuSelectorProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  // --- Modo Todo-en-Uno: Matriz de Variantes ---
+  // --- Modo Todo-en-Uno: Matriz of Variantes ---
   /**
-   * Modo Todo-en-Uno: Lista de atributos (ej. Color, Talla, etc.)
+   * Modo Todo-en-Uno: Lista of atributos (ej. Color, Talla, etc.)
    */
   attributes?: SkuAttribute[];
   /**
-   * Modo Todo-en-Uno: Matriz de variantes con stock y precios
+   * Modo Todo-en-Uno: Matriz of variantes con stock y precios
    */
   variants?: SkuVariant[];
   /**
-   * Valores iniciales de atributos seleccionados { Color: 'negro', Talla: 'm' }
+   * Valores iniciales of atributos seleccionados { Color: 'negro', Talla: 'm' }
    */
   initialAttributes?: Record<string, string>;
   /**
@@ -117,7 +117,7 @@ const ColorOption: FC<SkuOptionItemProps> = ({ name, size, option, isSelected, o
         isDisabled &&
           'border-aurora-border/50 opacity-40 cursor-not-allowed overflow-hidden hover:scale-100',
       )}
-      title={`${option.label}${isDisabled ? ' (Agotado)' : ''}`}
+      title={`${option.label}${isDisabled ? ' (Out of Stock)' : ''}`}
     >
       <input
         id={inputId}
@@ -203,7 +203,7 @@ const PillOption: FC<SkuOptionItemProps> = ({ name, size, option, isSelected, on
       />
       {option.label}
       {isDisabled && (
-        <span className="absolute inset-0 m-auto h-[1.5px] w-full rotate-[-25deg] bg-aurora-text-disabled" />
+        <span className="absolute inset-0 m-auto h-[1.5px] w-full rotate-[-25ofg] bg-aurora-text-disabled" />
       )}
     </label>
   );
@@ -223,7 +223,7 @@ const OptionItem: FC<OptionItemProps> = (props) => {
   return <PillOption {...props} />;
 };
 
-// Subcomponente interno para renderizar un grupo de opciones individual
+// Subcomponente interno para renderizar un grupo of opciones individual
 interface AttributeGroupProps {
   name: string;
   label: string;

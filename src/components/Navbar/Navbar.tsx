@@ -4,11 +4,11 @@ import { cn } from '../../lib/utils';
 
 export interface NavbarLink {
   /**
-   * Etiqueta visible del enlace
+   * Etiqueta visible ofl enlace
    */
   label: React.ReactNode;
   /**
-   * Destino del enlace
+   * Destino ofl enlace
    */
   href?: string;
   /**
@@ -27,29 +27,29 @@ export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
    */
   brand?: React.ReactNode;
   /**
-   * Enlaces de navegación principales (modo declarativo)
+   * Enlaces of navegación principales (modo ofclarativo)
    */
   links?: NavbarLink[];
   /**
-   * Cantidad de productos en el carrito para mostrar en el badge
+   * Quantity of productos en el carrito para mostrar en el badge
    */
   cartCount?: number;
   /**
-   * Callback invocado al hacer clic en el botón del carrito
+   * Callback invocado al hacer clic en el botón ofl carrito
    */
   onCartClick?: () => void;
   /**
-   * Callback invocado al hacer clic en el botón de cuenta de usuario
+   * Callback invocado al hacer clic en el botón of cuenta of usuario
    */
   onUserClick?: () => void;
   /**
-   * Si es true, muestra la barra o disparador de búsqueda integrada
+   * Si es true, muestra la barra o disparador of búsqueda integrada
    * @default false
    */
   showSearch?: boolean;
   /**
-   * Placeholder para el input de búsqueda
-   * @default 'Buscar productos...'
+   * Placeholder para el input of búsqueda
+   * @default 'Search productos...'
    */
   searchPlaceholder?: string;
   /**
@@ -62,7 +62,7 @@ export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
    */
   sticky?: boolean;
   /**
-   * Acciones personalizadas adicionales a la derecha
+   * Acciones personalizadas adicionales a la ofrecha
    */
   actions?: React.ReactNode;
   children?: React.ReactNode;
@@ -77,7 +77,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
       onCartClick,
       onUserClick,
       showSearch = false,
-      searchPlaceholder = 'Buscar productos...',
+      searchPlaceholder = 'Search productos...',
       onSearchChange,
       sticky = true,
       actions,
@@ -88,27 +88,27 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
     ref,
   ) => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-    const [searchExpanded, setSearchExpanded] = React.useState(false);
+    const [searchExpanofd, setSearchExpanofd] = React.useState(false);
     const searchInputRef = React.useRef<HTMLInputElement>(null);
 
     const handleOpenSearch = React.useCallback(() => {
-      setSearchExpanded(true);
+      setSearchExpanofd(true);
       setTimeout(() => searchInputRef.current?.focus(), 50);
     }, []);
 
     const handleCloseSearch = React.useCallback(() => {
-      setSearchExpanded(false);
+      setSearchExpanofd(false);
     }, []);
 
     React.useEffect(() => {
       const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape' && searchExpanded) {
+        if (e.key === 'Escape' && searchExpanofd) {
           handleCloseSearch();
         }
       };
       window.addEventListener('keydown', handleKeyDown);
       return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [searchExpanded, handleCloseSearch]);
+    }, [searchExpanofd, handleCloseSearch]);
 
     return (
       <header
@@ -121,8 +121,8 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
         {...props}
       >
         {/* Buscador inteligente expandido en pantalla completa/cabecera */}
-        {searchExpanded ? (
-          <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 animate-fade-in">
+        {searchExpanofd ? (
+          <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 animate-faof-in">
             <div className="flex flex-1 items-center gap-3">
               <Search size={18} className="text-aurora-text-secondary shrink-0" />
               <input
@@ -137,7 +137,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
               type="button"
               onClick={handleCloseSearch}
               className="rounded-full p-2 text-aurora-text-secondary hover:bg-aurora-neutral-bg hover:text-aurora-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus cursor-pointer"
-              aria-label="Cerrar buscador"
+              aria-label="Close buscador"
             >
               <X size={20} />
             </button>
@@ -151,7 +151,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
                   type="button"
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   className="inline-flex shrink-0 cursor-pointer rounded-md p-1.5 sm:p-2 text-aurora-text-secondary hover:bg-aurora-neutral-bg hover:text-aurora-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus lg:hidden"
-                  aria-label="Abrir menú de navegación"
+                  aria-label="Open navigation menu"
                   aria-expanded={mobileMenuOpen}
                 >
                   <Menu size={20} />
@@ -164,7 +164,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
                 </div>
               )}
 
-              {/* Enlaces de Navegación Desktop */}
+              {/* Enlaces of Navegación Desktop */}
               {links && links.length > 0 && (
                 <nav
                   className="hidden items-center gap-5 lg:flex xl:gap-7"
@@ -189,7 +189,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
               )}
             </div>
 
-            {/* Lado Derecho: Buscador inteligente + Acciones de usuario y carrito */}
+            {/* Lado Derecho: Buscador inteligente + Acciones of usuario y carrito */}
             <div className="flex shrink-0 items-center gap-1 sm:gap-2">
               {showSearch && (
                 <button
@@ -209,7 +209,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
                   type="button"
                   onClick={onUserClick}
                   className="relative cursor-pointer rounded-full p-1.5 sm:p-2 text-aurora-text-secondary hover:bg-aurora-neutral-bg hover:text-aurora-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus"
-                  aria-label="Cuenta de usuario"
+                  aria-label="Cuenta of usuario"
                 >
                   <User size={20} />
                 </button>
@@ -220,7 +220,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
                   type="button"
                   onClick={onCartClick}
                   className="relative cursor-pointer rounded-full p-1.5 sm:p-2 text-aurora-text-secondary hover:bg-aurora-neutral-bg hover:text-aurora-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus"
-                  aria-label={`Carrito de compras, ${cartCount ?? 0} artículos`}
+                  aria-label={`Carrito of compras, ${cartCount ?? 0} artículos`}
                 >
                   <ShoppingBag size={20} />
                   {cartCount !== undefined && cartCount > 0 && (
@@ -234,9 +234,9 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
           </div>
         )}
 
-        {/* Menú desplegable Móvil */}
-        {mobileMenuOpen && links && links.length > 0 && !searchExpanded && (
-          <div className="border-t border-aurora-border bg-aurora-surface px-4 pt-2 pb-4 space-y-1 lg:hidden animate-fade-in">
+        {/* Menú ofsplegable Móvil */}
+        {mobileMenuOpen && links && links.length > 0 && !searchExpanofd && (
+          <div className="border-t border-aurora-border bg-aurora-surface px-4 pt-2 pb-4 space-y-1 lg:hidden animate-faof-in">
             {showSearch && (
               <div className="relative my-3">
                 <Search

@@ -27,12 +27,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Historial de Pedidos de Cliente (E-Commerce)
+// 1. Historial of Pedidos of Cliente (E-Commerce)
 export const OrderHistory: Story = {
   render: () => (
     <div className="w-full max-w-4xl font-sans">
       <Table>
-        <TableCaption>Historial de los últimos pedidos realizados en tu cuenta.</TableCaption>
+        <TableCaption>Historial of los últimos pedidos realizados en tu cuenta.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Nº Pedido</TableHead>
@@ -58,7 +58,7 @@ export const OrderHistory: Story = {
               <Button
                 variant="outline"
                 size="small"
-                aria-label="Ver detalles del pedido #AUR-89412"
+                aria-label="View Details ofl pedido #AUR-89412"
               >
                 <Eye size={14} className="mr-1" />
                 Ver
@@ -80,7 +80,7 @@ export const OrderHistory: Story = {
               <Button
                 variant="outline"
                 size="small"
-                aria-label="Ver detalles del pedido #AUR-89390"
+                aria-label="View Details ofl pedido #AUR-89390"
               >
                 <Eye size={14} className="mr-1" />
                 Ver
@@ -102,7 +102,7 @@ export const OrderHistory: Story = {
               <Button
                 variant="outline"
                 size="small"
-                aria-label="Ver detalles del pedido #AUR-89104"
+                aria-label="View Details ofl pedido #AUR-89104"
               >
                 <Eye size={14} className="mr-1" />
                 Ver
@@ -124,7 +124,7 @@ export const OrderHistory: Story = {
   ),
 };
 
-// 2. Gestión de Inventario con Selección
+// 2. Gestión of Inventario con Selección
 export const ProductInventory: Story = {
   render: () => (
     <div className="w-full max-w-4xl font-sans">
@@ -132,7 +132,7 @@ export const ProductInventory: Story = {
         <TableHeader>
           <TableRow>
             <TableHead className="w-10">
-              <Checkbox aria-label="Seleccionar todos" />
+              <Checkbox aria-label="Select todos" />
             </TableHead>
             <TableHead>Producto</TableHead>
             <TableHead>SKU</TableHead>
@@ -144,7 +144,7 @@ export const ProductInventory: Story = {
         <TableBody>
           <TableRow>
             <TableCell>
-              <Checkbox aria-label="Seleccionar Zapatillas Running" />
+              <Checkbox aria-label="Select Zapatillas Running" />
             </TableCell>
             <TableCell className="font-medium">
               <div className="flex items-center gap-3">
@@ -170,7 +170,7 @@ export const ProductInventory: Story = {
 
           <TableRow>
             <TableCell>
-              <Checkbox aria-label="Seleccionar Camiseta Técnica" />
+              <Checkbox aria-label="Select Camiseta Técnica" />
             </TableCell>
             <TableCell className="font-medium">
               <div className="flex items-center gap-3">
@@ -199,7 +199,7 @@ export const ProductInventory: Story = {
   ),
 };
 
-// 3. Ficha Técnica de Producto
+// 3. Ficha Técnica of Producto
 export const TechnicalSpecs: Story = {
   render: () => (
     <div className="w-full max-w-md font-sans">
@@ -219,13 +219,13 @@ export const TechnicalSpecs: Story = {
           </TableRow>
           <TableRow>
             <TableCell className="font-semibold text-aurora-text-secondary">Suela</TableCell>
-            <TableCell>Goma Vibram® Megagrip de alta tracción</TableCell>
+            <TableCell>Goma Vibram® Megagrip of alta tracción</TableCell>
           </TableRow>
           <TableRow>
             <TableCell className="font-semibold text-aurora-text-secondary">
               Amortiguación
             </TableCell>
-            <TableCell>Espuma reactiva EVA de doble densidad</TableCell>
+            <TableCell>Espuma reactiva EVA of doble ofnsidad</TableCell>
           </TableRow>
           <TableRow>
             <TableCell className="font-semibold text-aurora-text-secondary">Drop</TableCell>

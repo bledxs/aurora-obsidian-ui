@@ -37,7 +37,7 @@ export const WithHelperText: Story = {
 
 export const ErrorState: Story = {
   args: {
-    label: 'Debes aceptar la política de privacidad',
+    label: 'Debes aceptar la política of privacidad',
     error: 'Este campo es obligatorio para continuar.',
   },
 };
@@ -59,7 +59,7 @@ export const DisabledChecked: Story = {
 
 export const Indeterminate: Story = {
   args: {
-    label: 'Seleccionar todos los productos',
+    label: 'Select todos los productos',
     indeterminate: true,
   },
 };
@@ -73,7 +73,7 @@ export const InteractiveList = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <Checkbox
-        label="Seleccionar todo"
+        label="Select todo"
         checked={allChecked}
         indeterminate={isIndeterminate}
         onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}

@@ -7,7 +7,7 @@ export interface PriceProps extends HTMLAttributes<HTMLDivElement> {
    */
   value?: number;
   /**
-   * Alias de value
+   * Alias of value
    */
   amount?: number;
   /**
@@ -15,7 +15,7 @@ export interface PriceProps extends HTMLAttributes<HTMLDivElement> {
    */
   originalValue?: number;
   /**
-   * Código de moneda ISO (ej. 'EUR', 'USD', 'MXN')
+   * Código of moneda ISO (ej. 'EUR', 'USD', 'MXN')
    * @default 'EUR'
    */
   currency?: string;
@@ -25,12 +25,12 @@ export interface PriceProps extends HTMLAttributes<HTMLDivElement> {
    */
   locale?: string;
   /**
-   * Si es true, calcula y muestra un pequeño badge rojo con el porcentaje de descuento (ej. "-20%")
+   * Si es true, calcula y muestra un pequeño badge rojo con el porcentaje of descuento (ej. "-20%")
    * @default false
    */
   showDiscountBadge?: boolean;
   /**
-   * Tamaño tipográfico del componente
+   * Tamaño tipográfico ofl componente
    * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large';

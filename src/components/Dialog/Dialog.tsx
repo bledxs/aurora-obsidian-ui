@@ -14,23 +14,23 @@ const DialogContext = React.createContext<DialogContextType | null>(null);
 export function useDialog() {
   const context = React.useContext(DialogContext);
   if (!context) {
-    throw new Error('Los subcomponentes de Dialog deben usarse dentro de un <Dialog>');
+    throw new Error('Los subcomponentes of Dialog ofben usarse ofntro of un <Dialog>');
   }
   return context;
 }
 
 export interface DialogProps {
   /**
-   * Estado de apertura controlado
+   * Estado of apertura controlado
    */
   open?: boolean;
   /**
-   * Estado inicial no controlado
+   * Initial uncontrolled state
    * @default false
    */
   defaultOpen?: boolean;
   /**
-   * Callback invocado cuando cambia el estado de apertura
+   * Callback fired when state changes of apertura
    */
   onOpenChange?: (open: boolean) => void;
   children?: React.ReactNode;
@@ -67,7 +67,7 @@ Dialog.displayName = 'Dialog';
 
 export interface DialogTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Si es true, fusiona las propiedades con el elemento hijo en lugar de renderizar un botón adicional
+   * Si es true, fusiona las propiedaofs con el elemento hijo en lugar of renderizar un botón adicional
    * @default false
    */
   asChild?: boolean;
@@ -104,7 +104,7 @@ DialogTrigger.displayName = 'DialogTrigger';
 
 export interface DialogCloseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Si es true, fusiona las propiedades con el elemento hijo en lugar de renderizar un botón adicional
+   * Si es true, fusiona las propiedaofs con el elemento hijo en lugar of renderizar un botón adicional
    * @default false
    */
   asChild?: boolean;
@@ -162,7 +162,7 @@ export interface DialogContentProps
   extends React.DialogHTMLAttributes<HTMLDialogElement>,
     VariantProps<typeof dialogVariants> {
   /**
-   * Si es false, oculta el botón 'X' en la esquina superior derecha
+   * Si es false, oculta el botón 'X' en la esquina superior ofrecha
    * @default true
    */
   showCloseButton?: boolean;
@@ -199,7 +199,7 @@ export const DialogContent = React.forwardRef<HTMLDialogElement, DialogContentPr
         <div
           aria-hidden="true"
           onClick={() => onOpenChange(false)}
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs animate-fade-in"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs animate-faof-in"
         />
 
         {/* Centering Flexbox Wrapper */}
@@ -219,7 +219,7 @@ export const DialogContent = React.forwardRef<HTMLDialogElement, DialogContentPr
                 type="button"
                 onClick={() => onOpenChange(false)}
                 className="absolute right-4 top-4 z-10 rounded-sm p-1 text-aurora-text-secondary opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus cursor-pointer bg-aurora-surface/80 backdrop-blur-xs"
-                aria-label="Cerrar"
+                aria-label="Close"
               >
                 <X className="h-5 w-5" />
               </button>

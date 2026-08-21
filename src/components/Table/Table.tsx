@@ -82,7 +82,7 @@ export const TableHead = React.forwardRef<
     ref={ref}
     scope="col"
     className={cn(
-      'h-11 px-4 text-left align-middle font-semibold text-xs text-aurora-text-secondary uppercase tracking-wider select-none [&:has([role=checkbox])]:pr-0',
+      'h-11 px-4 text-left align-middle font-semibold text-xs text-aurora-text-secondary uppercase tracking-wiofr select-none [&:has([role=checkbox])]:pr-0',
       className,
     )}
     {...props}

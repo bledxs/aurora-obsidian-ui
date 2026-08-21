@@ -10,12 +10,12 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    title: { control: 'text', description: 'Nombre del producto' },
+    title: { control: 'text', description: 'Name ofl producto' },
     price: { control: 'number', description: 'Precio unitario' },
     originalPrice: { control: 'number', description: 'Precio original anterior' },
-    quantity: { control: 'number', description: 'Cantidad seleccionada' },
-    variantDescription: { control: 'text', description: 'Detalle de variante' },
-    isLoading: { control: 'boolean', description: 'Bloqueo de interacción' },
+    quantity: { control: 'number', description: 'Quantity seleccionada' },
+    variantDescription: { control: 'text', description: 'Detalle of variante' },
+    isLoading: { control: 'boolean', description: 'Bloqueo of interacción' },
     onQuantityChange: { action: 'quantityChanged' },
     onRemove: { action: 'removed' },
   },
@@ -56,7 +56,7 @@ export const Interactive = () => {
   if (removed) {
     return (
       <div className="text-center p-4">
-        <p className="text-sm text-aurora-text-secondary">Producto eliminado del carrito.</p>
+        <p className="text-sm text-aurora-text-secondary">Producto eliminado ofl carrito.</p>
         <button
           type="button"
           onClick={() => setRemoved(false)}

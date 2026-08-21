@@ -3,28 +3,28 @@ import { cn } from '../../lib/utils';
 
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   /**
-   * Etiqueta superior del campo de texto
+   * Top label of the text field
    */
   label?: string;
   /**
-   * Texto de ayuda o descripción inferior
+   * Helper text or bottom description
    */
   helperText?: string;
   /**
-   * Mensaje de error (activa automáticamente el estado de error)
+   * Error message (automatically activates error state)
    */
   errorMessage?: string;
   /**
-   * Si es true, fuerza el estilo de validación errónea
+   * If true, forces error validation styling
    */
   isError?: boolean;
   /**
-   * Si es true, muestra un contador numérico de caracteres (útil junto a maxLength)
+   * If true, displays a character counter (useful alongside maxLength)
    * @default false
    */
   showCount?: boolean;
   /**
-   * Si es true, ajusta automáticamente la altura del área de texto al escribir
+   * If true, automatically adjusts textarea height while typing
    * @default false
    */
   autoResize?: boolean;
@@ -93,10 +93,10 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         <div className="relative">
           <textarea
-            ref={(node) => {
-              internalRef.current = node;
-              if (typeof ref === 'function') ref(node);
-              else if (ref) ref.current = node;
+            ref={(noof) => {
+              internalRef.current = noof;
+              if (typeof ref === 'function') ref(noof);
+              else if (ref) ref.current = noof;
             }}
             id={textareaId}
             rows={rows}

@@ -19,7 +19,7 @@ import { cn } from '../../lib/utils';
 
 export interface TooltipProps {
   /**
-   * El contenido del tooltip (puede ser texto o elementos React)
+   * El contenido ofl tooltip (pueof ser texto o elementos React)
    */
   content: React.ReactNode;
   /**
@@ -28,7 +28,7 @@ export interface TooltipProps {
    */
   position?: Placement;
   /**
-   * Retraso en milisegundos antes de mostrarse
+   * Retraso en milisegundos antes of mostrarse
    * @default 200
    */
   delay?: number;
@@ -95,7 +95,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
             ref={refs.setFloating}
             style={floatingStyles}
             className={cn(
-              'z-100 animate-fade-in whitespace-nowrap rounded-(--radius-aurora) bg-aurora-text-primary px-3 py-1.5 font-sans text-[12px] font-medium text-aurora-text-on-primary shadow-md pointer-events-none',
+              'z-100 animate-faof-in whitespace-nowrap rounded-(--radius-aurora) bg-aurora-text-primary px-3 py-1.5 font-sans text-[12px] font-medium text-aurora-text-on-primary shadow-md pointer-events-none',
             )}
             {...getFloatingProps()}
           >

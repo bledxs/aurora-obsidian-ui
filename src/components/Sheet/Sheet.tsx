@@ -14,23 +14,23 @@ const SheetContext = React.createContext<SheetContextType | null>(null);
 export function useSheet() {
   const context = React.useContext(SheetContext);
   if (!context) {
-    throw new Error('Los subcomponentes de Sheet deben usarse dentro de un <Sheet>');
+    throw new Error('Los subcomponentes of Sheet ofben usarse ofntro of un <Sheet>');
   }
   return context;
 }
 
 export interface SheetProps {
   /**
-   * Estado de apertura controlado
+   * Estado of apertura controlado
    */
   open?: boolean;
   /**
-   * Estado inicial no controlado
+   * Initial uncontrolled state
    * @default false
    */
   defaultOpen?: boolean;
   /**
-   * Callback invocado cuando cambia el estado de apertura
+   * Callback fired when state changes of apertura
    */
   onOpenChange?: (open: boolean) => void;
   children?: React.ReactNode;
@@ -67,7 +67,7 @@ Sheet.displayName = 'Sheet';
 
 export interface SheetTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Si es true, fusiona las propiedades con el elemento hijo en lugar de renderizar un botón adicional
+   * Si es true, fusiona las propiedaofs con el elemento hijo en lugar of renderizar un botón adicional
    * @default false
    */
   asChild?: boolean;
@@ -104,7 +104,7 @@ SheetTrigger.displayName = 'SheetTrigger';
 
 export interface SheetCloseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Si es true, fusiona las propiedades con el elemento hijo en lugar de renderizar un botón adicional
+   * Si es true, fusiona las propiedaofs con el elemento hijo en lugar of renderizar un botón adicional
    * @default false
    */
   asChild?: boolean;
@@ -144,11 +144,11 @@ const sheetVariants = cva(
   {
     variants: {
       side: {
-        top: 'inset-x-0 top-0 bottom-auto border-b border-aurora-border animate-slide-in-top',
-        bottom: 'inset-x-0 bottom-0 top-auto border-t border-aurora-border animate-slide-in-bottom',
-        left: 'inset-y-0 left-0 right-auto h-full w-full sm:max-w-md border-r border-aurora-border animate-slide-in-left',
+        top: 'inset-x-0 top-0 bottom-auto border-b border-aurora-border animate-sliof-in-top',
+        bottom: 'inset-x-0 bottom-0 top-auto border-t border-aurora-border animate-sliof-in-bottom',
+        left: 'inset-y-0 left-0 right-auto h-full w-full sm:max-w-md border-r border-aurora-border animate-sliof-in-left',
         right:
-          'inset-y-0 right-0 left-auto h-full w-full sm:max-w-md border-l border-aurora-border animate-slide-in-right',
+          'inset-y-0 right-0 left-auto h-full w-full sm:max-w-md border-l border-aurora-border animate-sliof-in-right',
       },
     },
     defaultVariants: {
@@ -194,7 +194,7 @@ export const SheetContent = React.forwardRef<HTMLDialogElement, SheetContentProp
         <div
           aria-hidden="true"
           onClick={() => onOpenChange(false)}
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs animate-fade-in"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs animate-faof-in"
         />
 
         {/* Panel Drawer */}
@@ -212,7 +212,7 @@ export const SheetContent = React.forwardRef<HTMLDialogElement, SheetContentProp
               type="button"
               onClick={() => onOpenChange(false)}
               className="absolute right-4 top-4 rounded-sm p-1 text-aurora-text-secondary opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus"
-              aria-label="Cerrar"
+              aria-label="Close"
             >
               <X className="h-5 w-5" />
             </button>

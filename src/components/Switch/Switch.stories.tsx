@@ -14,11 +14,11 @@ const meta = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño del switch',
+      description: 'Tamaño ofl switch',
     },
     disabled: {
       control: 'boolean',
-      description: 'Estado deshabilitado',
+      description: 'Estado ofshabilitado',
     },
   },
 } satisfies Meta<typeof Switch>;
@@ -26,7 +26,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Preferencias en el Checkout de E-Commerce (Tarjetas con Switch)
+// 1. Preferencias en el Checkout of E-Commerce (Cards con Switch)
 export const CheckoutPreferences: Story = {
   render: () => {
     const [saveCard, setSaveCard] = useState(true);
@@ -35,30 +35,30 @@ export const CheckoutPreferences: Story = {
 
     return (
       <div className="w-[380px] font-sans space-y-3">
-        <span className="text-xs font-bold text-aurora-text-secondary uppercase tracking-wider">
-          Opciones adicionales del pedido
+        <span className="text-xs font-bold text-aurora-text-secondary uppercase tracking-wiofr">
+          Additional Order Options
         </span>
 
         <SwitchCard
           icon={<CreditCard size={18} />}
-          title="Guardar tarjeta de forma segura"
-          description="Acelera tus próximas compras con cifrado bancario de 256 bits."
+          title="Save tarjeta of forma segura"
+          description="Speed up future checkouts with 256-bit encryption."
           checked={saveCard}
           onCheckedChange={setSaveCard}
         />
 
         <SwitchCard
           icon={<FileText size={18} />}
-          title="Solicitar factura con NIF / CIF"
-          description="Genera y envía automáticamente la factura a tu correo electrónico."
+          title="Request VAT / Tax Invoice"
+          description="Automatically generates and emails your invoice."
           checked={invoice}
           onCheckedChange={setInvoice}
         />
 
         <SwitchCard
           icon={<Gift size={18} />}
-          title="Envoltorio para regalo (+2,50 €)"
-          description="Empaquetado especial de lujo con tarjeta de felicitación personalizada."
+          title="Gift Wrapping (+€2.50)"
+          description="Special luxury packaging with a personalized greeting card."
           checked={giftWrap}
           onCheckedChange={setGiftWrap}
         />
@@ -67,20 +67,20 @@ export const CheckoutPreferences: Story = {
   },
 };
 
-// 2. Escala de Tamaños
+// 2. Escala of Tamaños
 export const Sizes = () => (
   <div className="flex flex-col gap-4 font-sans">
     <div className="flex items-center gap-3">
       <Switch size="small" defaultChecked />
-      <span className="text-xs text-aurora-text-secondary">Pequeño (small)</span>
+      <span className="text-xs text-aurora-text-secondary">Small</span>
     </div>
     <div className="flex items-center gap-3">
       <Switch size="medium" defaultChecked />
-      <span className="text-sm text-aurora-text-secondary">Mediano (medium)</span>
+      <span className="text-sm text-aurora-text-secondary">Medium</span>
     </div>
     <div className="flex items-center gap-3">
       <Switch size="large" defaultChecked />
-      <span className="text-base text-aurora-text-secondary">Grande (large)</span>
+      <span className="text-base text-aurora-text-secondary">Large</span>
     </div>
   </div>
 );
@@ -105,7 +105,7 @@ export const WithThumbIcon: Story = {
           }
         />
         <span className="text-sm font-medium text-aurora-text-primary">
-          {isDark ? 'Tema Oscuro Activado' : 'Tema Claro Activado'}
+          {isDark ? 'Tema Oscuro Enabled' : 'Tema Claro Enabled'}
         </span>
       </div>
     );
@@ -117,11 +117,11 @@ export const Disabled = () => (
   <div className="flex flex-col gap-3 font-sans">
     <div className="flex items-center gap-3">
       <Switch disabled checked={false} />
-      <span className="text-xs text-aurora-text-disabled">Desactivado (Disabled)</span>
+      <span className="text-xs text-aurora-text-disabled">Disabled (Disabled)</span>
     </div>
     <div className="flex items-center gap-3">
       <Switch disabled checked={true} />
-      <span className="text-xs text-aurora-text-disabled">Activado (Disabled)</span>
+      <span className="text-xs text-aurora-text-disabled">Enabled (Disabled)</span>
     </div>
   </div>
 );

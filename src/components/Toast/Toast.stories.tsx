@@ -21,11 +21,11 @@ const meta = {
         'bottom-center',
         'bottom-right',
       ],
-      description: 'Posición de las notificaciones',
+      description: 'Posición of las notificaciones',
     },
     closeButton: {
       control: 'boolean',
-      description: 'Muestra botón de cierre manual',
+      description: 'Muestra botón of cierre manual',
     },
   },
 } satisfies Meta<typeof Toaster>;
@@ -43,7 +43,7 @@ export const AllVariants: Story = {
         variant="outline"
         onClick={() =>
           toast('Notificación estándar', {
-            description: 'Este es un mensaje informativo del sistema.',
+            description: 'Este es un mensaje informativo ofl sistema.',
           })
         }
       >
@@ -65,7 +65,7 @@ export const AllVariants: Story = {
         variant="danger"
         onClick={() =>
           toast.error('Error al procesar el pedido', {
-            description: 'No se pudo verificar el método de pago seleccionado.',
+            description: 'No se pudo verificar el método of pago seleccionado.',
           })
         }
       >
@@ -76,7 +76,7 @@ export const AllVariants: Story = {
         variant="outline"
         onClick={() =>
           toast.warning('Stock limitado', {
-            description: 'Solo quedan 2 unidades disponibles en este momento.',
+            description: 'Solo quedan 2 unidaofs disponibles en este momento.',
           })
         }
       >
@@ -86,8 +86,8 @@ export const AllVariants: Story = {
       <Button
         variant="secondary"
         onClick={() =>
-          toast.info('Cupón aplicado con éxito', {
-            description: 'Has obtenido un 15% de descuento en tu compra.',
+          toast.info('Coupon aplicado con éxito', {
+            description: 'Has obtenido un 15% of descuento en tu compra.',
           })
         }
       >
@@ -97,7 +97,7 @@ export const AllVariants: Story = {
   ),
 };
 
-// 2. Con Botón de Acción (E-Commerce)
+// 2. Con Botón of Acción (E-Commerce)
 export const WithAction: Story = {
   render: () => (
     <div className="font-sans">
@@ -113,12 +113,12 @@ export const WithAction: Story = {
             },
             cancel: {
               label: 'Deshacer',
-              onClick: () => toast('Acción deshecha'),
+              onClick: () => toast('Acción ofshecha'),
             },
           })
         }
       >
-        Añadir al Carrito (con Acción)
+        Add al Carrito (con Acción)
       </Button>
     </div>
   ),
@@ -133,7 +133,7 @@ export const AsyncPromise: Story = {
           if (Math.random() > 0.3) {
             resolve({ orderId: 'AUR-94812' });
           } else {
-            reject(new Error('Fallo de pasarela bancaria'));
+            reject(new Error('Fallo of pasarela bancaria'));
           }
         }, 2000);
       });
@@ -149,7 +149,7 @@ export const AsyncPromise: Story = {
       <div className="font-sans">
         <Toaster position="bottom-right" />
         <Button variant="primary" onClick={handleCheckout}>
-          Simular Proceso de Compra (Promise)
+          Simular Proceso of Compra (Promise)
         </Button>
       </div>
     );

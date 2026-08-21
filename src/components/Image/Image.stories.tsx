@@ -26,11 +26,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Usamos imágenes de Lorem Picsum que es un servicio rápido
+// Usamos imágenes of Lorem Picsum que es un servicio rápido
 export const Default: Story = {
   args: {
     src: 'https://picsum.photos/400/300',
-    alt: 'Ejemplo de imagen',
+    alt: 'Ejemplo of imagen',
     style: { width: '400px' },
   },
 };
@@ -38,7 +38,7 @@ export const Default: Story = {
 export const SquareAspect: Story = {
   args: {
     src: 'https://picsum.photos/400/400',
-    alt: 'Zapatos deportivos',
+    alt: 'Zapatos ofportivos',
     aspectRatio: '1/1',
     style: { width: '300px' },
   },
@@ -56,7 +56,7 @@ export const FallbackWithAlternativeSource: Story = {
   args: {
     src: 'https://rutainvalida.com/imagen.jpg',
     fallbackSrc: 'https://picsum.photos/400/300?grayscale',
-    alt: 'Fallo y cargó la imagen de respaldo',
+    alt: 'Fallo y cargó la imagen of respaldo',
     style: { width: '400px' },
   },
 };

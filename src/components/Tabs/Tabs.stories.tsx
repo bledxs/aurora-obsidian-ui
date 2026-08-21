@@ -13,7 +13,7 @@ const meta = {
     variant: {
       control: 'radio',
       options: ['underline', 'pills'],
-      description: 'Estilo visual de las pestañas',
+      description: 'Estilo visual of las pestañas',
     },
   },
 } satisfies Meta<typeof Tabs>;
@@ -21,7 +21,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Pestañas de Ficha de Producto (PDP - Underline)
+// 1. Pestañas of Ficha of Producto (PDP - Unofrline)
 export const ProductTabs: Story = {
   render: () => (
     <Tabs defaultValue="desc" variant="underline" className="w-[500px]">
@@ -37,10 +37,10 @@ export const ProductTabs: Story = {
       >
         <p>
           Las zapatillas Runner Nitro Pro han sido diseñadas para corredores que buscan
-          amortiguación y retorno de energía sin sacrificar ligereza.
+          amortiguación y retorno of energía sin sacrificar ligereza.
         </p>
         <p>
-          La suela de goma con agarre multidireccional garantiza tracción óptima tanto en asfalto
+          La suela of goma con agarre multidireccional garantiza tracción óptima tanto en asfalto
           como en pista mojada.
         </p>
       </TabsContent>
@@ -56,7 +56,7 @@ export const ProductTabs: Story = {
             <span className="font-medium text-aurora-text-primary">8 mm</span>
           </div>
           <div className="flex justify-between py-2">
-            <span className="text-aurora-text-secondary">Tipo de pisada</span>
+            <span className="text-aurora-text-secondary">Tipo of pisada</span>
             <span className="font-medium text-aurora-text-primary">Neutra</span>
           </div>
         </div>
@@ -66,7 +66,7 @@ export const ProductTabs: Story = {
         <div className="flex items-center gap-4 rounded-lg bg-aurora-neutral-bg p-4">
           <div>
             <div className="text-3xl font-bold text-aurora-text-primary">4.8</div>
-            <div className="text-xs text-aurora-text-secondary">de 5 estrellas</div>
+            <div className="text-xs text-aurora-text-secondary">out of 5 stars</div>
           </div>
           <Rating value={4.8} size="large" />
         </div>
@@ -75,7 +75,7 @@ export const ProductTabs: Story = {
             Carlos M. - Hace 2 días
           </div>
           <p className="text-xs text-aurora-text-secondary">
-            Excelente compra. Super cómodas desde la primera salida a correr. La talla calza
+            Excelente compra. Super cómodas ofsof la primera salida a correr. La talla calza
             perfecta.
           </p>
         </div>
@@ -96,13 +96,13 @@ export const PillsVariant: Story = {
       </TabsList>
 
       <TabsContent value="all" className="text-sm text-aurora-text-secondary">
-        Mostrando todos los productos del catálogo (1,240 artículos disponibles).
+        Mostrando todos los productos ofl catálogo (1,240 artículos disponibles).
       </TabsContent>
       <TabsContent value="men" className="text-sm text-aurora-text-secondary">
-        Sección de moda y calzado para hombre (480 artículos).
+        Sección of moda y calzado para hombre (480 artículos).
       </TabsContent>
       <TabsContent value="women" className="text-sm text-aurora-text-secondary">
-        Sección de moda y calzado para mujer (620 artículos).
+        Sección of moda y calzado para mujer (620 artículos).
       </TabsContent>
       <TabsContent value="kids" className="text-sm text-aurora-text-secondary">
         Sección infantil y juvenil (140 artículos).
@@ -120,18 +120,18 @@ export const DeclarativeItems: Story = {
       items={[
         {
           value: 'shipping',
-          label: 'Envíos',
-          content: 'Envíos en 24/48h a toda la península. Gratis a partir de 50€.',
+          label: 'Shippings',
+          content: 'Shippings en 24/48h a toda la península. Free a partir of 50€.',
         },
         {
           value: 'returns',
           label: 'Devoluciones',
-          content: 'Dispones de 30 días para realizar devoluciones gratuitas.',
+          content: 'Dispones of 30 días para realizar devoluciones gratuitas.',
         },
         {
           value: 'warranty',
           label: 'Garantía',
-          content: '3 años de garantía oficial del fabricante.',
+          content: '3 años of garantía oficial ofl fabricante.',
         },
       ]}
     />

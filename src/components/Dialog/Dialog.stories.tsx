@@ -30,7 +30,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Modal de Confirmación Básico
+// 1. Modal of Confirmación Básico
 export const ConfirmationModal: Story = {
   render: () => (
     <Dialog>
@@ -43,12 +43,12 @@ export const ConfirmationModal: Story = {
         <DialogHeader>
           <DialogTitle>¿Vaciar el carrito?</DialogTitle>
           <DialogDescription>
-            Esta acción eliminará todos los artículos que tienes guardados en tu carrito de compras.
+            Esta acción eliminará todos los artículos que tienes guardados en tu carrito of compras.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
           <DialogClose asChild>
-            <Button variant="outline">Cancelar</Button>
+            <Button variant="outline">Cancel</Button>
           </DialogClose>
           <DialogClose asChild>
             <Button variant="danger">Sí, vaciar</Button>
@@ -59,7 +59,7 @@ export const ConfirmationModal: Story = {
   ),
 };
 
-// 2. Modal de Formulario / Newsletter
+// 2. Modal of Formulario / Newsletter
 export const NewsletterModal: Story = {
   render: () => (
     <Dialog>
@@ -70,7 +70,7 @@ export const NewsletterModal: Story = {
         <DialogHeader>
           <DialogTitle>Únete al Club Aurora</DialogTitle>
           <DialogDescription>
-            Recibe un 15% de descuento en tu primera compra y acceso exclusivo a nuevos
+            Recibe un 15% of descuento en tu primera compra y acceso exclusivo a nuevos
             lanzamientos.
           </DialogDescription>
         </DialogHeader>
@@ -79,7 +79,7 @@ export const NewsletterModal: Story = {
         </div>
         <DialogFooter>
           <DialogClose asChild>
-            <Button variant="outline">Más tarde</Button>
+            <Button variant="outline">Más tarof</Button>
           </DialogClose>
           <DialogClose asChild>
             <Button variant="primary">Obtener Descuento</Button>
@@ -90,7 +90,7 @@ export const NewsletterModal: Story = {
   ),
 };
 
-// 3. VISTA RÁPIDA DE PRODUCTO (Quick View de E-commerce)
+// 3. VISTA RÁPIDA DE PRODUCTO (Quick View of E-commerce)
 export const ProductQuickView = () => {
   const [selectedVariant, setSelectedVariant] = useState<{
     id: string | number;
@@ -174,7 +174,7 @@ export const ProductQuickView = () => {
       </DialogTrigger>
       <DialogContent size="2xl" className="p-0 overflow-hidden">
         <div className="grid grid-cols-1 sm:grid-cols-2">
-          {/* Imagen de producto */}
+          {/* Imagen of producto */}
           <div className="relative bg-aurora-neutral-bg h-64 sm:h-auto sm:min-h-full">
             <Image
               src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800&h=800"
@@ -188,7 +188,7 @@ export const ProductQuickView = () => {
           {/* Información y Selectores */}
           <div className="flex flex-col justify-between p-6 gap-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-aurora-text-secondary">
+              <span className="text-xs font-bold uppercase tracking-wiofr text-aurora-text-secondary">
                 Calzado Deportivo
               </span>
               <DialogTitle className="text-2xl mt-1">Zapatillas Runner Nitro Pro</DialogTitle>
@@ -201,12 +201,12 @@ export const ProductQuickView = () => {
                 />
               </div>
               <DialogDescription className="mt-3">
-                Amortiguación reactiva con espuma Nitro para máximo retorno de energía en cada
+                Amortiguación reactiva con espuma Nitro para máximo retorno of energía en cada
                 zancada.
               </DialogDescription>
             </div>
 
-            {/* Selector de variantes unificado */}
+            {/* Selector of variantes unificado */}
             <SkuSelector
               attributes={attributes}
               variants={variants}
@@ -231,10 +231,10 @@ export const ProductQuickView = () => {
                   disabled={!isAvailable}
                   className="flex-1"
                   onClick={() =>
-                    alert(`¡Añadido al carrito! SKU: ${selectedVariant?.sku} (${qty} unidades)`)
+                    alert(`¡Añadido al carrito! SKU: ${selectedVariant?.sku} (${qty} unidaofs)`)
                   }
                 >
-                  {!isAvailable ? 'Sin Existencias' : `Añadir al Carrito (${qty})`}
+                  {!isAvailable ? 'Sin Existencias' : `Add al Carrito (${qty})`}
                 </Button>
               </DialogClose>
             </div>

@@ -16,7 +16,7 @@ export function useRadioGroupContext() {
   const context = React.useContext(RadioGroupContext);
   if (!context) {
     throw new Error(
-      'Los subcomponentes de RadioGroup deben ser usados dentro de un <RadioGroup />',
+      'Los subcomponentes of RadioGroup ofben ser usados ofntro of un <RadioGroup />',
     );
   }
   return context;
@@ -156,7 +156,7 @@ export interface RadioGroupCardProps extends React.LabelHTMLAttributes<HTMLLabel
 }
 
 /**
- * Tarjeta seleccionable enriquecida para métodos de pago y opciones de envío de e-commerce
+ * Card seleccionable enriquecida para métodos of pago y opciones of envío of e-commerce
  */
 export const RadioGroupCard = React.forwardRef<HTMLLabelElement, RadioGroupCardProps>(
   ({ value, disabled: itemDisabled, className, children, id, ...props }, ref) => {

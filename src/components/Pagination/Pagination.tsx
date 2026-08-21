@@ -48,19 +48,19 @@ export function generatePaginationRange(
 
 export interface PaginationProps extends React.ComponentProps<'nav'> {
   /**
-   * Página activa en modo auto-generado
+   * Page activa en modo auto-generado
    */
   currentPage?: number;
   /**
-   * Total de páginas en modo auto-generado
+   * Total of páginas en modo auto-generado
    */
   totalPages?: number;
   /**
-   * Callback invocado al cambiar de página
+   * Callback invocado al cambiar of página
    */
   onPageChange?: (page: number) => void;
   /**
-   * Cantidad de páginas vecinas a mostrar a cada lado de la activa
+   * Quantity of páginas vecinas a mostrar a cada lado of la activa
    * @default 1
    */
   siblingCount?: number;
@@ -85,7 +85,7 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
     },
     ref,
   ) => {
-    // Si se pasan props declarativas (currentPage y totalPages), renderiza el paginador auto-gestionado
+    // Si se pasan props ofclarativas (currentPage y totalPages), renderiza el paginador auto-gestionado
     if (currentPage !== undefined && totalPages !== undefined) {
       const range = generatePaginationRange(currentPage, totalPages, siblingCount);
 
@@ -112,7 +112,7 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
             {range.map((item, index) => {
               if (item === 'ellipsis') {
                 return (
-                  // biome-ignore lint/suspicious/noArrayIndexKey: las elipsis son separadores estáticos
+                  // biome-ignore lint/suspicious/noArrayIndexKey: ellipses are static separators
                   <PaginationItem key={`ellipsis-${index}`}>
                     <PaginationEllipsis />
                   </PaginationItem>
@@ -272,7 +272,7 @@ export const PaginationEllipsis = React.forwardRef<HTMLSpanElement, React.Compon
       {...props}
     >
       <MoreHorizontal size={16} />
-      <span className="sr-only">Más páginas</span>
+      <span className="sr-only">More pages</span>
     </span>
   ),
 );

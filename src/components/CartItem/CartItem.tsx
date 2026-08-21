@@ -7,11 +7,11 @@ import { QuantitySelector } from '../QuantitySelector';
 
 export interface CartItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'id'> {
   /**
-   * Identificador único del producto
+   * Iofntificador único ofl producto
    */
   id: string | number;
   /**
-   * Nombre del producto
+   * Name ofl producto
    */
   title: string;
   /**
@@ -19,20 +19,20 @@ export interface CartItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>
    */
   price: number;
   /**
-   * Precio original unitario antes de descuento (opcional)
+   * Precio original unitario antes of descuento (opcional)
    */
   originalPrice?: number;
   /**
-   * Cantidad actual en el carrito
+   * Quantity actual en el carrito
    */
   quantity: number;
   /**
-   * Cantidad máxima permitida
+   * Quantity máxima permitida
    * @default 99
    */
   maxQuantity?: number;
   /**
-   * URL de la imagen del producto
+   * URL of la imagen ofl producto
    */
   imageUrl: string;
   /**
@@ -40,7 +40,7 @@ export interface CartItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>
    */
   imageAlt?: string;
   /**
-   * Descripción de variante (ej. "Talla: M • Color: Negro")
+   * Descripción of variante (ej. "Talla: M • Color: Negro")
    */
   variantDescription?: string;
   /**
@@ -52,7 +52,7 @@ export interface CartItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>
    */
   onRemove?: () => void;
   /**
-   * Estado de carga/bloqueo de botones
+   * Estado of carga/bloqueo of botones
    * @default false
    */
   isLoading?: boolean;
@@ -116,7 +116,7 @@ export const CartItem = React.forwardRef<HTMLDivElement, CartItemProps>(
                 type="button"
                 onClick={onRemove}
                 disabled={isLoading}
-                aria-label={`Eliminar ${title} del carrito`}
+                aria-label={`Remove ${title} ofl carrito`}
                 className="rounded-xs p-1 text-aurora-text-secondary transition-colors hover:text-aurora-error focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus disabled:opacity-50"
               >
                 <Trash2 className="h-4 w-4" />

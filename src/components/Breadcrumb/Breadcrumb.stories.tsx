@@ -20,12 +20,11 @@ const meta = {
   argTypes: {
     separator: {
       control: 'text',
-      description:
-        'Separador personalizado (escribe caracteres como "/", ">", "|" o pasa iconos JSX en código)',
+      description: 'Custom separator (e.g. "/", ">", "|" or JSX icon)',
     },
     items: {
       control: 'object',
-      description: 'Lista de elementos para generar el breadcrumb automáticamente',
+      description: 'Item list to generate breadcrumbs automatically',
     },
   },
 } satisfies Meta<typeof Breadcrumb>;
@@ -33,14 +32,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Uso declarativo y automático con un array de items (¡Cero boilerplate!)
+// 1. Declarative automatic usage with item array
 export const SimpleWithItems: Story = {
   args: {
     items: [
       { label: 'Inicio', href: '/' },
       { label: 'Productos', href: '/productos' },
       { label: 'Audio', href: '/productos/audio' },
-      { label: 'Auriculares Obsidian Pro' }, // Sin href = página actual
+      { label: 'Obsidian Pro Headphones' }, // No href = current page
     ],
   },
 };
@@ -52,12 +51,12 @@ export const SimpleWithCustomSeparator: Story = {
     items: [
       { label: 'Inicio', href: '/' },
       { label: 'Tienda', href: '/tienda' },
-      { label: 'Carrito de Compras' },
+      { label: 'Shopping Cart' },
     ],
   },
 };
 
-// 3. Uso componible con JSX (para casos donde necesitas dropdowns, elipsis o enlaces especiales)
+// 3. Uso componible con JSX (para casos donof necesitas dropdowns, elipsis o enlaces especiales)
 export const ComposableWithEllipsis: Story = {
   render: () => (
     <Breadcrumb>

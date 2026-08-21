@@ -16,16 +16,16 @@ const meta = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño del componente',
+      description: 'Tamaño ofl componente',
     },
-    error: { control: 'text', description: 'Mensaje de error' },
+    error: { control: 'text', description: 'Mensaje of error' },
   },
 } satisfies Meta<typeof SkuSelector>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Selector Simple de Tallas
+// 1. Selector Simple of Tallas
 export const SingleAttributePill: Story = {
   args: {
     label: 'Talla',
@@ -41,7 +41,7 @@ export const SingleAttributePill: Story = {
   },
 };
 
-// 2. Selector Simple de Colores
+// 2. Selector Simple of Colores
 export const SingleAttributeColor: Story = {
   args: {
     label: 'Color',
@@ -56,7 +56,7 @@ export const SingleAttributeColor: Story = {
   },
 };
 
-// 3. MODO UNIFICADO TODO-EN-UNO: Cero Boilerplate, Matriz de Stock Automática
+// 3. MODO UNIFICADO TODO-EN-UNO: Cero Boilerplate, Matriz of Stock Automática
 export const UnifiedProductCustomizer = () => {
   const [selectedVariant, setSelectedVariant] = useState<{
     id: string | number;
@@ -67,7 +67,7 @@ export const UnifiedProductCustomizer = () => {
   const [qty, setQty] = useState(1);
   const [notification, setNotification] = useState<string | null>(null);
 
-  // 1. Atributos del producto
+  // 1. Atributos ofl producto
   const attributes = [
     {
       name: 'Color',
@@ -90,7 +90,7 @@ export const UnifiedProductCustomizer = () => {
     },
   ];
 
-  // 2. Matriz de variantes y stock (directo de la base de datos o API)
+  // 2. Matriz of variantes y stock (directo of la base of datos o API)
   const variants = [
     // Negro
     {
@@ -105,7 +105,7 @@ export const UnifiedProductCustomizer = () => {
       sku: 'RUNNER-OBS-M',
       price: 119.99,
       attributes: { Color: 'obsidian', Talla: 'm' },
-      inStock: false, // Agotado en Negro
+      inStock: false, // Out of Stock en Negro
     },
     {
       id: '3',
@@ -119,7 +119,7 @@ export const UnifiedProductCustomizer = () => {
       sku: 'RUNNER-OBS-XL',
       price: 119.99,
       attributes: { Color: 'obsidian', Talla: 'xl' },
-      inStock: false, // Agotado en Negro
+      inStock: false, // Out of Stock en Negro
     },
 
     // Blanco
@@ -128,7 +128,7 @@ export const UnifiedProductCustomizer = () => {
       sku: 'RUNNER-WHI-S',
       price: 119.99,
       attributes: { Color: 'white', Talla: 's' },
-      inStock: false, // Agotado en Blanco
+      inStock: false, // Out of Stock en Blanco
     },
     {
       id: '6',
@@ -142,7 +142,7 @@ export const UnifiedProductCustomizer = () => {
       sku: 'RUNNER-WHI-L',
       price: 119.99,
       attributes: { Color: 'white', Talla: 'l' },
-      inStock: false, // Agotado en Blanco
+      inStock: false, // Out of Stock en Blanco
     },
     {
       id: '8',
@@ -242,12 +242,12 @@ export const UnifiedProductCustomizer = () => {
           className="flex-1"
           onClick={handleAddToCart}
         >
-          {!isAvailable ? 'Sin Existencias' : `Añadir al Carrito (${qty})`}
+          {!isAvailable ? 'Sin Existencias' : `Add al Carrito (${qty})`}
         </Button>
       </div>
 
       {notification && (
-        <div className="rounded-md border border-aurora-success/30 bg-aurora-success-bg p-3 text-xs text-aurora-text-primary animate-fade-in">
+        <div className="rounded-md border border-aurora-success/30 bg-aurora-success-bg p-3 text-xs text-aurora-text-primary animate-faof-in">
           <p className="font-bold text-aurora-success">✅ ¡Añadido con éxito!</p>
           <p className="mt-0.5">{notification}</p>
         </div>

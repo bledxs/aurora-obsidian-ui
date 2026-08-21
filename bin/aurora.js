@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.join(__dirname, '..');
 
-// Paleta de colores ANSI para la consola
+// ANSI console color palette
 const c = {
   reset: '\x1b[0m',
   bold: '\x1b[1m',
@@ -25,62 +25,60 @@ const c = {
 function printBanner() {
   console.log(`
 ${c.cyan}${c.bold}  ❖ AURORA OBSIDIAN UI${c.reset} ${c.dim}v0.1.0${c.reset}
-  ${c.dim}Sistema de diseño moderno para E-Commerce de alto rendimiento${c.reset}
+  ${c.dim}High-fidelity, accessible design system for modern e-commerce${c.reset}
 `);
 }
 
 function printHelp() {
   printBanner();
-  console.log(`${c.bold}USO:${c.reset}`);
-  console.log(`  ${c.green}npx aurora-obsidian-ui${c.reset} <comando> [opciones]\n`);
+  console.log(`${c.bold}USAGE:${c.reset}`);
+  console.log(`  ${c.green}npx aurora-obsidian-ui${c.reset} <command> [options]\n`);
 
-  console.log(`${c.bold}COMANDOS DISPONIBLES:${c.reset}`);
+  console.log(`${c.bold}AVAILABLE COMMANDS:${c.reset}`);
   console.log(
-    `  ${c.cyan}init${c.reset}                    Inicializa la configuración y alias en tu proyecto`,
+    `  ${c.cyan}init${c.reset}                    Initialize Aurora configuration and aliases in your project`,
   );
   console.log(
-    `  ${c.cyan}add${c.reset} <componente...>     Instala componentes y sus dependencias automáticamente`,
+    `  ${c.cyan}add${c.reset} <component...>      Install components and automatically resolve dependencies`,
   );
-  console.log(
-    `  ${c.cyan}list${c.reset}                    Muestra todos los 34 componentes disponibles`,
-  );
-  console.log(`  ${c.cyan}help${c.reset}                    Muestra este menú de ayuda\n`);
+  console.log(`  ${c.cyan}list${c.reset}                    Display all 34 available components`);
+  console.log(`  ${c.cyan}help${c.reset}                    Show this help menu\n`);
 
-  console.log(`${c.bold}OPCIONES:${c.reset}`);
+  console.log(`${c.bold}OPTIONS:${c.reset}`);
   console.log(
-    `  ${c.yellow}--path <directorio>${c.reset}  Ruta de destino personalizada (ej: src/components/ui)`,
+    `  ${c.yellow}--path <directory>${c.reset}   Custom target directory (default: src/components/ui)`,
   );
   console.log(
-    `  ${c.yellow}--all${c.reset}                Instala todos los componentes del registro`,
+    `  ${c.yellow}--all${c.reset}                Install all components from the registry`,
   );
-  console.log(`  ${c.yellow}--overwrite${c.reset}          Sobrescribe archivos si ya existen`);
+  console.log(`  ${c.yellow}--overwrite${c.reset}          Overwrite existing files`);
   console.log(
-    `  ${c.yellow}--no-install${c.reset}         Omite la instalación automática de dependencias npm\n`,
+    `  ${c.yellow}--no-install${c.reset}         Skip automatic installation of npm dependencies\n`,
   );
 
-  console.log(`${c.bold}EJEMPLOS:${c.reset}`);
+  console.log(`${c.bold}EXAMPLES:${c.reset}`);
   console.log(
-    `  ${c.dim}# Inicializar proyecto (detecta Shadcn / Tailwind / Aliases automáticos):${c.reset}`,
+    `  ${c.dim}# Initialize project (detects Tailwind, aliases, and structure):${c.reset}`,
   );
   console.log(`  npx aurora-obsidian-ui init\n`);
-  console.log(`  ${c.dim}# Añadir componentes individuales o múltiples:${c.reset}`);
+  console.log(`  ${c.dim}# Add single or multiple components:${c.reset}`);
   console.log(`  npx aurora-obsidian-ui add button`);
   console.log(`  npx aurora-obsidian-ui add select toast alert dropdown-menu navbar\n`);
-  console.log(`  ${c.dim}# Añadir todos los componentes:${c.reset}`);
-  console.log(`  npx aurora-obsidian-ui add --all\n`);
+  console.log(`  ${c.dim}# Install all components to a custom directory:${c.reset}`);
+  console.log(`  npx aurora-obsidian-ui add --all --path ./src/components/ui\n`);
 }
 
-// Cargar registry.json
+// Load registry.json
 function loadRegistry() {
   const registryPath = path.join(projectRoot, 'registry.json');
   if (!fs.existsSync(registryPath)) {
-    console.error(`${c.red}❌ Error: No se encontró el archivo registry.json.${c.reset}`);
+    console.error(`${c.red}❌ Error: registry.json file not found.${c.reset}`);
     process.exit(1);
   }
   return JSON.parse(fs.readFileSync(registryPath, 'utf-8'));
 }
 
-// Detectar gestor de paquetes del proyecto consumidor (pnpm, yarn, bun, npm)
+// Detect package manager of the consumer project (pnpm, yarn, bun, npm)
 function detectPackageManager(cwd) {
   const userAgent = process.env.npm_config_user_agent || '';
   if (userAgent.startsWith('pnpm')) return 'pnpm';
@@ -96,7 +94,7 @@ function detectPackageManager(cwd) {
   return 'npm';
 }
 
-// Detectar instalación de Tailwind CSS y versión
+// Detect Tailwind CSS installation and version
 function detectTailwind(cwd, installedDeps) {
   const isInstalled =
     installedDeps.has('tailwindcss') ||
@@ -117,7 +115,7 @@ function detectTailwind(cwd, installedDeps) {
     }
   }
 
-  // Detectar archivo CSS principal
+  // Detect main CSS entry point
   const candidateCss = [
     'src/index.css',
     'src/globals.css',
@@ -149,15 +147,15 @@ function detectTailwind(cwd, installedDeps) {
   };
 }
 
-// Detectar si el proyecto tiene Shadcn UI instalado (components.json)
-function detectShadcn(cwd) {
-  const shadcnConfigPath = path.join(cwd, 'components.json');
-  if (!fs.existsSync(shadcnConfigPath)) {
+// Detect if the project has a components.json file for seamless compatibility
+function detectExistingComponentConfig(cwd) {
+  const configPath = path.join(cwd, 'components.json');
+  if (!fs.existsSync(configPath)) {
     return { isInstalled: false, config: null };
   }
 
   try {
-    const rawContent = fs.readFileSync(shadcnConfigPath, 'utf-8');
+    const rawContent = fs.readFileSync(configPath, 'utf-8');
     const cleanContent = rawContent.replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '');
     const config = JSON.parse(cleanContent);
     return {
@@ -169,7 +167,7 @@ function detectShadcn(cwd) {
   }
 }
 
-// Detectar configuración de Path Aliases en tsconfig.json o jsconfig.json
+// Detect path aliases in tsconfig.json or jsconfig.json
 function detectPathAliases(cwd) {
   const tsConfigPath = path.join(cwd, 'tsconfig.json');
   const jsConfigPath = path.join(cwd, 'jsconfig.json');
@@ -212,10 +210,10 @@ function detectPathAliases(cwd) {
   };
 }
 
-// Cargar configuración de aurora.json o sincronizar con Shadcn UI si existe
+// Load aurora.json or fall back to detected project structure
 function loadAuroraConfig(cwd) {
   const configPath = path.join(cwd, 'aurora.json');
-  const shadcn = detectShadcn(cwd);
+  const existingConfig = detectExistingComponentConfig(cwd);
   const detected = detectPathAliases(cwd);
 
   if (fs.existsSync(configPath)) {
@@ -234,9 +232,9 @@ function loadAuroraConfig(cwd) {
     } catch {}
   }
 
-  // Si existe Shadcn UI pero no aurora.json, sincronizar con sus alias
-  if (shadcn.isInstalled && shadcn.config) {
-    const aliases = shadcn.config.aliases || {};
+  // If existing components.json is detected, inherit its paths smoothly
+  if (existingConfig.isInstalled && existingConfig.config) {
+    const aliases = existingConfig.config.aliases || {};
     const uiAlias = aliases.ui || aliases.components || detected.components;
     const utilsAlias = aliases.utils || detected.utils;
 
@@ -258,7 +256,7 @@ function loadAuroraConfig(cwd) {
   };
 }
 
-// Obtener lista de dependencias ya instaladas en el package.json del consumidor
+// Get set of currently installed dependencies in consumer package.json
 function getInstalledDependencies(cwd) {
   const pkgPath = path.join(cwd, 'package.json');
   if (!fs.existsSync(pkgPath)) return new Set();
@@ -276,7 +274,7 @@ function getInstalledDependencies(cwd) {
   }
 }
 
-// Instalar dependencias faltantes automáticamente según el gestor detectado
+// Install missing dependencies automatically based on detected package manager
 function installMissingDependencies(depsToInstall, cwd, skipInstall = false) {
   if (depsToInstall.length === 0) return;
 
@@ -293,48 +291,46 @@ function installMissingDependencies(depsToInstall, cwd, skipInstall = false) {
   const fullCommand = `${addCmd} ${depsToInstall.join(' ')}`;
 
   if (skipInstall) {
-    console.log(`${c.bold}📦 Dependencias requeridas detectadas:${c.reset}`);
+    console.log(`${c.bold}📦 Required dependencies detected:${c.reset}`);
     console.log(`  ${c.yellow}${fullCommand}${c.reset}\n`);
     return;
   }
 
   console.log(
-    `${c.bold}📦 Instalando dependencias con ${c.cyan}${pm}${c.reset}${c.bold}...${c.reset}`,
+    `${c.bold}📦 Installing dependencies with ${c.cyan}${pm}${c.reset}${c.bold}...${c.reset}`,
   );
   console.log(`  ${c.dim}$ ${fullCommand}${c.reset}\n`);
 
   try {
     execSync(fullCommand, { cwd, stdio: 'inherit' });
     console.log(
-      `\n  ${c.green}✔${c.reset} Dependencias instaladas correctamente con ${c.bold}${pm}${c.reset}.\n`,
+      `\n  ${c.green}✔${c.reset} Dependencies successfully installed with ${c.bold}${pm}${c.reset}.\n`,
     );
   } catch {
-    console.log(
-      `\n  ${c.yellow}⚠ No se pudieron instalar automáticamente las dependencias.${c.reset}`,
-    );
-    console.log('  Puedes ejecutarlas manualmente con:');
+    console.log(`\n  ${c.yellow}⚠ Could not automatically install dependencies.${c.reset}`);
+    console.log('  You can install them manually using:');
     console.log(`  ${c.yellow}${fullCommand}${c.reset}\n`);
   }
 }
 
-// Adaptar imports dinámicamente según los alias configurados en el proyecto
+// Dynamically rewrite internal component imports to match consumer aliases
 function transformImports(content, aliases) {
   let transformed = content;
 
-  // 1. Reemplazar imports de utils (../../lib/utils -> alias configurado)
+  // 1. Replace relative utils imports (../../lib/utils -> configured alias)
   const utilsAlias = aliases.utils || '@/lib/utils';
   transformed = transformed.replace(
     /from\s+['"](?:\.\.\/)+lib\/utils['"]/g,
     `from '${utilsAlias}'`,
   );
 
-  // 2. Reemplazar imports entre componentes vecinos (../Button -> ./Button)
+  // 2. Replace sibling component imports (../Button -> ./Button)
   transformed = transformed.replace(/from\s+['"]\.\.\/([A-Z][a-zA-Z0-9]+)['"]/g, "from './$1'");
 
   return transformed;
 }
 
-// Detectar directorio destino de componentes
+// Resolve component output directory
 function resolveTargetDir(cwd, customPath, config) {
   if (customPath) {
     return path.resolve(cwd, customPath);
@@ -362,38 +358,38 @@ function resolveTargetDir(cwd, customPath, config) {
   return path.join(cwd, 'components', 'ui');
 }
 
-// Comando: INIT
+// Command: INIT
 function runInit(cwd, args) {
   printBanner();
-  console.log(`${c.bold}🚀 Inicializando Aurora Obsidian UI en tu proyecto...${c.reset}\n`);
+  console.log(`${c.bold}🚀 Initializing Aurora Obsidian UI in your project...${c.reset}\n`);
 
   const skipInstall = args.includes('--no-install');
   const installed = getInstalledDependencies(cwd);
   const tailwind = detectTailwind(cwd, installed);
-  const shadcn = detectShadcn(cwd);
+  const existingConfig = detectExistingComponentConfig(cwd);
   const detected = detectPathAliases(cwd);
 
-  // 1. Diagnóstico del Entorno
-  console.log(`${c.bold}🔍 Diagnóstico del entorno:${c.reset}`);
+  // 1. Environment Diagnostics
+  console.log(`${c.bold}🔍 Environment Diagnostics:${c.reset}`);
 
   if (tailwind.isInstalled) {
     console.log(
-      `  ${c.green}✔${c.reset} ${c.bold}Tailwind CSS detectado${c.reset} ${c.dim}(${tailwind.version}${tailwind.configFile ? ` • ${tailwind.configFile}` : ''})${c.reset}`,
+      `  ${c.green}✔${c.reset} ${c.bold}Tailwind CSS detected${c.reset} ${c.dim}(${tailwind.version}${tailwind.configFile ? ` • ${tailwind.configFile}` : ''})${c.reset}`,
     );
   } else {
     console.log(
-      `  ${c.yellow}⚠ Tailwind CSS no detectado.${c.reset} ${c.dim}Se añadirá a las dependencias recomendadas.${c.reset}`,
+      `  ${c.yellow}⚠ Tailwind CSS not detected.${c.reset} ${c.dim}It will be included in the recommended dependencies.${c.reset}`,
     );
   }
 
   console.log(
-    `  ${c.green}✔${c.reset} ${c.bold}Estructura de componentes:${c.reset} ${c.cyan}${detected.components}${c.reset}`,
+    `  ${c.green}✔${c.reset} ${c.bold}Components directory:${c.reset} ${c.cyan}${detected.components}${c.reset}`,
   );
   console.log(
-    `  ${c.green}✔${c.reset} ${c.bold}Archivo de utilidades:${c.reset}    ${c.cyan}${detected.utils}${c.reset}\n`,
+    `  ${c.green}✔${c.reset} ${c.bold}Utils file path:     ${c.reset} ${c.cyan}${detected.utils}${c.reset}\n`,
   );
 
-  // 2. Comprobar / Crear archivo utilitario cn(...)
+  // 2. Ensure cn(...) utils helper file exists
   const utilsDir = fs.existsSync(path.join(cwd, 'src'))
     ? path.join(cwd, 'src', 'lib')
     : path.join(cwd, 'lib');
@@ -412,23 +408,23 @@ export function cn(...inputs: ClassValue[]) {
   if (!fs.existsSync(utilsFilePath)) {
     fs.writeFileSync(utilsFilePath, utilsContent, 'utf-8');
     console.log(
-      `  ${c.green}✔${c.reset} Creado archivo utilitario: ${c.cyan}${path.relative(cwd, utilsFilePath)}${c.reset}`,
+      `  ${c.green}✔${c.reset} Created utility helper: ${c.cyan}${path.relative(cwd, utilsFilePath)}${c.reset}`,
     );
   } else {
     console.log(
-      `  ${c.dim}ℹ Archivo utilitario ya existente: ${path.relative(cwd, utilsFilePath)}${c.reset}`,
+      `  ${c.dim}ℹ Utility helper already exists: ${path.relative(cwd, utilsFilePath)}${c.reset}`,
     );
   }
 
-  // 3. Crear o actualizar aurora.json
+  // 3. Create or update aurora.json
   const configPath = path.join(cwd, 'aurora.json');
   const targetComponentsAlias =
-    shadcn.isInstalled && shadcn.config?.aliases?.ui
-      ? shadcn.config.aliases.ui
+    existingConfig.isInstalled && existingConfig.config?.aliases?.ui
+      ? existingConfig.config.aliases.ui
       : detected.components;
   const targetUtilsAlias =
-    shadcn.isInstalled && shadcn.config?.aliases?.utils
-      ? shadcn.config.aliases.utils
+    existingConfig.isInstalled && existingConfig.config?.aliases?.utils
+      ? existingConfig.config.aliases.utils
       : detected.utils;
 
   const configContent = {
@@ -445,9 +441,9 @@ export function cn(...inputs: ClassValue[]) {
   };
 
   fs.writeFileSync(configPath, JSON.stringify(configContent, null, 2), 'utf-8');
-  console.log(`  ${c.green}✔${c.reset} Creada configuración: ${c.cyan}aurora.json${c.reset}\n`);
+  console.log(`  ${c.green}✔${c.reset} Configuration created: ${c.cyan}aurora.json${c.reset}\n`);
 
-  // 4. Instalar dependencias base automáticamente
+  // 4. Install base dependencies automatically
   const baseDeps = ['clsx', 'tailwind-merge', 'class-variance-authority', 'lucide-react'];
   if (!tailwind.isInstalled) {
     baseDeps.push('tailwindcss');
@@ -459,21 +455,21 @@ export function cn(...inputs: ClassValue[]) {
     installMissingDependencies(missingBaseDeps, cwd, skipInstall);
   } else {
     console.log(
-      `  ${c.green}✔${c.reset} Todas las dependencias base ya están presentes en tu proyecto.\n`,
+      `  ${c.green}✔${c.reset} All base dependencies are already installed in your project.\n`,
     );
   }
 
   console.log(
-    `${c.green}${c.bold}✨ ¡Proyecto configurado con éxito! Ya puedes instalar componentes con:${c.reset}`,
+    `${c.green}${c.bold}✨ Project successfully configured! You can now add components using:${c.reset}`,
   );
   console.log(`  ${c.cyan}npx aurora-obsidian-ui add button product-card select${c.reset}\n`);
 }
 
-// Comando: LIST
+// Command: LIST
 function runList(registry) {
   printBanner();
   console.log(
-    `${c.bold}📦 COMPONENTES DISPONIBLES EN EL REGISTRO (${Object.keys(registry).length}):${c.reset}\n`,
+    `${c.bold}📦 AVAILABLE COMPONENTS IN REGISTRY (${Object.keys(registry).length}):${c.reset}\n`,
   );
 
   const componentNames = Object.keys(registry).sort();
@@ -485,10 +481,12 @@ function runList(registry) {
     console.log(`  ${c.green}•${c.reset} ${c.bold}${name.padEnd(20)}${c.reset} ${deps}`);
   }
 
-  console.log(`\n${c.dim}Instala cualquiera con: npx aurora-obsidian-ui add <nombre>${c.reset}\n`);
+  console.log(
+    `\n${c.dim}Install any component with: npx aurora-obsidian-ui add <name>${c.reset}\n`,
+  );
 }
 
-// Comando: ADD
+// Command: ADD
 function runAdd(args, registry, cwd) {
   printBanner();
 
@@ -516,9 +514,9 @@ function runAdd(args, registry, cwd) {
   const componentsToInstall = installAll ? Object.keys(registry) : requestedComponents;
 
   if (componentsToInstall.length === 0) {
-    console.log(`${c.red}❌ No especificaste ningún componente para añadir.${c.reset}`);
-    console.log(`💡 Prueba: ${c.green}npx aurora-obsidian-ui add button${c.reset}`);
-    console.log(`   O consulta la lista con: ${c.cyan}npx aurora-obsidian-ui list${c.reset}\n`);
+    console.log(`${c.red}❌ No components specified to add.${c.reset}`);
+    console.log(`💡 Try: ${c.green}npx aurora-obsidian-ui add button${c.reset}`);
+    console.log(`   Or see the list with: ${c.cyan}npx aurora-obsidian-ui list${c.reset}\n`);
     process.exit(1);
   }
 
@@ -527,10 +525,10 @@ function runAdd(args, registry, cwd) {
   fs.mkdirSync(targetDir, { recursive: true });
 
   console.log(
-    `${c.dim}Directorio de instalación:${c.reset}    ${c.cyan}${path.relative(cwd, targetDir) || '.'}${c.reset}`,
+    `${c.dim}Installation directory:${c.reset} ${c.cyan}${path.relative(cwd, targetDir) || '.'}${c.reset}`,
   );
   console.log(
-    `${c.dim}Alias de utilidades:${c.reset}          ${c.cyan}${config.aliases.utils}${c.reset}\n`,
+    `${c.dim}Utils import alias:${c.reset}     ${c.cyan}${config.aliases.utils}${c.reset}\n`,
   );
 
   const allRequiredDependencies = new Set();
@@ -541,12 +539,12 @@ function runAdd(args, registry, cwd) {
 
     if (!component) {
       console.log(
-        `  ${c.red}✖${c.reset} Componente "${c.bold}${name}${c.reset}" no encontrado en el registro.`,
+        `  ${c.red}✖${c.reset} Component "${c.bold}${name}${c.reset}" not found in registry.`,
       );
       continue;
     }
 
-    console.log(`  ${c.cyan}↓${c.reset} Añadiendo ${c.bold}${name}${c.reset}...`);
+    console.log(`  ${c.cyan}↓${c.reset} Adding ${c.bold}${name}${c.reset}...`);
 
     for (const relFile of component.files) {
       const sourcePath = path.join(projectRoot, relFile);
@@ -554,18 +552,18 @@ function runAdd(args, registry, cwd) {
       const targetFilePath = path.join(targetDir, fileName);
 
       if (!fs.existsSync(sourcePath)) {
-        console.log(`    ${c.red}⚠ No se encontró el archivo fuente:${c.reset} ${sourcePath}`);
+        console.log(`    ${c.red}⚠ Source file not found:${c.reset} ${sourcePath}`);
         continue;
       }
 
       if (fs.existsSync(targetFilePath) && !overwrite) {
         console.log(
-          `    ${c.yellow}ℹ ${fileName} ya existe (usa --overwrite para reemplazar)${c.reset}`,
+          `    ${c.yellow}ℹ ${fileName} already exists (use --overwrite to replace)${c.reset}`,
         );
       } else {
         const rawContent = fs.readFileSync(sourcePath, 'utf-8');
 
-        // Transformar imports con la función de alias
+        // Transform imports with configured aliases
         const transformedContent = transformImports(rawContent, config.aliases);
 
         fs.writeFileSync(targetFilePath, transformedContent, 'utf-8');
@@ -584,10 +582,10 @@ function runAdd(args, registry, cwd) {
   }
 
   console.log(
-    `\n${c.green}${c.bold}✨ ¡${installedCount} componente(s) procesado(s) con éxito!${c.reset}\n`,
+    `\n${c.green}${c.bold}✨ Successfully processed ${installedCount} component(s)!${c.reset}\n`,
   );
 
-  // Comprobar qué dependencias faltan en el proyecto consumidor
+  // Check which dependencies are missing in consumer project
   if (allRequiredDependencies.size > 0) {
     const installed = getInstalledDependencies(cwd);
     const missingDependencies = Array.from(allRequiredDependencies).filter(
@@ -598,13 +596,13 @@ function runAdd(args, registry, cwd) {
       installMissingDependencies(missingDependencies, cwd, skipInstall);
     } else {
       console.log(
-        `  ${c.green}✔${c.reset} Todas las dependencias (${Array.from(allRequiredDependencies).join(', ')}) ya están instaladas en tu proyecto.\n`,
+        `  ${c.green}✔${c.reset} All dependencies (${Array.from(allRequiredDependencies).join(', ')}) are already installed in your project.\n`,
       );
     }
   }
 }
 
-// Punto de Entrada Principal
+// Main CLI Entrypoint
 function main() {
   const rawArgs = process.argv.slice(2);
   const command = rawArgs[0]?.toLowerCase();
@@ -632,9 +630,9 @@ function main() {
     return;
   }
 
-  console.log(`\n${c.red}❌ Comando desconocido:${c.reset} "${command}"`);
+  console.log(`\n${c.red}❌ Unknown command:${c.reset} "${command}"`);
   console.log(
-    `💡 Ejecuta ${c.cyan}npx aurora-obsidian-ui --help${c.reset} para ver la lista de comandos disponibles.\n`,
+    `💡 Run ${c.cyan}npx aurora-obsidian-ui --help${c.reset} to see available commands.\n`,
   );
   process.exit(1);
 }

@@ -22,9 +22,9 @@ import { cn } from '../../lib/utils';
 export interface DropdownMenuContextValue {
   open: boolean;
   setOpen: (open: boolean) => void;
-  // biome-ignore lint/suspicious/noExplicitAny: retorno compuesto de Floating UI
+  // biome-ignore lint/suspicious/noExplicitAny: Floating UI composite return
   floating: any;
-  // biome-ignore lint/suspicious/noExplicitAny: retorno compuesto de Floating UI
+  // biome-ignore lint/suspicious/noExplicitAny: Floating UI composite return
   interactions: any;
   activeIndex: number | null;
   setActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
@@ -37,9 +37,7 @@ const DropdownMenuContext = React.createContext<DropdownMenuContextValue | null>
 export function useDropdownMenuContext() {
   const context = React.useContext(DropdownMenuContext);
   if (!context) {
-    throw new Error(
-      'Los subcomponentes de DropdownMenu deben ser usados dentro de <DropdownMenu />',
-    );
+    throw new Error('DropdownMenu subcomponents must be used within <DropdownMenu />');
   }
   return context;
 }
@@ -139,17 +137,17 @@ export const DropdownMenuTrigger = React.forwardRef<HTMLButtonElement, DropdownM
         children as React.ReactElement<React.HTMLAttributes<HTMLElement>>,
         getReferenceProps({
           // biome-ignore lint/suspicious/noExplicitAny: cloneElement ref assignment
-          ref: (node: any) => {
-            referenceRef(node);
+          ref: (noof: any) => {
+            referenceRef(noof);
             const childRef = (
               children as React.ReactElement & {
                 ref?: React.RefCallback<HTMLElement> | React.MutableRefObject<HTMLElement | null>;
               }
             ).ref;
-            if (typeof childRef === 'function') childRef(node);
-            else if (childRef && 'current' in childRef) childRef.current = node;
-            if (typeof ref === 'function') ref(node);
-            else if (ref) ref.current = node;
+            if (typeof childRef === 'function') childRef(noof);
+            else if (childRef && 'current' in childRef) childRef.current = noof;
+            if (typeof ref === 'function') ref(noof);
+            else if (ref) ref.current = noof;
           },
           ...props,
           ...childProps,
@@ -159,10 +157,10 @@ export const DropdownMenuTrigger = React.forwardRef<HTMLButtonElement, DropdownM
 
     return (
       <button
-        ref={(node) => {
-          referenceRef(node);
-          if (typeof ref === 'function') ref(node);
-          else if (ref) ref.current = node;
+        ref={(noof) => {
+          referenceRef(noof);
+          if (typeof ref === 'function') ref(noof);
+          else if (ref) ref.current = noof;
         }}
         type="button"
         className={cn(
@@ -194,10 +192,10 @@ export const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenu
       <FloatingPortal>
         <FloatingFocusManager context={context.floating.context} modal={modal} initialFocus={-1}>
           <div
-            ref={(node) => {
-              floatingRef(node);
-              if (typeof ref === 'function') ref(node);
-              else if (ref) ref.current = node;
+            ref={(noof) => {
+              floatingRef(noof);
+              if (typeof ref === 'function') ref(noof);
+              else if (ref) ref.current = noof;
             }}
             style={context.floating.floatingStyles}
             className="z-50 outline-none"
@@ -247,10 +245,10 @@ export const DropdownMenuItem = React.forwardRef<HTMLButtonElement, DropdownMenu
 
     return (
       <button
-        ref={(node) => {
-          item.ref(node);
-          if (typeof ref === 'function') ref(node);
-          else if (ref) ref.current = node;
+        ref={(noof) => {
+          item.ref(noof);
+          if (typeof ref === 'function') ref(noof);
+          else if (ref) ref.current = noof;
         }}
         type="button"
         role="menuitem"
@@ -307,10 +305,10 @@ export const DropdownMenuCheckboxItem = React.forwardRef<
 
     return (
       <button
-        ref={(node) => {
-          item.ref(node);
-          if (typeof ref === 'function') ref(node);
-          else if (ref) ref.current = node;
+        ref={(noof) => {
+          item.ref(noof);
+          if (typeof ref === 'function') ref(noof);
+          else if (ref) ref.current = noof;
         }}
         type="button"
         role="menuitemcheckbox"
@@ -383,10 +381,10 @@ export const DropdownMenuRadioItem = React.forwardRef<
 
   return (
     <button
-      ref={(node) => {
-        item.ref(node);
-        if (typeof ref === 'function') ref(node);
-        else if (ref) ref.current = node;
+      ref={(noof) => {
+        item.ref(noof);
+        if (typeof ref === 'function') ref(noof);
+        else if (ref) ref.current = noof;
       }}
       type="button"
       role="menuitemradio"
@@ -422,7 +420,7 @@ export const DropdownMenuLabel: React.FC<
 > = ({ className, inset, ...props }) => (
   <div
     className={cn(
-      'px-2.5 py-1.5 text-[11px] font-bold text-aurora-text-secondary uppercase tracking-wider select-none',
+      'px-2.5 py-1.5 text-[11px] font-bold text-aurora-text-secondary uppercase tracking-wiofr select-none',
       inset && 'pl-8',
       className,
     )}
@@ -443,7 +441,7 @@ export const DropdownMenuShortcut: React.FC<React.HTMLAttributes<HTMLSpanElement
 }) => (
   <span
     className={cn(
-      'ml-auto text-[10px] tracking-widest text-aurora-text-disabled font-mono',
+      'ml-auto text-[10px] tracking-wiofst text-aurora-text-disabled font-mono',
       className,
     )}
     {...props}

@@ -20,7 +20,7 @@ const meta = {
     currency: {
       control: 'select',
       options: ['EUR', 'USD', 'GBP', 'MXN', 'COP'],
-      description: 'Código de moneda ISO',
+      description: 'Código of moneda ISO',
     },
     locale: {
       control: 'select',
@@ -29,7 +29,7 @@ const meta = {
     },
     showDiscountBadge: {
       control: 'boolean',
-      description: 'Mostrar insignia de porcentaje de descuento',
+      description: 'Show insignia of porcentaje of descuento',
     },
     size: {
       control: 'radio',

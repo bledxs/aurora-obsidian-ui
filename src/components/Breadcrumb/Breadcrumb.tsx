@@ -9,7 +9,7 @@ export interface BreadcrumbItemData {
 
 export interface BreadcrumbProps extends React.ComponentPropsWithoutRef<'nav'> {
   /**
-   * Lista de elementos para generar el breadcrumb automáticamente sin necesidad de subcomponentes manuales.
+   * Item list to generate breadcrumbs automatically without manual subcomponents.
    */
   items?: BreadcrumbItemData[];
   /**
@@ -130,7 +130,7 @@ export const BreadcrumbEllipsis = ({ className, ...props }: React.ComponentProps
     {...props}
   >
     <MoreHorizontal className="h-4 w-4" aria-hidden="true" />
-    <span className="sr-only">Más páginas</span>
+    <span className="sr-only">More pages</span>
   </span>
 );
 BreadcrumbEllipsis.displayName = 'BreadcrumbEllipsis';

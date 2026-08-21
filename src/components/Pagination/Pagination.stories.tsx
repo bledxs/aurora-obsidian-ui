@@ -20,19 +20,19 @@ const meta = {
   argTypes: {
     currentPage: {
       control: 'number',
-      description: 'Página activa actual',
+      description: 'Page activa actual',
     },
     totalPages: {
       control: 'number',
-      description: 'Total de páginas',
+      description: 'Total of páginas',
     },
     siblingCount: {
       control: 'number',
-      description: 'Páginas contiguas visibles',
+      description: 'Pages contiguas visibles',
     },
     showControls: {
       control: 'boolean',
-      description: 'Muestra botones de anterior y siguiente',
+      description: 'Muestra botones of anterior y siguiente',
     },
   },
 } satisfies Meta<typeof Pagination>;
@@ -40,7 +40,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 1. Paginación Interactiva de Catálogo (Modo Inteligente/Declarativo)
+// 1. Paginación Interactiva of Catálogo (Modo Inteligente/Declarativo)
 export const CatalogInteractive: Story = {
   render: () => {
     const [currentPage, setCurrentPage] = useState(4);
@@ -49,8 +49,8 @@ export const CatalogInteractive: Story = {
     return (
       <div className="flex flex-col items-center gap-4 font-sans">
         <span className="text-xs text-aurora-text-secondary">
-          Mostrando productos de la página{' '}
-          <strong className="text-aurora-text-primary">{currentPage}</strong> de {totalPages}
+          Mostrando productos of la página{' '}
+          <strong className="text-aurora-text-primary">{currentPage}</strong> of {totalPages}
         </span>
         <Pagination
           currentPage={currentPage}
@@ -62,7 +62,7 @@ export const CatalogInteractive: Story = {
   },
 };
 
-// 2. Primera Página
+// 2. Primera Page
 export const FirstPage: Story = {
   args: {
     currentPage: 1,
@@ -70,7 +70,7 @@ export const FirstPage: Story = {
   },
 };
 
-// 3. Última Página
+// 3. Última Page
 export const LastPage: Story = {
   args: {
     currentPage: 10,
@@ -115,7 +115,7 @@ export const Composable: Story = {
 export const Sizes = () => (
   <div className="flex flex-col gap-6 items-center">
     <div className="flex flex-col items-center gap-1.5">
-      <span className="text-xs text-aurora-text-secondary">Pequeño (small)</span>
+      <span className="text-xs text-aurora-text-secondary">Small</span>
       <Pagination>
         <PaginationContent>
           <PaginationItem>
@@ -139,7 +139,7 @@ export const Sizes = () => (
     </div>
 
     <div className="flex flex-col items-center gap-1.5">
-      <span className="text-xs text-aurora-text-secondary">Mediano (medium)</span>
+      <span className="text-xs text-aurora-text-secondary">Medium</span>
       <Pagination>
         <PaginationContent>
           <PaginationItem>
@@ -163,7 +163,7 @@ export const Sizes = () => (
     </div>
 
     <div className="flex flex-col items-center gap-1.5">
-      <span className="text-xs text-aurora-text-secondary">Grande (large)</span>
+      <span className="text-xs text-aurora-text-secondary">Large</span>
       <Pagination>
         <PaginationContent>
           <PaginationItem>
