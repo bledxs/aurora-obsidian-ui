@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ShoppingCart } from 'lucide-react';
 import { Button } from '../Button';
+import { CartItem } from '../CartItem';
 import { Price } from '../Price';
 import {
   Sheet,
@@ -44,22 +45,25 @@ export const CartDrawer: Story = {
         </SheetHeader>
 
         {/* Lista de productos en el carrito */}
-        <div className="flex flex-1 flex-col gap-4 overflow-y-auto py-4">
-          <div className="flex items-center justify-between border-b border-aurora-border pb-3">
-            <div>
-              <p className="font-semibold text-aurora-text-primary">Auriculares Obsidian Pro</p>
-              <p className="text-xs text-aurora-text-secondary">Cantidad: 1</p>
-            </div>
-            <Price value={129.99} size="small" />
-          </div>
+        <div className="flex flex-1 flex-col overflow-y-auto py-2">
+          <CartItem
+            id="1"
+            title="Auriculares Obsidian Pro"
+            price={129.99}
+            quantity={1}
+            imageUrl="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=300&h=300"
+            variantDescription="Color: Obsidian Black"
+          />
 
-          <div className="flex items-center justify-between border-b border-aurora-border pb-3">
-            <div>
-              <p className="font-semibold text-aurora-text-primary">Smartwatch Titan Series</p>
-              <p className="text-xs text-aurora-text-secondary">Cantidad: 1</p>
-            </div>
-            <Price value={99.99} size="small" />
-          </div>
+          <CartItem
+            id="2"
+            title="Smartwatch Titan Series"
+            price={99.99}
+            originalPrice={129.99}
+            quantity={1}
+            imageUrl="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=300&h=300"
+            variantDescription="Correa: Silicona • 44mm"
+          />
         </div>
 
         {/* Resumen y Checkout */}

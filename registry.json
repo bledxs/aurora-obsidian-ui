@@ -52,5 +52,9 @@
       "clsx",
       "tailwind-merge"
     ]
+  },
+  "cart-item": {
+    "files": ["src/components/CartItem/CartItem.tsx"],
+    "dependencies": ["lucide-react", "clsx", "tailwind-merge"]
   }
 }
