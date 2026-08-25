@@ -4,39 +4,39 @@ import { X } from 'lucide-react';
 import * as React from 'react';
 import { cn } from '../../lib/utils';
 
-interface SheetContextType {
+interface DrawerContextType {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-const SheetContext = React.createContext<SheetContextType | null>(null);
+const DrawerContext = React.createContext<DrawerContextType | null>(null);
 
-export function useSheet() {
-  const context = React.useContext(SheetContext);
+export function useDrawer() {
+  const context = React.useContext(DrawerContext);
   if (!context) {
-    throw new Error('Sheet subcomponents must be used within <Sheet>');
+    throw new Error('Drawer subcomponents must be used within <Drawer>');
   }
   return context;
 }
 
-export interface SheetProps {
+export interface DrawerProps {
   /**
-   * Estado of apertura controlado
+   * Controlled open state
    */
   open?: boolean;
   /**
-   * Initial uncontrolled state
+   * Initial uncontrolled open state
    * @default false
    */
   defaultOpen?: boolean;
   /**
-   * Callback fired when state changes of apertura
+   * Callback fired when open state changes
    */
   onOpenChange?: (open: boolean) => void;
   children?: React.ReactNode;
 }
 
-export const Sheet: React.FC<SheetProps> = ({
+export const Drawer: React.FC<DrawerProps> = ({
   open: controlledOpen,
   defaultOpen = false,
   onOpenChange,
@@ -61,11 +61,11 @@ export const Sheet: React.FC<SheetProps> = ({
     [open, handleOpenChange],
   );
 
-  return <SheetContext.Provider value={contextValue}>{children}</SheetContext.Provider>;
+  return <DrawerContext.Provider value={contextValue}>{children}</DrawerContext.Provider>;
 };
-Sheet.displayName = 'Sheet';
+Drawer.displayName = 'Drawer';
 
-export interface SheetTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface DrawerTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * If true, merges props with child element instead of rendering an extra button
    * @default false
@@ -73,9 +73,9 @@ export interface SheetTriggerProps extends React.ButtonHTMLAttributes<HTMLButton
   asChild?: boolean;
 }
 
-export const SheetTrigger = React.forwardRef<HTMLButtonElement, SheetTriggerProps>(
+export const DrawerTrigger = React.forwardRef<HTMLButtonElement, DrawerTriggerProps>(
   ({ asChild = false, onClick, children, ...props }, ref) => {
-    const { onOpenChange } = useSheet();
+    const { onOpenChange } = useDrawer();
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       onOpenChange(true);
@@ -100,9 +100,9 @@ export const SheetTrigger = React.forwardRef<HTMLButtonElement, SheetTriggerProp
     );
   },
 );
-SheetTrigger.displayName = 'SheetTrigger';
+DrawerTrigger.displayName = 'DrawerTrigger';
 
-export interface SheetCloseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface DrawerCloseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * If true, merges props with child element instead of rendering an extra button
    * @default false
@@ -110,9 +110,9 @@ export interface SheetCloseProps extends React.ButtonHTMLAttributes<HTMLButtonEl
   asChild?: boolean;
 }
 
-export const SheetClose = React.forwardRef<HTMLButtonElement, SheetCloseProps>(
+export const DrawerClose = React.forwardRef<HTMLButtonElement, DrawerCloseProps>(
   ({ asChild = false, onClick, children, ...props }, ref) => {
-    const { onOpenChange } = useSheet();
+    const { onOpenChange } = useDrawer();
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       onOpenChange(false);
@@ -137,35 +137,46 @@ export const SheetClose = React.forwardRef<HTMLButtonElement, SheetCloseProps>(
     );
   },
 );
-SheetClose.displayName = 'SheetClose';
+DrawerClose.displayName = 'DrawerClose';
 
-const sheetVariants = cva(
-  'fixed z-50 m-0 box-border flex flex-col gap-4 bg-aurora-surface p-6 shadow-2xl font-sans text-aurora-text-primary max-w-none max-h-none border-0 overflow-y-auto scrollbar-aurora',
+const drawerVariants = cva(
+  'fixed inset-x-0 bottom-0 z-50 m-0 box-border flex flex-col bg-aurora-surface shadow-2xl font-sans text-aurora-text-primary rounded-t-[calc(var(--radius-aurora)*2.5)] border-t border-aurora-border outline-none transition-all duration-300 animate-slide-in-bottom',
   {
     variants: {
-      side: {
-        top: 'inset-x-0 top-0 bottom-auto border-b border-aurora-border animate-slide-in-top',
-        bottom: 'inset-x-0 bottom-0 top-auto border-t border-aurora-border animate-slide-in-bottom',
-        left: 'inset-y-0 left-0 right-auto h-full w-full sm:max-w-md border-r border-aurora-border animate-slide-in-left',
-        right:
-          'inset-y-0 right-0 left-auto h-full w-full sm:max-w-md border-l border-aurora-border animate-slide-in-right',
+      height: {
+        auto: 'max-h-[85vh]',
+        half: 'h-[50vh] max-h-[50vh]',
+        tall: 'h-[85vh] max-h-[85vh]',
+        full: 'h-[95vh] max-h-[95vh]',
       },
     },
     defaultVariants: {
-      side: 'right',
+      height: 'auto',
     },
   },
 );
 
-export interface SheetContentProps
+export interface DrawerContentProps
   extends React.DialogHTMLAttributes<HTMLDialogElement>,
-    VariantProps<typeof sheetVariants> {
+    VariantProps<typeof drawerVariants> {
+  /**
+   * If true, renders a close 'X' button in the top right corner
+   * @default false
+   */
   showCloseButton?: boolean;
+  /**
+   * If true, renders the top visual touch drag handle
+   * @default true
+   */
+  showHandle?: boolean;
 }
 
-export const SheetContent = React.forwardRef<HTMLDialogElement, SheetContentProps>(
-  ({ side = 'right', className, children, showCloseButton = true, ...props }, ref) => {
-    const { open, onOpenChange } = useSheet();
+export const DrawerContent = React.forwardRef<HTMLDialogElement, DrawerContentProps>(
+  (
+    { height = 'auto', showCloseButton = false, showHandle = true, className, children, ...props },
+    ref,
+  ) => {
+    const { open, onOpenChange } = useDrawer();
 
     React.useEffect(() => {
       if (!open) return;
@@ -190,29 +201,31 @@ export const SheetContent = React.forwardRef<HTMLDialogElement, SheetContentProp
 
     return (
       <FloatingPortal>
-        {/* Overlay / Backdrop */}
+        {/* Backdrop Overlay */}
         <div
           aria-hidden="true"
           onClick={() => onOpenChange(false)}
           className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs animate-fade-in"
         />
 
-        {/* Panel Drawer */}
+        {/* Sliding Bottom Drawer */}
         <dialog
           ref={ref}
           open
           aria-modal="true"
-          className={cn(sheetVariants({ side }), className)}
+          className={cn(drawerVariants({ height }), className)}
           {...props}
         >
+          {showHandle && <DrawerHandle />}
+
           {children}
 
           {showCloseButton && (
             <button
               type="button"
               onClick={() => onOpenChange(false)}
-              className="absolute right-4 top-4 rounded-sm p-1 text-aurora-text-secondary opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus"
-              aria-label="Close"
+              className="absolute right-4 top-4 rounded-full p-1.5 text-aurora-text-secondary opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora-border-focus"
+              aria-label="Close drawer"
             >
               <X className="h-5 w-5" />
             </button>
@@ -222,19 +235,50 @@ export const SheetContent = React.forwardRef<HTMLDialogElement, SheetContentProp
     );
   },
 );
-SheetContent.displayName = 'SheetContent';
+DrawerContent.displayName = 'DrawerContent';
 
-export const SheetHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col space-y-1.5 text-left', className)} {...props} />
+export const DrawerHandle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      aria-hidden="true"
+      className={cn('flex w-full items-center justify-center pt-3 pb-1', className)}
+      {...props}
+    >
+      <div className="h-1.5 w-12 rounded-full bg-aurora-border transition-colors hover:bg-aurora-border-hover" />
+    </div>
+  ),
 );
-SheetHeader.displayName = 'SheetHeader';
+DrawerHandle.displayName = 'DrawerHandle';
 
-export const SheetFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('mt-auto flex flex-col gap-2 pt-4', className)} {...props} />
+export const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn('flex flex-col space-y-1.5 px-6 pt-2 pb-4 text-center sm:text-left', className)}
+    {...props}
+  />
 );
-SheetFooter.displayName = 'SheetFooter';
+DrawerHeader.displayName = 'DrawerHeader';
 
-export const SheetTitle = React.forwardRef<
+export const DrawerBody = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('flex-1 overflow-y-auto px-6 py-2 scrollbar-aurora', className)}
+      {...props}
+    />
+  ),
+);
+DrawerBody.displayName = 'DrawerBody';
+
+export const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn('mt-auto flex flex-col gap-2 border-t border-aurora-border p-6 pt-4', className)}
+    {...props}
+  />
+);
+DrawerFooter.displayName = 'DrawerFooter';
+
+export const DrawerTitle = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, children, ...props }, ref) => (
@@ -246,12 +290,12 @@ export const SheetTitle = React.forwardRef<
     {children}
   </h2>
 ));
-SheetTitle.displayName = 'SheetTitle';
+DrawerTitle.displayName = 'DrawerTitle';
 
-export const SheetDescription = React.forwardRef<
+export const DrawerDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
   <p ref={ref} className={cn('text-sm text-aurora-text-secondary', className)} {...props} />
 ));
-SheetDescription.displayName = 'SheetDescription';
+DrawerDescription.displayName = 'DrawerDescription';

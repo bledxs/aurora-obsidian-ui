@@ -16,6 +16,7 @@ export { CartItem } from './components/CartItem';
 export type { CheckboxProps } from './components/Checkbox';
 export { Checkbox } from './components/Checkbox';
 export * from './components/Dialog';
+export * from './components/Drawer';
 export * from './components/DropdownMenu';
 export * from './components/EmptyState';
 export type { ImageProps } from './components/Image';

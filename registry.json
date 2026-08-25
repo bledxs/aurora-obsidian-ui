@@ -55,6 +55,16 @@
     "files": ["src/components/DropdownMenu/DropdownMenu.tsx"],
     "dependencies": ["@floating-ui/react", "lucide-react", "clsx", "tailwind-merge"]
   },
+  "drawer": {
+    "files": ["src/components/Drawer/Drawer.tsx"],
+    "dependencies": [
+      "@floating-ui/react",
+      "lucide-react",
+      "class-variance-authority",
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
   "sheet": {
     "files": ["src/components/Sheet/Sheet.tsx"],
     "dependencies": [

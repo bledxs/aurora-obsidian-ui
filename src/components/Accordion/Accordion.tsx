@@ -104,13 +104,11 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
           nextValues = currentValues.includes(itemValue)
             ? currentValues.filter((v) => v !== itemValue)
             : [...currentValues, itemValue];
+        } else if (currentValues.includes(itemValue)) {
+          // Single mode: toggling item
+          nextValues = collapsible ? [] : [itemValue];
         } else {
-          // Single mode
-          if (currentValues.includes(itemValue)) {
-            nextValues = collapsible ? [] : [itemValue];
-          } else {
-            nextValues = [itemValue];
-          }
+          nextValues = [itemValue];
         }
 
         if (!isControlled) {

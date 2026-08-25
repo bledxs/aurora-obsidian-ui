@@ -92,7 +92,7 @@ npx aurora-obsidian-ui add modal --no-install
 
 ---
 
-## 📦 Component Catalog (35)
+## 📦 Component Catalog (36)
 
 Aurora Obsidian UI is structured following *Atomic Design* principles:
 
@@ -141,6 +141,7 @@ Aurora Obsidian UI is structured following *Atomic Design* principles:
 | Component | Type | Description |
 | :--- | :--- | :--- |
 | **`Dialog`** | Organism | Accessible modal window with `backdrop-blur`, focus trap, and scale-in transition. |
+| **`Drawer`** | Organism | Mobile-first bottom sliding sheet with touch drag handle and snap height options for quick cart, filters, and variant pickers. |
 | **`Sheet`** | Organism | Sliding side drawer panel optimized for shopping carts and advanced catalog filter sidebars. |
 | **`DropdownMenu`** | Molecule | Contextual popup menu with arrow key navigation ($\uparrow \downarrow$), radio/checkbox items, and keyboard shortcuts. |
 | **`Popover`** | Molecule | Rich interactive popover for color palette picking, tax breakdowns, and metadata previews. |
