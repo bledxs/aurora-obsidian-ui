@@ -1,6 +1,6 @@
 {
   "name": "aurora-obsidian-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "High-fidelity, accessible, and modular design system crafted specifically for modern e-commerce applications",
   "type": "module",
   "main": "./dist/aurora-obsidian-ui.umd.cjs",

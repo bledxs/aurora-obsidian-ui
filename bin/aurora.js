@@ -24,7 +24,7 @@ const c = {
 
 function printBanner() {
   console.log(`
-${c.cyan}${c.bold}  ❖ AURORA OBSIDIAN UI${c.reset} ${c.dim}v0.1.0${c.reset}
+${c.cyan}${c.bold}  ❖ AURORA OBSIDIAN UI${c.reset} ${c.dim}v0.1.1${c.reset}
   ${c.dim}High-fidelity, accessible design system for modern e-commerce${c.reset}
 `);
 }
