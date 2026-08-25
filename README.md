@@ -92,7 +92,7 @@ npx aurora-obsidian-ui add modal --no-install
 
 ---
 
-## 📦 Component Catalog (34)
+## 📦 Component Catalog (35)
 
 Aurora Obsidian UI is structured following *Atomic Design* principles:
 
@@ -123,6 +123,7 @@ Aurora Obsidian UI is structured following *Atomic Design* principles:
 | Component | Type | Description |
 | :--- | :--- | :--- |
 | **`Alert`** | Atom | High-contrast callout banners (*Info*, *Success*, *Warning*, *Error*) passing WCAG AAA contrast rules with inline actions. |
+| **`EmptyState`** | Molecule | Visual placeholder with glowing icon container, title, description, and primary/secondary CTAs for empty carts, no orders, or zero search results. |
 | **`Toast`** | Organism | Floating notification toasts with progress bars, auto-dismiss, and reactive global store (`toast.success(...)`). |
 | **`Spinner`** | Atom | Smooth animated loading indicator with customizable size and speed. |
 | **`Skeleton`** | Atom | Shimmering placeholder with `@keyframes shimmer` sweep for loading products, cards, and carts. |

@@ -152,5 +152,9 @@
   "toast": {
     "files": ["src/components/Toast/Toast.tsx", "src/components/Toast/toast-store.ts"],
     "dependencies": ["@floating-ui/react", "lucide-react", "clsx", "tailwind-merge"]
+  },
+  "empty-state": {
+    "files": ["src/components/EmptyState/EmptyState.tsx"],
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"]
   }
 }
