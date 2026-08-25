@@ -34,3 +34,17 @@ jobs:
             echo "::error::Pull requests into master must come from develop (got '$HEAD_REF')."
             exit 1
           fi
+
+  guard-develop-source:
+    name: Enforce feature -> develop flow
+    if: github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'develop'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify PR source branch isn't master or develop
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          if [ "$HEAD_REF" = "master" ] || [ "$HEAD_REF" = "develop" ]; then
+            echo "::error::Pull requests into develop must come from a feature/fix/chore branch, not '$HEAD_REF'."
+            exit 1
+          fi
