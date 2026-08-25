@@ -1,0 +1,22 @@
+# Source control & IDE
+.git
+.github
+.vscode
+.idea
+
+# Storybook
+.storybook
+storybook-static
+*.stories.tsx
+*.stories.ts
+
+# Testing & linting
+.husky
+.biome
+biome.json
+
+# Development scripts & temp
+scripts
+*.log
+.DS_Store
+Thumbs.db

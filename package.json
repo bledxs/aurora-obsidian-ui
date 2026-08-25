@@ -1,7 +1,7 @@
 {
   "name": "aurora-obsidian-ui",
   "version": "0.1.0",
-  "description": "High-fidelity, accessible, and modular design system for modern e-commerce applications",
+  "description": "High-fidelity, accessible, and modular design system crafted specifically for modern e-commerce applications",
   "type": "module",
   "main": "./dist/aurora-obsidian-ui.umd.cjs",
   "module": "./dist/aurora-obsidian-ui.js",
@@ -10,25 +10,68 @@
     "aurora-obsidian-ui": "./bin/aurora.js",
     "aurora": "./bin/aurora.js"
   },
+  "files": [
+    "dist",
+    "bin",
+    "registry.json",
+    "src/components",
+    "src/lib",
+    "README.md",
+    "LICENSE"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/aurora-obsidian-ui.js",
       "require": "./dist/aurora-obsidian-ui.umd.cjs"
-    }
+    },
+    "./style.css": "./dist/aurora-obsidian-ui.css",
+    "./dist/aurora-obsidian-ui.css": "./dist/aurora-obsidian-ui.css",
+    "./dist/style.css": "./dist/aurora-obsidian-ui.css",
+    "./package.json": "./package.json",
+    "./registry.json": "./registry.json"
   },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "design-system",
+    "tailwind",
+    "tailwindcss",
+    "ecommerce",
+    "e-commerce",
+    "accessibility",
+    "a11y",
+    "wcag",
+    "radix",
+    "floating-ui",
+    "aurora",
+    "obsidian",
+    "cli"
+  ],
+  "author": "Aurora Obsidian UI Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bledxs/aurora-obsidian-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bledxs/aurora-obsidian-ui/issues"
+  },
+  "homepage": "https://github.com/bledxs/aurora-obsidian-ui#readme",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "tsc -p tsconfig.json --declaration --emitDeclarationOnly --outDir dist && vite build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "biome check .",
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prepublishOnly": "npm run format && npm run lint && npm run build"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.9",
