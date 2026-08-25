@@ -7,8 +7,8 @@
   "module": "./dist/aurora-obsidian-ui.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "aurora-obsidian-ui": "./bin/aurora.js",
-    "aurora": "./bin/aurora.js"
+    "aurora-obsidian-ui": "bin/aurora.js",
+    "aurora": "bin/aurora.js"
   },
   "files": [
     "dist",
