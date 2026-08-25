@@ -41,7 +41,7 @@ function printHelp() {
   console.log(
     `  ${c.cyan}add${c.reset} <component...>      Install components and automatically resolve dependencies`,
   );
-  console.log(`  ${c.cyan}list${c.reset}                    Display all 34 available components`);
+  console.log(`  ${c.cyan}list${c.reset}                    Display all available components`);
   console.log(`  ${c.cyan}help${c.reset}                    Show this help menu\n`);
 
   console.log(`${c.bold}OPTIONS:${c.reset}`);
@@ -94,12 +94,29 @@ function detectPackageManager(cwd) {
   return 'npm';
 }
 
-// Detect Tailwind CSS installation and version
+// Detect Tailwind CSS installation and version with high precision
 function detectTailwind(cwd, installedDeps) {
-  const isInstalled =
+  let isInstalled = false;
+  let version = null;
+
+  const pkgPath = path.join(cwd, 'package.json');
+  let tailwindVersionStr = '';
+  if (fs.existsSync(pkgPath)) {
+    try {
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+      tailwindVersionStr =
+        pkg.dependencies?.tailwindcss ||
+        pkg.devDependencies?.tailwindcss ||
+        pkg.peerDependencies?.tailwindcss ||
+        '';
+    } catch {}
+  }
+
+  const hasTailwindPkg =
     installedDeps.has('tailwindcss') ||
     installedDeps.has('@tailwindcss/vite') ||
-    installedDeps.has('@tailwindcss/postcss');
+    installedDeps.has('@tailwindcss/postcss') ||
+    Boolean(tailwindVersionStr);
 
   const configFiles = [
     'tailwind.config.js',
@@ -123,25 +140,56 @@ function detectTailwind(cwd, installedDeps) {
     'src/styles/globals.css',
     'app/globals.css',
     'styles/globals.css',
+    'index.css',
   ];
   let foundCss = null;
-  let isV4 = false;
+  let hasTailwindInCss = false;
+  let isV4FromCss = false;
 
   for (const relCss of candidateCss) {
     const fullCss = path.join(cwd, relCss);
     if (fs.existsSync(fullCss)) {
       foundCss = relCss;
       const content = fs.readFileSync(fullCss, 'utf-8');
-      if (content.includes('@import "tailwindcss"') || content.includes("@import 'tailwindcss'")) {
-        isV4 = true;
+      if (
+        content.includes('@import "tailwindcss"') ||
+        content.includes("@import 'tailwindcss'") ||
+        content.includes('@theme')
+      ) {
+        hasTailwindInCss = true;
+        isV4FromCss = true;
+        break;
       }
-      break;
+      if (content.includes('@tailwind base') || content.includes('@tailwind utilities')) {
+        hasTailwindInCss = true;
+        break;
+      }
+    }
+  }
+
+  // Determine if Tailwind is truly installed
+  if (hasTailwindPkg || foundConfig || hasTailwindInCss) {
+    isInstalled = true;
+  }
+
+  if (isInstalled) {
+    if (
+      isV4FromCss ||
+      installedDeps.has('@tailwindcss/vite') ||
+      installedDeps.has('@tailwindcss/postcss') ||
+      tailwindVersionStr.startsWith('^4') ||
+      tailwindVersionStr.startsWith('~4') ||
+      tailwindVersionStr.startsWith('4')
+    ) {
+      version = 'v4';
+    } else {
+      version = 'v3';
     }
   }
 
   return {
-    isInstalled: isInstalled || Boolean(foundConfig) || Boolean(foundCss),
-    version: isV4 ? 'v4' : 'v3',
+    isInstalled,
+    version,
     configFile: foundConfig,
     cssFile: foundCss,
   };
@@ -358,6 +406,237 @@ function resolveTargetDir(cwd, customPath, config) {
   return path.join(cwd, 'components', 'ui');
 }
 
+// Design tokens, animations and utilities for Aurora Obsidian UI
+const AURORA_CSS_TOKENS = `
+/* =============================================================
+ * ❖ AURORA OBSIDIAN UI - DESIGN SYSTEM TOKENS & ANIMATIONS
+ * ============================================================= */
+
+@theme {
+  --color-aurora-primary: #0f172a;
+  --color-aurora-primary-hover: #1e293b;
+  --color-aurora-surface: #f1f5f9;
+  --color-aurora-surface-hover: #e2e8f0;
+  --color-aurora-surface-active: #f8fafc;
+  --color-aurora-border: #cbd5e1;
+  --color-aurora-border-hover: #94a3b8;
+  --color-aurora-border-focus: #3b82f6;
+
+  --color-aurora-error: #ef4444;
+  --color-aurora-error-bg: #fee2e2;
+  --color-aurora-success: #10b981;
+  --color-aurora-success-bg: #d1fae5;
+  --color-aurora-warning: #f59e0b;
+  --color-aurora-warning-bg: #fef3c7;
+  --color-aurora-primary-bg: #e0e7ff;
+  --color-aurora-neutral: #64748b;
+  --color-aurora-neutral-bg: #f1f5f9;
+
+  --color-aurora-text-on-primary: #ffffff;
+  --color-aurora-text-primary: #0f172a;
+  --color-aurora-text-secondary: #64748b;
+  --color-aurora-text-disabled: #94a3b8;
+  --color-aurora-bg-disabled: #f1f5f9;
+
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --radius-aurora: 6px;
+}
+
+:root {
+  --color-aurora-primary: #0f172a;
+  --color-aurora-primary-hover: #1e293b;
+  --color-aurora-surface: #f1f5f9;
+  --color-aurora-surface-hover: #e2e8f0;
+  --color-aurora-surface-active: #f8fafc;
+  --color-aurora-border: #cbd5e1;
+  --color-aurora-border-hover: #94a3b8;
+  --color-aurora-border-focus: #3b82f6;
+
+  --color-aurora-error: #ef4444;
+  --color-aurora-error-bg: #fee2e2;
+  --color-aurora-success: #10b981;
+  --color-aurora-success-bg: #d1fae5;
+  --color-aurora-warning: #f59e0b;
+  --color-aurora-warning-bg: #fef3c7;
+  --color-aurora-primary-bg: #e0e7ff;
+  --color-aurora-neutral: #64748b;
+  --color-aurora-neutral-bg: #f1f5f9;
+
+  --color-aurora-text-on-primary: #ffffff;
+  --color-aurora-text-primary: #0f172a;
+  --color-aurora-text-secondary: #64748b;
+  --color-aurora-text-disabled: #94a3b8;
+  --color-aurora-bg-disabled: #f1f5f9;
+
+  --radius-aurora: 6px;
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-slide-in-right {
+    animation: slideInFromRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-slide-in-left {
+    animation: slideInFromLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-slide-in-top {
+    animation: slideInFromTop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-slide-in-bottom {
+    animation: slideInFromBottom 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-shimmer {
+    animation: shimmer 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Custom elegant scrollbar */
+  .scrollbar-aurora {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-aurora-border) transparent;
+  }
+  .scrollbar-aurora::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .scrollbar-aurora::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-aurora::-webkit-scrollbar-thumb {
+    background-color: var(--color-aurora-border);
+    border-radius: 9999px;
+  }
+  .scrollbar-aurora::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-aurora-border-hover);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+`;
+
+// Inject Aurora CSS variables and animations into consumer CSS file
+function injectAuroraCssTokens(cwd, tailwind) {
+  let cssRelativePath = tailwind.cssFile;
+  if (!cssRelativePath) {
+    const candidateDirs = ['src', 'app', 'styles'];
+    const candidateNames = ['globals.css', 'index.css', 'app.css', 'style.css'];
+
+    for (const d of candidateDirs) {
+      if (fs.existsSync(path.join(cwd, d))) {
+        for (const name of candidateNames) {
+          const checkPath = path.join(d, name);
+          if (fs.existsSync(path.join(cwd, checkPath))) {
+            cssRelativePath = checkPath;
+            break;
+          }
+        }
+      }
+      if (cssRelativePath) break;
+    }
+  }
+
+  if (!cssRelativePath) {
+    cssRelativePath = fs.existsSync(path.join(cwd, 'src')) ? 'src/index.css' : 'src/globals.css';
+  }
+
+  const fullCssPath = path.join(cwd, cssRelativePath);
+  fs.mkdirSync(path.dirname(fullCssPath), { recursive: true });
+
+  let existingContent = '';
+  if (fs.existsSync(fullCssPath)) {
+    existingContent = fs.readFileSync(fullCssPath, 'utf-8');
+  } else {
+    existingContent = '@import "tailwindcss";\n';
+  }
+
+  if (
+    existingContent.includes('--color-aurora-primary') ||
+    existingContent.includes('scrollbar-aurora')
+  ) {
+    console.log(
+      `  ${c.dim}ℹ Aurora design tokens already present in: ${path.relative(cwd, fullCssPath)}${c.reset}`,
+    );
+    return cssRelativePath;
+  }
+
+  const updatedContent = `${existingContent.trimEnd()}\n\n${AURORA_CSS_TOKENS.trim()}\n`;
+  fs.writeFileSync(fullCssPath, updatedContent, 'utf-8');
+  console.log(
+    `  ${c.green}✔${c.reset} Injected Aurora tokens & animations into: ${c.cyan}${path.relative(cwd, fullCssPath)}${c.reset}`,
+  );
+
+  return cssRelativePath;
+}
+
 // Command: INIT
 function runInit(cwd, args) {
   printBanner();
@@ -378,7 +657,7 @@ function runInit(cwd, args) {
     );
   } else {
     console.log(
-      `  ${c.yellow}⚠ Tailwind CSS not detected.${c.reset} ${c.dim}It will be included in the recommended dependencies.${c.reset}`,
+      `  ${c.yellow}⚠ Tailwind CSS not detected.${c.reset} ${c.dim}(Aurora Obsidian UI relies on Tailwind utility classes)${c.reset}`,
     );
   }
 
@@ -416,7 +695,10 @@ export function cn(...inputs: ClassValue[]) {
     );
   }
 
-  // 3. Create or update aurora.json
+  // 3. Inject CSS Tokens and Keyframes into consumer CSS entry point
+  const actualCssPath = injectAuroraCssTokens(cwd, tailwind);
+
+  // 4. Create or update aurora.json
   const configPath = path.join(cwd, 'aurora.json');
   const targetComponentsAlias =
     existingConfig.isInstalled && existingConfig.config?.aliases?.ui
@@ -431,8 +713,7 @@ export function cn(...inputs: ClassValue[]) {
     $schema: 'https://aurora-obsidian-ui.dev/schema.json',
     style: 'default',
     tailwind: {
-      css:
-        tailwind.cssFile || (fs.existsSync(path.join(cwd, 'src')) ? 'src/index.css' : 'index.css'),
+      css: actualCssPath,
     },
     aliases: {
       components: targetComponentsAlias,
@@ -443,11 +724,8 @@ export function cn(...inputs: ClassValue[]) {
   fs.writeFileSync(configPath, JSON.stringify(configContent, null, 2), 'utf-8');
   console.log(`  ${c.green}✔${c.reset} Configuration created: ${c.cyan}aurora.json${c.reset}\n`);
 
-  // 4. Install base dependencies automatically
+  // 5. Install base dependencies automatically
   const baseDeps = ['clsx', 'tailwind-merge', 'class-variance-authority', 'lucide-react'];
-  if (!tailwind.isInstalled) {
-    baseDeps.push('tailwindcss');
-  }
 
   const missingBaseDeps = baseDeps.filter((dep) => !installed.has(dep));
 
